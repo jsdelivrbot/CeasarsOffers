@@ -46,6 +46,26 @@ app.get('/contacts', function (request, response) {
 });
 
 
-var rest = require('./controllers/offers');
+var router = express.Router();
 
-//app.route('/rest/offers').get(rest.offers);
+router.use(function(req,res,next){
+    next();
+});
+
+router.route('/offers').get(
+    function(req, res) {
+        function (request, response) {
+          pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+            client.query('SELECT name FROM offers ', function(err, result) {
+              done();
+              if (err) {
+                res.json(err);
+              } else {
+                res.json(result.rows);
+              }
+            });
+        });
+    }
+);
+
+app.use('/rest',router);
