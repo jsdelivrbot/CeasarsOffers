@@ -46,6 +46,6 @@ app.get('/contacts', function (request, response) {
 });
 
 
-var rest = require('controllers/offers');
+var rest = require('../controllers/offers');
 
 //app.route('/rest/offers').get(rest.offers);
