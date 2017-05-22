@@ -55,7 +55,7 @@ router.use(function(req,res,next){
 router.route('/offers').get(
     function(req, res) {
           pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-            client.query('SELECT name FROM offers ', offersCallBack);
+            client.query('SELECT name FROM offers ', offersCallBack(err,result));
         });
     }
 );
