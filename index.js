@@ -67,5 +67,20 @@ router.route('/offers').get(
     }
 );
 
+router.route('/contacts').get(
+    function(req, res) {
+          pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+            client.query('SELECT firstname, lastname FROM salesforce.contact ', function(err, result){
+                                                         done();
+                                                         if(err){
+                                                             res.json(err);
+                                                         } else {
+                                                             res.json(result.rows);
+                                                         }
+                                                     });
+        });
+    }
+);
+
 
 app.use('/rest',router);
