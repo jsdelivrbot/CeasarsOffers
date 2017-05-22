@@ -53,7 +53,7 @@ router.use(function(req,res,next){
 });
 
 router.route('/offers').get(
-    getRestOffers(req,res,done);
+    getRestOffers(req,res,done)
 );
 
 function getRestOffers(req, res, done){
