@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Contacts</h2>
+
+<ul>
+    <% results.forEach(function(r) { %>
+        <li><%= r.firstName %> <%= r.lastName %></li>
+    <% }); %>
+</ul>
+
+</div>
+
+</body>
+</html>
