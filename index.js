@@ -68,7 +68,9 @@ function getRestOffers(req, res, done){
 
 
 router.route('/offers').get(
-    getRestOffers(req,res,done)
+    function(req, res) {
+        getRestOffers(req,res,done)
+    }
 );
 
 router.route('/contacts').get(
