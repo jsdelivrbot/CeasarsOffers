@@ -55,17 +55,19 @@ router.use(function(req,res,next){
 router.route('/offers').get(
     function(req, res) {
           pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-            client.query('SELECT name FROM offers ', function(err, result){
-                                                         done();
-                                                         if(err){
-                                                             res.json(err);
-                                                         } else {
-                                                             res.json(result.rows);
-                                                         }
-                                                     });
+            client.query('SELECT name FROM offers ', offersCallBack);
         });
     }
 );
+
+var offersCallBack = function(err, result){
+                                                                              done();
+                                                                              if(err){
+                                                                                  res.json(err);
+                                                                              } else {
+                                                                                  res.json(result.rows);
+                                                                              }
+                                                                          };
 
 router.route('/contacts').get(
     function(req, res) {
