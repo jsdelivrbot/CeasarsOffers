@@ -52,24 +52,18 @@ router.use(function(req,res,next){
     next();
 });
 
-
-function getRestOffers(req, res, done){
-              pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-                client.query('SELECT name FROM offers ', function(err, result){
-                                                             done();
-                                                             if(err){
-                                                                 res.json(err);
-                                                             } else {
-                                                                 res.json(result.rows);
-                                                             }
-                                                         });
-            });
-};
-
-
 router.route('/offers').get(
     function(req, res) {
-        getRestOffers(req,res,done)
+          pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+            client.query('SELECT name FROM offers ', function(err, result){
+                                                         done();
+                                                         if(err){
+                                                             res.json(err);
+                                                         } else {
+                                                             res.json(result.rows);
+                                                         }
+                                                     });
+        });
     }
 );
 
