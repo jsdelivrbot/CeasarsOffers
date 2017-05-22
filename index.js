@@ -30,7 +30,7 @@ app.get('/offers', function (request, response) {
             if (err) {
                 console.error(err); response.send("Error " + err);
             } else {
-                response.render('pages/offers', {results: result.rows} );
+                response.render('pages/offers', {results: result.rows, size: result.rows.length} );
             }
         });
     });
@@ -44,7 +44,7 @@ app.get('/contacts', function (request, response) {
         if (err) {
             console.error(err); response.send("Error " + err);
         } else {
-            response.render('pages/contacts', {results: result.rows} );
+            response.render('pages/contacts', {results: result.rows, size: result.rows.length} );
         }
         });
     });
