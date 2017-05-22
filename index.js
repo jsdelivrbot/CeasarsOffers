@@ -68,7 +68,7 @@ router.route('/offers').get(
 );
 
 router.route('/offers').post(function(req, res) {
-        res.json({ message: 'You have done successful offer post call' });
+        res.json({ message: 'You have done successful offer post call with following body request : ' + req.body  });
     }
 );
 
@@ -89,7 +89,7 @@ router.route('/contacts').get(
 
 
 router.route('/contacts').post(function(req, res) {
-        res.json({ message: 'You have done successful contacts post call' });
+        res.json({ message: 'You have done successful contacts post call with following body request : ' + req.body });
     }
 );
 
