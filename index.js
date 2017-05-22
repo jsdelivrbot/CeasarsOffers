@@ -53,10 +53,10 @@ router.use(function(req,res,next){
 });
 
 router.route('/offers').get(
-    getRestOffers(req,res);
+    getRestOffers(req,res,done);
 );
 
-function getRestOffers(req, res){
+function getRestOffers(req, res, done){
               pg.connect(process.env.DATABASE_URL, function(err, client, done) {
                 client.query('SELECT name FROM offers ', function(err, result){
                                                              done();
