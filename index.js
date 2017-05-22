@@ -52,9 +52,6 @@ router.use(function(req,res,next){
     next();
 });
 
-router.route('/offers').get(
-    getRestOffers(req,res,done)
-);
 
 function getRestOffers(req, res, done){
               pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -68,6 +65,11 @@ function getRestOffers(req, res, done){
                                                          });
             });
 };
+
+
+router.route('/offers').get(
+    getRestOffers(req,res,done)
+);
 
 router.route('/contacts').get(
     function(req, res) {
