@@ -2,48 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/MD5/README.md" afterPath="$PROJECT_DIR$/node_modules/MD5/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/async/README.md" afterPath="$PROJECT_DIR$/node_modules/async/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/async/component.json" afterPath="$PROJECT_DIR$/node_modules/async/component.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/boom/README.md" afterPath="$PROJECT_DIR$/node_modules/boom/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/cycle/README.md" afterPath="$PROJECT_DIR$/node_modules/cycle/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/debug/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/debug/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/debug/README.md" afterPath="$PROJECT_DIR$/node_modules/debug/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/depd/History.md" afterPath="$PROJECT_DIR$/node_modules/depd/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/depd/Readme.md" afterPath="$PROJECT_DIR$/node_modules/depd/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ejs/README.md" afterPath="$PROJECT_DIR$/node_modules/ejs/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/etag/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/etag/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/etag/README.md" afterPath="$PROJECT_DIR$/node_modules/etag/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/eyes/README.md" afterPath="$PROJECT_DIR$/node_modules/eyes/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fresh/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/fresh/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fresh/README.md" afterPath="$PROJECT_DIR$/node_modules/fresh/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/hawk/README.md" afterPath="$PROJECT_DIR$/node_modules/hawk/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/hoek/README.md" afterPath="$PROJECT_DIR$/node_modules/hoek/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/log/History.md" afterPath="$PROJECT_DIR$/node_modules/log/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/log/Readme.md" afterPath="$PROJECT_DIR$/node_modules/log/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/log/index.html" afterPath="$PROJECT_DIR$/node_modules/log/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mime/README.md" afterPath="$PROJECT_DIR$/node_modules/mime/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mime/types.json" afterPath="$PROJECT_DIR$/node_modules/mime/types.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ms/LICENSE.md" afterPath="$PROJECT_DIR$/node_modules/ms/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ms/README.md" afterPath="$PROJECT_DIR$/node_modules/ms/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mysql/Changes.md" afterPath="$PROJECT_DIR$/node_modules/mysql/Changes.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mysql/Readme.md" afterPath="$PROJECT_DIR$/node_modules/mysql/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pg/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/pg/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pg/README.md" afterPath="$PROJECT_DIR$/node_modules/pg/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/q/CHANGES.md" afterPath="$PROJECT_DIR$/node_modules/q/CHANGES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/q/README.md" afterPath="$PROJECT_DIR$/node_modules/q/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/qs/.jscs.json" afterPath="$PROJECT_DIR$/node_modules/qs/.jscs.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/qs/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/qs/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/qs/README.md" afterPath="$PROJECT_DIR$/node_modules/qs/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/send/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/README.md" afterPath="$PROJECT_DIR$/node_modules/send/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/sntp/README.md" afterPath="$PROJECT_DIR$/node_modules/sntp/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/vary/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/vary/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/vary/README.md" afterPath="$PROJECT_DIR$/node_modules/vary/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pages/index.ejs" afterPath="$PROJECT_DIR$/views/pages/index.ejs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,21 +24,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="408">
+              <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state relative-caret-position="340">
+              <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -114,11 +73,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/views/pages/offers.ejs" />
-        <option value="$PROJECT_DIR$/views/pages/index.ejs" />
         <option value="$PROJECT_DIR$/views/pages/contacts.ejs" />
         <option value="$PROJECT_DIR$/controllers/restController.js" />
         <option value="$PROJECT_DIR$/controllers/offers.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/views/pages/index.ejs" />
       </list>
     </option>
   </component>
@@ -155,6 +114,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="caesars-offers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caesars-offers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caesars-offers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caesars-offers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caesars-offers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,14 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/pages/offers.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -532,8 +519,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        <state relative-caret-position="408">
+          <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
           <folding />
         </state>
       </provider>
