@@ -46,6 +46,6 @@ app.get('/contacts', function (request, response) {
 });
 
 
-var todoList = require('../controllers/offers');
+var todoList = require('./controllers/offers');
 
 app.route('/rest/offers').get(rest.offers);
