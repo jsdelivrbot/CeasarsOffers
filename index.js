@@ -29,7 +29,12 @@ app.get('/', function(request, response) {
 var saveFile = function(records, fileName){
     var dataToBeSaved = records;
     fs.writeFile(fileName, dataToBeSaved, function (err) {
-      if (err) return console.log(err);
+      if (err){
+          return console.log(err);
+      } else {
+          console.log('saved ' + filename);
+          console.log('data ' + dataToBeSaved);
+      }
     });
 }
 
