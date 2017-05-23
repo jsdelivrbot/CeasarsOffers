@@ -1,7 +1,7 @@
 var Readable = require('stream').Readable;
 var PromiseFtp = require('promise-ftp');
 
-exports.convertToNiceFileContent = function(recordsJSON){
+var convertToNiceFileContent = function(recordsJSON){
     return '';
 }
 
