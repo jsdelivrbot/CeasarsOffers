@@ -37,7 +37,7 @@ var saveFile = function(records, fileName){
       }
     });*/
     try{
-        writeFileSync('contacts.txt',dataToBeSaved);
+        fs.writeFileSync('contacts.txt',dataToBeSaved);
     } catch(e){
         console.log('error :',e);
     }
