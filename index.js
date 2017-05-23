@@ -37,7 +37,7 @@ app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        saveFile(result.rows,'contacts.thx');
+        saveFile(result.rows,'C:\Users\Michal Bluj\caesars-offers\contacts.txt');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
     });
