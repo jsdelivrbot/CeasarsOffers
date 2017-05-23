@@ -1,9 +1,9 @@
 var express = require('express');
 var pg = require('pg');
 var fs = require('fs');
-var Readable = require('stream').Readable;
-var PromiseFtp = require('promise-ftp');
-var fileGenerator = require('./controllers/contactFileGenerator.js');
+//var Readable = require('stream').Readable;
+//var PromiseFtp = require('promise-ftp');
+var fileUtility = require('./controllers/fileUtility.js');
 
 var app = express();
 var router = express.Router();
@@ -28,8 +28,8 @@ app.get('/', function(request, response) {
 });
 
 //write directly to FTP server
-var saveFileOnFTPServer = function(records, fileName){
-    var dataToBeSaved = fileGenerator.convertToNiceFileContent(records);
+/*var saveFileOnFTPServer = function(records, fileName){
+    var dataToBeSaved = fileUtility.convertToNiceFileContent(records);
 
     var readableStream = new Readable();
     readableStream._read = function noop() {};
@@ -42,7 +42,7 @@ var saveFileOnFTPServer = function(records, fileName){
         }).then(function () {
             return ftp.end();
         });
-}
+}*/
 
 // convert from JSON representation to CSV
 //var convertToNiceFileContent = function(recordsJSON){
@@ -53,7 +53,7 @@ app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        saveFileOnFTPServer(result.rows,'contacts.txt');
+        fileUtility = saveFileOnFTPServer(result.rows,'contacts.txt');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
     });
