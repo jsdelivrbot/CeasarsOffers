@@ -30,6 +30,7 @@ app.get('/generateFile',function(request,response){
         console.log(err);
         ////
         console.log(result.rows);
+        response.render('/index', {results: result.rows, size: result.rows.length} );
         });
     });
 });
