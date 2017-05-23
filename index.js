@@ -11,8 +11,8 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-//var fileGenerator = require('./controllers/contactFileGenerator.js');
-//var contactModel =  require('./model/contact.js');
+var fileGenerator = require('./controllers/contactFileGenerator.js');
+var contactModel =  require('./model/contact.js');
 //test
 
 app.listen(app.get('port'), function() {
