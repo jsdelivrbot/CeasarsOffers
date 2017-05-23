@@ -1,5 +1,3 @@
-use strict;
-
 var pg = require('pg');
 var dateUtils = require('../utils/dateUtils.js');
 
