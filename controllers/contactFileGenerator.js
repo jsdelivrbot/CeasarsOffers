@@ -1,4 +1,5 @@
 
-var convertToNiceFileContent = function(recordsJSON){
+
+exports.convertToNiceFileContent = function(recordsJSON){
     return '';
 }
