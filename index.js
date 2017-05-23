@@ -6,6 +6,9 @@ var app = express();
 
 var fs = require('fs');
 
+var Readable = require('stream').Readable;
+var PromiseFtp = require('promise-ftp');
+
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
@@ -25,30 +28,31 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
+var saveFileOnFTPServer = function(records, fileName){
+    var dataToBeSaved = convertToNiceFileContent(records);
 
-var saveFile = function(records, fileName){
-    var dataToBeSaved = 'test';
-    /*fs.writeFile(fileName, dataToBeSaved, function (err) {
-      if (err){
-          return console.log(err);
-      } else {
-          console.log('saved ' + fileName);
-          console.log('data ' + dataToBeSaved);
-      }
-    });*/
-    try{
-        fs.writeFileSync('contacts.txt',dataToBeSaved);
-    } catch(e){
-        console.log('error :',e);
-    }
+    var readableStream = new Readable();
+    readableStream._read = function noop() {};
+    readableStream.push(dataToBeSaved);
+
+    var ftp = new PromiseFtp();
+        ftp.connect({host: host, user: user, password: password})
+        .then(function (serverMessage) {
+            return ftp.put(readableStream,fileName);
+        }).then(function () {
+            return ftp.end();
+        });
+}
+
+var convertToNiceFileContent = function(recordsJSON){
+    return '';
 }
 
 app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        //saveFile(result.rows,'C:\\Users\\Michal Bluj\\contacts.txt');
-        saveFile(result.rows,'contacts.txt');
+        saveFileOnFTPServer(result.rows,'contacts.txt');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
     });
