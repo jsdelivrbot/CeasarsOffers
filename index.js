@@ -31,8 +31,6 @@ app.get('/generateFile',function(request,response){
             results = result.rows;
             });
         });
-       console.log(results);
-       
 });
 
 app.get('/offers', function (request, response) {
