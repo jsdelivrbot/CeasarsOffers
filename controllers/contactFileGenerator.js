@@ -1,5 +1,4 @@
-use strict;
 
-function generateFile(fileName,recordsToBeSaved){
-
+var convertToNiceFileContent = function(recordsJSON){
+    return '';
 }

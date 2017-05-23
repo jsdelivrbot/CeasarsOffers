@@ -1,13 +1,12 @@
 var express = require('express');
-var router = express.Router();
-
 var pg = require('pg');
-var app = express();
-
 var fs = require('fs');
-
 var Readable = require('stream').Readable;
 var PromiseFtp = require('promise-ftp');
+var fileGenerator = require('./controllers/contactFileGenerator.js');
+
+var app = express();
+var router = express.Router();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -28,8 +27,9 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
+//write directly to FTP server
 var saveFileOnFTPServer = function(records, fileName){
-    var dataToBeSaved = convertToNiceFileContent(records);
+    var dataToBeSaved = fileGenerator.convertToNiceFileContent(records);
 
     var readableStream = new Readable();
     readableStream._read = function noop() {};
@@ -44,9 +44,10 @@ var saveFileOnFTPServer = function(records, fileName){
         });
 }
 
-var convertToNiceFileContent = function(recordsJSON){
-    return '';
-}
+// convert from JSON representation to CSV
+//var convertToNiceFileContent = function(recordsJSON){
+//    return '';
+//}
 
 app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
