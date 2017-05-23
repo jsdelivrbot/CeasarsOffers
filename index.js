@@ -24,13 +24,12 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-        var results;
-        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-            client.query('SELECT name FROM salesforce.contact ', function(err, result) {
-            done();
-            results = result.rows;
-            });
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+        client.query('SELECT name FROM salesforce.contact ', function(err, result) {
+        done();
+        Console.log(result.rows);
         });
+    });
 });
 
 app.get('/offers', function (request, response) {
