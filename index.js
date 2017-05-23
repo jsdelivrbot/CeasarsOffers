@@ -37,7 +37,7 @@ app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        saveFile('contacts.thx',result.rows);
+        saveFile(result.rows,'contacts.thx');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
     });
