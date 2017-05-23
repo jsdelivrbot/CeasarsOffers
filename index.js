@@ -32,7 +32,7 @@ var saveFile = function(records, fileName){
       if (err){
           return console.log(err);
       } else {
-          console.log('saved ' + filename);
+          console.log('saved ' + fileName);
           console.log('data ' + dataToBeSaved);
       }
     });
