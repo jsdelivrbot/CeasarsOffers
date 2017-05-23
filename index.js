@@ -28,14 +28,19 @@ app.get('/', function(request, response) {
 
 var saveFile = function(records, fileName){
     var dataToBeSaved = 'test';
-    fs.writeFile(fileName, dataToBeSaved, function (err) {
+    /*fs.writeFile(fileName, dataToBeSaved, function (err) {
       if (err){
           return console.log(err);
       } else {
           console.log('saved ' + fileName);
           console.log('data ' + dataToBeSaved);
       }
-    });
+    });*/
+    try{
+        writeFileSync('contacts.txt',dataToBeSaved);
+    } catch(e){
+        console.log('error :',e);
+    }
 }
 
 app.get('/generateFile',function(request,response){
