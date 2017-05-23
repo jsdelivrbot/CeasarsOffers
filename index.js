@@ -53,7 +53,7 @@ app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        fileUtility = saveFileOnFTPServer(result.rows,'contacts.txt');
+        fileUtility.saveFileOnFTPServer(result.rows,'contacts.txt');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
     });
