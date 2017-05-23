@@ -27,18 +27,9 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    /*pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-        client.query('SELECT name FROM salesforce.contact ', function(err, result) {
-        done();
-        fileUtility.saveFileOnFTPServer(result.rows,'contacts.txt');
-        response.render('pages/index', {results: result.rows, size: result.rows.length} );
-        });
-    });*/
-
     var results = contactModel.getRecordsBeforeDate(new Date());
     fileUtility.saveFileOnFTPServer(results,'contacts.txt');
     response.render('pages/index', {results: results, size: results.length} );
-
 });
 
 app.get('/offers', function (request, response) {
