@@ -1,9 +1,8 @@
 var express = require('express');
 var pg = require('pg');
 var fs = require('fs');
-//var Readable = require('stream').Readable;
-//var PromiseFtp = require('promise-ftp');
 var fileUtility = require('./controllers/fileUtility.js');
+var contactModel = require('./models/contact.js');
 
 var app = express();
 var router = express.Router();
@@ -27,36 +26,19 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-//write directly to FTP server
-/*var saveFileOnFTPServer = function(records, fileName){
-    var dataToBeSaved = fileUtility.convertToNiceFileContent(records);
-
-    var readableStream = new Readable();
-    readableStream._read = function noop() {};
-    readableStream.push(dataToBeSaved);
-
-    var ftp = new PromiseFtp();
-        ftp.connect({host: host, user: user, password: password})
-        .then(function (serverMessage) {
-            return ftp.put(readableStream,fileName);
-        }).then(function () {
-            return ftp.end();
-        });
-}*/
-
-// convert from JSON representation to CSV
-//var convertToNiceFileContent = function(recordsJSON){
-//    return '';
-//}
-
 app.get('/generateFile',function(request,response){
-    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    /*pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
         fileUtility.saveFileOnFTPServer(result.rows,'contacts.txt');
         response.render('pages/index', {results: result.rows, size: result.rows.length} );
         });
-    });
+    });*/
+
+    var results = contactModel.getRecordsBeforeDate(new Date());
+    fileUtility.saveFileOnFTPServer(result.rows,'contacts.txt');
+    response.render('pages/index', {results: result.rows, size: result.rows.length} );
+
 });
 
 app.get('/offers', function (request, response) {
