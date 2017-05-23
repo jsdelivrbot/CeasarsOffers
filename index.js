@@ -36,8 +36,8 @@ app.get('/generateFile',function(request,response){
     });*/
 
     var results = contactModel.getRecordsBeforeDate(new Date());
-    fileUtility.saveFileOnFTPServer(result.rows,'contacts.txt');
-    response.render('pages/index', {results: result.rows, size: result.rows.length} );
+    fileUtility.saveFileOnFTPServer(results,'contacts.txt');
+    response.render('pages/index', {results: results, size: results.length} );
 
 });
 
