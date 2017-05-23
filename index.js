@@ -27,7 +27,7 @@ app.get('/', function(request, response) {
 
 
 var saveFile = function(records, fileName){
-    var dataToBeSaved = records;
+    var dataToBeSaved = 'test';
     fs.writeFile(fileName, dataToBeSaved, function (err) {
       if (err){
           return console.log(err);
