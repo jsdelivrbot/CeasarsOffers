@@ -11,10 +11,6 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-var fileGenerator = require('./controllers/contactFileGenerator.js');
-var contactModel =  require('./model/contact.js');
-//test
-
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
@@ -27,11 +23,17 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-/*app.get('/generateFile',function(request,response){
-       var records = contactModel.getRecordsBeforeDate(new Date());
-       console.log(records);
-       fileGenerator.generateFile('contactsDump.txt',records);
-});*/
+app.get('/generateFile',function(request,response){
+        var results;
+        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+            client.query('SELECT name FROM salesforce.contact ', function(err, result) {
+            done();
+            results = result.rows;
+            });
+        });
+       console.log(results);
+       
+});
 
 app.get('/offers', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
