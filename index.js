@@ -3,7 +3,7 @@ var pg = require('pg');
 var fs = require('fs');
 var Readable = require('stream').Readable;
 var PromiseFtp = require('promise-ftp');
-var fileGenerator = require('./controllers/contactFileGenerator.js');
+var fileGenerator = require('controllers/contactFileGenerator.js');
 
 var app = express();
 var router = express.Router();
