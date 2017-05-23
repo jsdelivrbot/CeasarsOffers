@@ -27,7 +27,7 @@ app.get('/generateFile',function(request,response){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact ', function(err, result) {
         done();
-        Console.log(result.rows);
+        console.log(result.rows);
         });
     });
 });
