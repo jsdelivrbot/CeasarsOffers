@@ -6,7 +6,7 @@ var buildInsertStatement = function(offers){
     for(var i = 0; i<offers.length; i++){
         statement += '(\''+offers[i].name+'\'),';
     }
-    statement = statement.substring(0,dml.length - 1);
+    statement = statement.substring(0,statement.length - 1);
     return statement;
 }
 
