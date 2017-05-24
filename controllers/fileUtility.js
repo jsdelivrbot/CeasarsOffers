@@ -1,8 +1,8 @@
 var Readable = require('stream').Readable;
 var PromiseFtp = require('promise-ftp');
 
-var convertToNiceFileContent = function(recordsJSON){
-    var records = JSON.parse(recordsJSON);
+var convertToNiceFileContent = function(records){
+    //var records = JSON.parse(recordsJSON);
     var fileContent = '';
     for(var i = 0; i < records.length; i++){
         fileContent += records[i].name + '\n';
