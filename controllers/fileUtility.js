@@ -35,7 +35,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
         var buffer = Buffer.from(dataToBeSaved);
 
         console.log('Before putting file ' + fileName + ' into ftp server')
-        ftp.put(buffer, '/upload/'+fileName, function(hadError) {
+        ftp.put(buffer, 'upload/'+fileName, function(hadError) {
           console.log('Putting file ' + fileName + ' into ftp server')
           if (!hadError){
             console.log("File transferred successfully!");
