@@ -34,9 +34,15 @@ exports.saveFileOnFTPServer = function(records, fileName){
 
         var buffer = Buffer.from(dataToBeSaved);
 
+        console.log('Before putting file ' + file + ' into ftp server')
         ftp.put(buffer, fileName, function(hadError) {
-          if (!hadError)
+          console.log('Putting file ' + file + ' into ftp server')
+          if (!hadError){
             console.log("File transferred successfully!");
+          } else {
+            console.log("Had error " + hadError);
+          }
+
         });
 
         /*var connection = {host: 'test.talia.net', user: 'anonymous', password: 'michal.bluj@wp.pl', pasvTimeout:20000};
