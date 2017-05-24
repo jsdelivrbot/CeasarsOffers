@@ -1,4 +1,3 @@
-
 var pg = require('pg');
 
 exports.postOffer = function(request, response,next){
@@ -25,4 +24,6 @@ exports.postOffer = function(request, response,next){
                 client.end();
         });
      });
+
+     response.json({ message: 'You have done successful contacts post call'});
  }
