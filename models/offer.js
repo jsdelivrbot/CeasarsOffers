@@ -23,7 +23,6 @@ exports.postOffer = function(request, response,next){
                     }
                 }
                 client.end();
-            });
-         }
+        });
      });
  }
