@@ -9,7 +9,7 @@ var upload = multer();
 var app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
