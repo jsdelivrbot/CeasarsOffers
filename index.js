@@ -27,13 +27,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    contactModel.getRecordsBeforeDate(new Date());
-    //fileUtility.saveFileOnFTPServer(results,'contacts.txt');
-    /*if(results){
-        response.render('pages/index', {results: results, size: results.length} );
-    } else {
-        response.render('pages/index', {results: results, size: results.length} );
-    }*/
+    contactModel.getRecordsBeforeDateAndPostToFTPServer(new Date());
 });
 
 app.get('/offers', function (request, response) {
