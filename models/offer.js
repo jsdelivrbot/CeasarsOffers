@@ -15,8 +15,9 @@ exports.postOffer = function(request, response,next){
         client.query(dml,
             function(err, result) {
                 if (err) {
-                    console.log(err);
+                    response.json({ message: 'Error'});
                 } else {
+                    response.json({ message: 'You have done successful contacts post call'});
                     for(var i = 0; i < result.rows.length; i++){
                         console.log('row inserted with id: ' + result.rows[i].id);
                     }
@@ -24,6 +25,4 @@ exports.postOffer = function(request, response,next){
                 client.end();
         });
      });
-
-     response.json({ message: 'You have done successful contacts post call'});
  }
