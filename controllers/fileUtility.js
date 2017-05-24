@@ -26,7 +26,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
           pass: "michal.bluj@wp.pl" // defaults to "@anonymous"
         });
 
-        Ftp.raw("ls", function(err, data) {
+        ftp.raw("ls", function(err, data) {
            if (err) return console.error(err);
 
            console.log(data.text);
