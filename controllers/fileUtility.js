@@ -2,7 +2,7 @@ var jsFtp = require("jsftp");
 
 var convertToNiceFileContent = function(records){
     var fileContent = '';
-    fileConent = attachHeader(fileContent);
+    fileContent = attachHeader(fileContent);
     for(var i = 0; i < records.length; i++){
         fileContent += records[i].name + '\n';
     }
