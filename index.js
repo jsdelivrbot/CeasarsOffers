@@ -68,39 +68,9 @@ app.get('/contacts', function (request, response) {
     });
 });
 
-router.route('/offers').get(
-    function(req, res) {
-        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-            client.query('SELECT name FROM offers ', function(err, result){
-                done();
-                if(err){
-                    res.json(err);
-                } else {
-                    res.json(result.rows);
-                }
-            });
-        });
-    }
-);
 
-
+router.get('/offers',offerModel.getOffers);
 router.post('/offers',offerModel.postOffer);
-
-/*router.route('/contacts').get(
-    function(req, res) {
-        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-            client.query('SELECT firstname, lastname FROM salesforce.contact ', function(err, result){
-                done();
-                if(err){
-                    res.json(err);
-                } else {
-                    res.json(result.rows);
-                }
-            });
-        });
-    }
-);*/
-
 router.get('/contacts',contactModel.getContacts);
 router.post('/contacts',contactModel.postContact);
 

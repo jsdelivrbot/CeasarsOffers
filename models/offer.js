@@ -27,3 +27,18 @@ exports.postOffer = function(request, response, next){
         );
      });
  }
+
+ exports.getOffers = function(request, response, next){
+     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+         client.query('SELECT name FROM offers ',
+             function(err, result){
+                 done();
+                 if(err){
+                     response.json(err);
+                 } else {
+                     response.json(result.rows);
+                 }
+             }
+         );
+     });
+ }
