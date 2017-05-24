@@ -16,3 +16,11 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam){
         });
     });
 }
+
+exports.postContact = function(request, response){
+     var requestBody = request.body;
+     var contacts = JSON.parse(JSON.stringify(requestBody));
+     for(var i = 0; i<contacts.length; i++){
+         console.log('contact name ' + contacts[i].name);
+     }
+ }
