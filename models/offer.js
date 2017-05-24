@@ -1,5 +1,5 @@
 
 exports.postOffer = function(request, response){
     var requestBody = request.body;
-    console.log('requestBody ' + requestBody);
+    console.log('requestBody ' + JSON.stringify(requestBody));
 }
