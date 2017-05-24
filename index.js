@@ -27,7 +27,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    var date = new Date(request.query.enddate);
+    var date = request.query.enddate ? new Date(request.query.enddate) : new Date();
     contactModel.getRecordsBeforeDateAndPostToFTPServer(date);
 });
 
