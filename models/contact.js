@@ -7,6 +7,8 @@ exports.getRecordsBeforeDate = function(dateParam){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM salesforce.contact where systemmodstamp < ' + dateUtils.convertToPostgresDateTime(dateParam), function(err, result) {
             done();
+            console.log('err ' + err);
+            console.log('rows ' + results.row);
             if(results){
                 results = result.rows;
             }
