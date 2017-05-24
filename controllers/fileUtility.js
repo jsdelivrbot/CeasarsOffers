@@ -23,7 +23,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
         var password = 'michal.bluj@wp.pl';
 
         var ftp = new PromiseFtp();
-            ftp.connect({host: host, user: user, password: password})
+            ftp.connect({host: host, user: user, password: password, pasvTimeout:20000})
             .then(function (serverMessage) {
                 return ftp.put(readableStream,fileName);
             }).then(function () {

@@ -26,8 +26,9 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-app.get('/generateFile',function(request,response){
-    contactModel.getRecordsBeforeDateAndPostToFTPServer(new Date());
+app.get('/generateFile/:enddate',function(request,response){
+    var date = new Date(request.params.enddate);
+    contactModel.getRecordsBeforeDateAndPostToFTPServer(date);
 });
 
 app.get('/offers', function (request, response) {

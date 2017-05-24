@@ -10,7 +10,6 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam){
         // Stream results back one row at a time
         query.on('row', (row) => {results.push(row);});
         // After all data is returned, close connection and return results
-
         query.on('end', () => {
             done();
             console.log('results ' + results);
