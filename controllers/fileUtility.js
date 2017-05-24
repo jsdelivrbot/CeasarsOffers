@@ -18,9 +18,9 @@ exports.saveFileOnFTPServer = function(records, fileName){
         readableStream._read = function noop() {};
         readableStream.push(dataToBeSaved);
 
-        var host = '192.168.0.57'
-        var user = 'node';
-        var password = 'node';
+        var host = 'test.talia.net'
+        var user = 'anonymous';
+        var password = 'michal.bluj@wp.pl';
 
         var ftp = new PromiseFtp();
             ftp.connect({host: host, user: user, password: password})
