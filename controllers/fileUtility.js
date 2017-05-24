@@ -20,10 +20,10 @@ exports.saveFileOnFTPServer = function(records, fileName){
         readableStream.push(dataToBeSaved);
 
         var ftp = new JSFtp({
-          host: "test.talia.net",
+          host: "speedtest.tele2.net",
           port: 21, // defaults to 21
           user: "anonymous", // defaults to "anonymous"
-          pass: "michal.bluj@wp.pl" // defaults to "@anonymous"
+          pass: "anonymous" // defaults to "@anonymous"
         });
 
         /*ftp.ls(".", function(err, res) {
@@ -35,7 +35,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
         var buffer = Buffer.from(dataToBeSaved);
 
         console.log('Before putting file ' + fileName + ' into ftp server')
-        ftp.put(buffer, fileName, function(hadError) {
+        ftp.put(buffer, '/upload/'fileName, function(hadError) {
           console.log('Putting file ' + fileName + ' into ftp server')
           if (!hadError){
             console.log("File transferred successfully!");
