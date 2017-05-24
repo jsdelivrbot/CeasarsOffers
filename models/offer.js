@@ -5,7 +5,7 @@ exports.postOffer = function(request, response,next){
      var offers = JSON.parse(JSON.stringify(requestBody));
      var dml = 'insert into offers (name) values ';
      for(var i = 0; i<offers.length; i++){
-         dml += '(\''+offers[i].name+'\'),,,,';
+         dml += '(\''+offers[i].name+'\'),';
      }
      dml = dml.substring(0,dml.length - 1);
 
