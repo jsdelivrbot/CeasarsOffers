@@ -6,13 +6,14 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
 
+var app = express();
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
 
-var app = express();
 var router = express.Router();
 
 app.set('port', (process.env.PORT || 5000));
