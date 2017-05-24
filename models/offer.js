@@ -2,7 +2,7 @@ var pg = require('pg');
 
 
 var buildInsertStatement = function(offers){
-    var statement = 'insert into offers (name) values ';
+    var statement = 'INSERT INTO offers (name) VALUES ';
     for(var i = 0; i<offers.length; i++){
         statement += '(\''+offers[i].name+'\'),';
     }
@@ -10,7 +10,7 @@ var buildInsertStatement = function(offers){
     return statement;
 }
 
-exports.postOffer = function(request, response,next){
+exports.postOffer = function(request, response, next){
 
      var dml = buildInsertStatement(JSON.parse(JSON.stringify(request.body)));
 

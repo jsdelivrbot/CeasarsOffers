@@ -86,7 +86,7 @@ router.route('/offers').get(
 
 router.post('/offers',offerModel.postOffer);
 
-router.route('/contacts').get(
+/*router.route('/contacts').get(
     function(req, res) {
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             client.query('SELECT firstname, lastname FROM salesforce.contact ', function(err, result){
@@ -99,12 +99,9 @@ router.route('/contacts').get(
             });
         });
     }
-);
+);*/
 
-
-router.route('/contacts').post(function(req, res) {
-        res.json({ message: 'You have done successful contacts post call with following params : ' + req.params });
-    }
-);
+router.get('/contacts',contactModel.getContacts);
+router.post('/contacts',contactModel.postContact);
 
 app.use('/rest',router);
