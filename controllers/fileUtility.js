@@ -13,19 +13,21 @@ var convertToNiceFileContent = function(recordsJSON){
 
 
 exports.saveFileOnFTPServer = function(records, fileName){
-    var dataToBeSaved = convertToNiceFileContent(records);
+    if(records){
+        var dataToBeSaved = convertToNiceFileContent(records);
+    
+        console.log(dataToBeSaved);
+        var readableStream = new Readable();
+        readableStream._read = function noop() {};
+        readableStream.push(dataToBeSaved);
 
-    console.log(dataToBeSaved);
-
-    var readableStream = new Readable();
-    readableStream._read = function noop() {};
-    readableStream.push(dataToBeSaved);
-
-    var ftp = new PromiseFtp();
-        ftp.connect({host: host, user: user, password: password})
-        .then(function (serverMessage) {
-            return ftp.put(readableStream,fileName);
-        }).then(function () {
-            return ftp.end();
-        });
+        var ftp = new PromiseFtp();
+            ftp.connect({host: host, user: user, password: password})
+            .then(function (serverMessage) {
+                return ftp.put(readableStream,fileName);
+            }).then(function () {
+                return ftp.end();
+            });
+    }
 }
+
