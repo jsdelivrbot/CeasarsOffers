@@ -26,6 +26,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
             console.log("File transferred successfully!");
           } else {
             console.log("Error occured during transfer " + hadError);
+          }
         });
     }
 }
