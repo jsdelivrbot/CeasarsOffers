@@ -13,9 +13,9 @@ exports.postOffer = function(request, response,next){
         client.query(dml,
             function(err, result) {
                 if (err) {
-                    response.json({ message: 'Error during offer post'});
+                    response.json({ message: 'Error during offer post ' + JSON.stringify(err)});
                 } else {
-                    response.json({ message: 'You have done successful offer post call'});
+                    response.json({ message: 'You have done successful offer post call ' + JSON.stringify(result)});
                 }
                 client.end();
             }
