@@ -29,7 +29,11 @@ app.get('/', function(request, response) {
 app.get('/generateFile',function(request,response){
     var results = contactModel.getRecordsBeforeDate(new Date());
     fileUtility.saveFileOnFTPServer(results,'contacts.txt');
-    response.render('pages/index', {results: results, size: results.length} );
+    if(results){
+        response.render('pages/index', {results: results, size: results.length} );
+    } else {
+        response.render('pages/index', {results: results, size: results.length} );
+    }
 });
 
 app.get('/offers', function (request, response) {
