@@ -1,7 +1,6 @@
 var express = require('express');
 var pg = require('pg');
 var fs = require('fs');
-//var fileUtility = require('./controllers/fileUtility.js');
 var contactModel = require('./models/contact.js');
 
 var app = express();

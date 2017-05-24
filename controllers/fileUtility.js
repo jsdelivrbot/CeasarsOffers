@@ -1,6 +1,4 @@
-var Readable = require('stream').Readable;
-var PromiseFtp = require('promise-ftp');
-var JSFtp = require("jsftp");
+var jsFtp = require("jsftp");
 
 var convertToNiceFileContent = function(records){
     var fileContent = '';
@@ -13,47 +11,17 @@ var convertToNiceFileContent = function(records){
 
 exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
+        var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
         var dataToBeSaved = convertToNiceFileContent(records);
-
-        var readableStream = new Readable();
-        readableStream._read = function noop() {};
-        readableStream.push(dataToBeSaved);
-
-        var ftp = new JSFtp({
-          host: "speedtest.tele2.net",
-          port: 21, // defaults to 21
-          user: "anonymous", // defaults to "anonymous"
-          pass: "anonymous" // defaults to "@anonymous"
-        });
-
-        /*ftp.ls(".", function(err, res) {
-          res.forEach(function(file) {
-            console.log('fname ' + file.name);
-          });
-        });*/
-
         var buffer = Buffer.from(dataToBeSaved);
-
-        console.log('Before putting file ' + fileName + ' into ftp server')
-        ftp.put(buffer, 'upload/'+fileName, function(hadError) {
-          console.log('Putting file ' + fileName + ' into ftp server')
+        var filePath = 'upload/'+fileName;
+        ftpClient.put(buffer, filePath, function(hadError) {
+          console.log('Transferring file ' + fileName + ' into FTP server')
           if (!hadError){
             console.log("File transferred successfully!");
           } else {
-            console.log("Had error " + hadError);
-          }
-
+            console.log("Error occured during transfer " + hadError);
         });
-
-        /*var connection = {host: 'test.talia.net', user: 'anonymous', password: 'michal.bluj@wp.pl', pasvTimeout:20000};
-
-        var ftp = new PromiseFtp();
-        ftp.connect(connection)
-            .then(function (serverMessage) {
-                return ftp.put(readableStream,fileName);
-            }).then(function () {
-                return ftp.end();
-        });*/
     }
 }
 
