@@ -26,11 +26,11 @@ exports.saveFileOnFTPServer = function(records, fileName){
           pass: "michal.bluj@wp.pl" // defaults to "@anonymous"
         });
 
-        ftp.raw("ls", function(err, data) {
-           if (err) return console.error(err);
-
-           console.log(data.text);
-       });
+        ftp.ls(".", function(err, res) {
+          res.forEach(function(file) {
+            console.log('fname ' + file.name);
+          });
+        });
 
         /*var connection = {host: 'test.talia.net', user: 'anonymous', password: 'michal.bluj@wp.pl', pasvTimeout:20000};
 
