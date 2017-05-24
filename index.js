@@ -85,7 +85,7 @@ router.route('/offers').get(
 
 router.route('/offers').post(function(req, res) {
         offerModel.postOffer(req,res);
-        res.json({ message: 'You have done successful offer post call with following params : ' + req.params  });
+        res.json({ message: 'You have done successful offer post call with following params : ' + JSON.stringify(req.body) });
     }
 );
 
