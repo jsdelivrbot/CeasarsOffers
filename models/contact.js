@@ -8,7 +8,7 @@ exports.getRecordsBeforeDate = function(dateParam){
         client.query('SELECT name FROM salesforce.contact where systemmodstamp < ' + dateUtils.convertToPostgresDateTime(dateParam), function(err, result) {
             done();
             console.log('err ' + err);
-            console.log('rows ' + results.row);
+            console.log('rows ' + result.rows);
             if(results){
                 results = result.rows;
             }
