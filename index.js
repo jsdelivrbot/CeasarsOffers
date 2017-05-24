@@ -1,7 +1,16 @@
 var express = require('express');
 var pg = require('pg');
 var fs = require('fs');
+
+var bodyParser = require('body-parser');
+var multer = require('multer');
+var upload = multer();
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 var contactModel = require('./models/contact.js');
+var offerModel = require('./models/offer.js');
 
 var app = express();
 var router = express.Router();
@@ -74,6 +83,7 @@ router.route('/offers').get(
 );
 
 router.route('/offers').post(function(req, res) {
+        res = offerModel.post(req,res);
         res.json({ message: 'You have done successful offer post call with following params : ' + req.params  });
     }
 );
