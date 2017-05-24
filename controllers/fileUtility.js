@@ -15,7 +15,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
         var dataToBeSaved = convertToNiceFileContent(records);
 
-        console.log(dataToBeSaved);
+        console.log('dataToBeSaved ' + dataToBeSaved);
         var readableStream = new Readable();
         readableStream._read = function noop() {};
         readableStream.push(dataToBeSaved);

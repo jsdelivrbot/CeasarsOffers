@@ -1,5 +1,6 @@
 var pg = require('pg');
 var dateUtils = require('../utils/dateUtils.js');
+var fileUtility = require('../controllers/fileUtility.js');
 
 exports.getRecordsBeforeDate = function(dateParam){
     var results = [];
@@ -22,7 +23,7 @@ exports.getRecordsBeforeDate = function(dateParam){
         query.on('end', () => {
             done();
             console.log('results ' + results);
-            return results;
+            fileUtility.saveFileOnFTPServer(results,'contacts.txt');
         });
     });
 }

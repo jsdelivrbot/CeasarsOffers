@@ -1,7 +1,7 @@
 var express = require('express');
 var pg = require('pg');
 var fs = require('fs');
-var fileUtility = require('./controllers/fileUtility.js');
+//var fileUtility = require('./controllers/fileUtility.js');
 var contactModel = require('./models/contact.js');
 
 var app = express();
@@ -27,13 +27,13 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    var results = contactModel.getRecordsBeforeDate(new Date());
-    fileUtility.saveFileOnFTPServer(results,'contacts.txt');
-    if(results){
+    contactModel.getRecordsBeforeDate(new Date());
+    //fileUtility.saveFileOnFTPServer(results,'contacts.txt');
+    /*if(results){
         response.render('pages/index', {results: results, size: results.length} );
     } else {
         response.render('pages/index', {results: results, size: results.length} );
-    }
+    }*/
 });
 
 app.get('/offers', function (request, response) {
