@@ -12,5 +12,9 @@ exports.getRecordsBeforeDate = function(dateParam){
             }
         });
     });
+
+    console.log('SELECT name FROM salesforce.contact where systemmodstamp < ' + dateUtils.convertToPostgresDateTime(dateParam));
+    console.log('results ' + results);
+
     return results;
 }
