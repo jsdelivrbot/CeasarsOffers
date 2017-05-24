@@ -1,13 +1,18 @@
 var pg = require('pg');
 
+
+var buildInsertStatement = function(offers){
+    var statement = 'insert into offers (name) values ';
+    for(var i = 0; i<offers.length; i++){
+        statement += '(\''+offers[i].name+'\'),';
+    }
+    statement = statement.substring(0,dml.length - 1);
+    return statement;
+}
+
 exports.postOffer = function(request, response,next){
-     var requestBody = request.body;
-     var offers = JSON.parse(JSON.stringify(requestBody));
-     var dml = 'insert into offers (name) values ';
-     for(var i = 0; i<offers.length; i++){
-         dml += '(\''+offers[i].name+'\'),';
-     }
-     dml = dml.substring(0,dml.length - 1);
+
+     var dml = buildInsertStatement(JSON.parse(JSON.stringify(request.body)));
 
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(dml,
