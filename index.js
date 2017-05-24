@@ -37,7 +37,7 @@ app.get('/', function(request, response) {
 
 app.get('/generateFile',function(request,response){
     var date = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    contactModel.getRecordsBeforeDateAndPostToFTPServer(date);
+    contactModel.getRecordsBeforeDateAndPostToFTPServer(date,'contacts.txt');
     response.render('pages/index');
 });
 

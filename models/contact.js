@@ -2,7 +2,7 @@ var pg = require('pg');
 var dateUtils = require('../utils/dateUtils.js');
 var fileUtility = require('../controllers/fileUtility.js');
 
-exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam){
+exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
     var results = [];
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         const query = client.query('SELECT name FROM salesforce.contact where systemmodstamp < \'' + dateUtils.convertToPostgresDateTime(dateParam)+'\';');
@@ -11,8 +11,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam){
 
         query.on('end', () => {
             done();
-            console.log('results ' + results);
-            fileUtility.saveFileOnFTPServer(results,'contacts.txt');
+            fileUtility.saveFileOnFTPServer(results,fileName);
         });
     });
 }
@@ -49,11 +48,7 @@ exports.postContact = function(request, response, next){
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
-                if(err){
-                    response.json(err);
-                } else {
-                    response.json(result.rows);
-                }
+                response.json(err ? err : result.rows);
             }
         );
     });
