@@ -2,12 +2,17 @@ var jsFtp = require("jsftp");
 
 var convertToNiceFileContent = function(records){
     var fileContent = '';
+    fileConent = attachHeader(fileContent);
     for(var i = 0; i < records.length; i++){
         fileContent += records[i].name + '\n';
     }
     return fileContent;
 }
 
+var attachHeader = function(fileContent){
+    fileContent += 'Name'+'\n';
+    return fileContent;
+}
 
 exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
