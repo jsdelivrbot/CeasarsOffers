@@ -5,24 +5,20 @@ exports.postOffer = function(request, response,next){
      var offers = JSON.parse(JSON.stringify(requestBody));
      var dml = 'insert into offers (name) values ';
      for(var i = 0; i<offers.length; i++){
-         dml += '(\''+offers[i].name+'\'),';
+         dml += '(\''+offers[i].name+'\'),,,,';
      }
      dml = dml.substring(0,dml.length - 1);
-
-    console.log('dml ' + dml);
 
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(dml,
             function(err, result) {
                 if (err) {
-                    response.json({ message: 'Error'});
+                    response.json({ message: 'Error during offer post'});
                 } else {
-                    response.json({ message: 'You have done successful contacts post call'});
-                    for(var i = 0; i < result.rows.length; i++){
-                        console.log('row inserted with id: ' + result.rows[i].id);
-                    }
+                    response.json({ message: 'You have done successful offer post call'});
                 }
                 client.end();
-        });
+            }
+        );
      });
  }
