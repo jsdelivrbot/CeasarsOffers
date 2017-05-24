@@ -4,8 +4,8 @@ var PromiseFtp = require('promise-ftp');
 var convertToNiceFileContent = function(recordsJSON){
     var records = JSON.parse(recordsJSON);
     var fileContent;
-    for(int i = 0; i < records.length; i++){
-        fileContent += records[0].name + '\n';
+    for(var i = 0; i < records.length; i++){
+        fileContent += records[i].name + '\n';
     }
     return fileContent;
 }
