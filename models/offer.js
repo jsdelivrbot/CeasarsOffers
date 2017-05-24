@@ -1,5 +1,8 @@
 
 exports.postOffer = function(request, response){
     var requestBody = request.body;
-    console.log('requestBody ' + JSON.stringify(requestBody));
+    var offers = JSON.parse(JSON.stringify(requestBody));
+    for(var i =0; i<offers.length; i++){
+        console.log('offer name ' + offer.name);
+    }
 }
