@@ -35,7 +35,7 @@ exports.readFileFromFTPServer = function(fileName){
     var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
 
     var fileContent = "";
-    ftpClient.get(filename, function(err, socket) {
+    ftpClient.get(fileName, function(err, socket) {
         if (err) {
             return;
         } else {
