@@ -31,3 +31,28 @@ exports.saveFileOnFTPServer = function(records, fileName){
     }
 }
 
+exports.readFileFromFTPServer = function(fileName){
+    var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
+
+    var fileContent = "";
+    ftpClient.get(filename, function(err, socket) {
+        if (err) {
+            return;
+        } else {
+
+            socket.on("data", function(d) {
+                fileContent += d.toString();
+            });
+
+            socket.on("close", function(hadErr) {
+                if (hadErr){
+                    console.error('There was an error retrieving the file.');
+                }
+            });
+            socket.resume();
+        }
+      }
+    );
+    console.log('file content ' + fileContent);
+}
+

@@ -33,11 +33,7 @@ exports.postOffer = function(request, response, next){
          client.query('SELECT name FROM offers ',
              function(err, result){
                  done();
-                 if(err){
-                     response.json(err);
-                 } else {
-                     response.json(result.rows);
-                 }
+                 response.json(err ? err : result.rows);
              }
          );
      });

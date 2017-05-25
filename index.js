@@ -41,6 +41,12 @@ app.get('/generateFile',function(request,response){
     response.render('pages/index');
 });
 
+app.get('/readFile',function(request,response){
+    var fileName = '5MB';//request.query.filePath;
+    contactModel.readFileFromFTPServer(fileName);
+    response.render('pages/index');
+});
+
 app.get('/offers', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM offers ', function(err, result) {
