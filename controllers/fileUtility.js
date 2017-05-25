@@ -36,6 +36,9 @@ exports.readFileFromFTPServer = function(fileName){
 
     var fileContent = "";
     ftpClient.get(fileName, function(err, socket) {
+
+        console.log('err ' + err);
+
         if (err) {
             return;
         } else {
