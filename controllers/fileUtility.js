@@ -57,6 +57,5 @@ exports.readFileFromFTPServer = function(fileName){
         }
       }
     );
-    console.log('file content ' + fileContent);
 }
 
