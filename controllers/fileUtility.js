@@ -35,6 +35,9 @@ exports.readFileFromFTPServer = function(fileName){
     var ftpClient = new jsFtp({host: "test.talia.net",port: 21,user: "anonymous",pass: "michal.bluj@wp.pl"});
 
     var fileContent = "";
+
+    console.log('Retreiveing ' + fileName);
+
     ftpClient.get(fileName, function(err, socket) {
 
         console.log('err ' + err);
