@@ -43,7 +43,7 @@ app.get('/generateFile',function(request,response){
 });
 
 app.get('/readFile',function(request,response){
-    var fileName = '5MB';//request.query.filePath;
+    var fileName = '1mb';//request.query.filePath;
     fileUtility.readFileFromFTPServer(fileName);
     response.render('pages/index');
 });
