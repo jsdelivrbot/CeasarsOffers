@@ -1,5 +1,5 @@
 var pg = require('pg');
-var ceasarsLogger = require('../controllers/caesarsLogger.js');
+var caesarsLogger = require('../utils/caesarsLogger.js');
 
 //var winston = require("winston");
 //require("winston-postgresql").PostgreSQL;
@@ -44,7 +44,7 @@ exports.postOffer = function(request, response, next){
              function(err, result){
                  done();
                  var timeDiff = new Date().getTime() - startTime;
-                 ceasarsLogger.log('info','exports get offer','{"timeDiff":"'+timeDiff+'"}');
+                 caesarsLogger.log('info','exports.getOffers','{"timeDiff":"'+timeDiff+'"}');
                  response.json(err ? err : result.rows);
              }
          );
