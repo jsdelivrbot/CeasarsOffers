@@ -37,8 +37,8 @@
       <file leaf-file-name="offer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/offer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="222" lean-forward="false" selection-start-line="5" selection-start-column="222" selection-end-line="5" selection-end-column="222" />
+            <state relative-caret-position="697">
+              <caret line="41" column="69" lean-forward="false" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -888,8 +888,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/offer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="222" lean-forward="false" selection-start-line="5" selection-start-column="222" selection-end-line="5" selection-end-column="222" />
+        <state relative-caret-position="697">
+          <caret line="41" column="69" lean-forward="false" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
           <folding />
         </state>
       </provider>

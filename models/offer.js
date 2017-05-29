@@ -38,12 +38,14 @@ exports.postOffer = function(request, response, next){
 
  exports.getOffers = function(request, response, next){
      var startTime = new Date().getTime();
+     var timeDiff = new Date().getTime() - startTime;
+                      winston.log('info', '{timeDiff:'+timeDiff+'}');
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
          client.query('SELECT name FROM offers ',
              function(err, result){
                  done();
-                 var timeDiff = new Date().getTime() - startTime;
-                 winston.log('info', '{timeDiff:'+timeDiff+'}');
+                 //var timeDiff = new Date().getTime() - startTime;
+                 //winston.log('info', '{timeDiff:'+timeDiff+'}');
                  response.json(err ? err : result.rows);
              }
          );
