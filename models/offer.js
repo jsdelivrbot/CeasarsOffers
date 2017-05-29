@@ -1,25 +1,20 @@
 var pg = require('pg');
 var caesarsLogger = require('../utils/caesarsLogger.js');
-
-var buildInsertStatement = function(offers){
-    var statement = 'INSERT INTO offers (name) VALUES ';
-    for(var i = 0; i<offers.length; i++){
-        statement += '(\''+offers[i].name+'\'),';
-    }
-    statement = statement.substring(0,statement.length - 1);
-    return statement;
-}
+var dbUtils = require('../utils/dbUtils.js');
 
 exports.postOffer = function(request, response, next){
-
-     var dml = buildInsertStatement(JSON.parse(JSON.stringify(request.body)));
+     var startTime = new Date().getTime();
+     var dml = dbUtils.buildOfferInsertStatement(JSON.parse(JSON.stringify(request.body)));
 
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(dml,
             function(err, result) {
+                var timeDiff = new Date().getTime() - startTime;
                 if (err) {
+                    caesarsLogger.log('error','exports.postOffer','{"timeDiff":"'+timeDiff+'"}');
                     response.json({ message: 'Error during offer post ' + JSON.stringify(err)});
                 } else {
+                    caesarsLogger.log('info','exports.postOffer','{"timeDiff":"'+timeDiff+'"}');
                     response.json({ message: 'You have done successful offer post call ' + JSON.stringify(result)});
                 }
                 client.end();

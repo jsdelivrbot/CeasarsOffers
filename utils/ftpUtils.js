@@ -1,23 +1,11 @@
 var jsFtp = require("jsftp");
 
-var convertToNiceFileContent = function(records){
-    var fileContent = '';
-    fileContent = attachHeader(fileContent);
-    for(var i = 0; i < records.length; i++){
-        fileContent += records[i].name + '\n';
-    }
-    return fileContent;
-}
-
-var attachHeader = function(fileContent){
-    fileContent += 'Name'+'\n';
-    return fileContent;
-}
+var fileUtils = require('./utils/fileUtils.js');
 
 exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
         var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
-        var dataToBeSaved = convertToNiceFileContent(records);
+        var dataToBeSaved = fileUtils.convertToNiceFileContent(records);
         var buffer = Buffer.from(dataToBeSaved);
         var filePath = 'upload/'+fileName;
         ftpClient.put(buffer, filePath, function(hadError) {
@@ -35,8 +23,6 @@ exports.readFileFromFTPServer = function(fileName){
     var ftpClient = new jsFtp({host: "test.talia.net",port: 21,user: "anonymous",pass: "michal.bluj@wp.pl"});
 
     var fileContent = "";
-
-    console.log('Retreiveing ' + fileName);
 
     ftpClient.get(fileName, function(err, socket) {
 
@@ -61,4 +47,3 @@ exports.readFileFromFTPServer = function(fileName){
       }
     );
 }
-

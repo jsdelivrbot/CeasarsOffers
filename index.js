@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/
 
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
-var fileUtility = require('./controllers/fileUtility.js');
+var ftpUtils= require('./utils/ftpUtils.js');
 
 var router = express.Router();
 
@@ -44,7 +44,7 @@ app.get('/generateFile',function(request,response){
 
 app.get('/readFile',function(request,response){
     var fileName = '1mb.pak';//request.query.filePath;
-    fileUtility.readFileFromFTPServer(fileName);
+    ftpUtils.readFileFromFTPServer(fileName);
     response.render('pages/index');
 });
 
