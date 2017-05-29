@@ -42,7 +42,7 @@ exports.postOffer = function(request, response, next){
          client.query('SELECT name FROM offers ',
              function(err, result){
                  done();
-                 /var timeDiff = new Date().getTime() - startTime;
+                 var timeDiff = new Date().getTime() - startTime;
                  winston.log('info', '{timeDiff:'+timeDiff+'}');
                  response.json(err ? err : result.rows);
              }
