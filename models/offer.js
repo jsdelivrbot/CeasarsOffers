@@ -2,19 +2,11 @@ var pg = require('pg');
 var winston = require("winston");
 require("winston-postgresql").PostgreSQL;
 
-var logger = new (winston.Logger)();
-
-/*winston.add(winston.transports.PostgreSQL, {
-                                               "connectionString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
-                                               "schema" : "public",
+logger.add(winston.transports.PostgreSQL, {
+                                               "connString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
                                                "table" : "winston_logs",
-                                               "level" : "info"
-                                           });*/
+                                           });
 
-logger.add("PostgreSQL", {
-                                                                        "connString" : "nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
-                                                                        "tableName" : "winston_logs"
-                                                                    })
 
 var buildInsertStatement = function(offers){
     var statement = 'INSERT INTO offers (name) VALUES ';
