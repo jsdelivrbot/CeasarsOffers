@@ -2,7 +2,7 @@ var pg = require('pg');
 var winston = require("winston");
 require("winston-postgresql").PostgreSQL;
 
-logger.add(winston.transports.PostgreSQL, {
+winston.add(winston.transports.PostgreSQL, {
                                                "connString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
                                                "table" : "winston_logs",
                                            });
@@ -42,7 +42,7 @@ exports.postOffer = function(request, response, next){
              function(err, result){
                  done();
                  var timeDiff = new Date().getTime() - startTime;
-                 logger.log('info','exports get offer','{timeDiff:'+timeDiff+'}');
+                 winston.log('info','exports get offer','{timeDiff:'+timeDiff+'}');
                  response.json(err ? err : result.rows);
              }
          );
