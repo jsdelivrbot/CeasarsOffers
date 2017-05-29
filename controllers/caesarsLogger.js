@@ -7,6 +7,7 @@ exports.log = function(loglevel,message,json){
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(statement,
             function(err, result) {
+                console.log('err ' + err);
                 client.end();
             }
         );
