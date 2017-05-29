@@ -44,7 +44,7 @@ exports.postOffer = function(request, response, next){
              function(err, result){
                  done();
                  var timeDiff = new Date().getTime() - startTime;
-                 ceasarsLogger.log('info','exports get offer','{timeDiff:'+timeDiff+'}');
+                 ceasarsLogger.log('info','exports get offer','{"timeDiff":"'+timeDiff+'"}');
                  response.json(err ? err : result.rows);
              }
          );
