@@ -4,7 +4,7 @@ require("winston-postgresql").PostgreSQL;
 
 winston.add(winston.transports.PostgreSQL, {
                                                "connString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
-                                               "table" : "winston_logs",
+                                               "tableName" : "winston_logs",
                                            });
 
 
