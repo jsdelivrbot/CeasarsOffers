@@ -1,5 +1,13 @@
 var pg = require('pg');
+var winston = require("winston");
+require("winston-postgresql").PostgreSQL;
 
+var logger = new (winston.Logger)();
+logger.add("PostgreSQL", {
+    "connectionString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com/dcvg2h7ksmoa8r",
+    "schema" : "public",
+    "table" : "AppLogs"
+});
 
 var buildInsertStatement = function(offers){
     var statement = 'INSERT INTO offers (name) VALUES ';
