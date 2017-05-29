@@ -1,6 +1,6 @@
 var pg = require('pg');
 var winston = require("winston");
-require("winston-postgresql").PostgreSQL;
+require("winston-postgre").PostgreSQL;
 
 var logger = new (winston.Logger)();
 logger.add("PostgreSQL", {
