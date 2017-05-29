@@ -1,6 +1,7 @@
 var pg = require('pg');
 var dateUtils = require('../utils/dateUtils.js');
 var fileUtility = require('../controllers/fileUtility.js');
+var caesarsLogger = require('../utils/caesarsLogger.js');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
     var results = [];
@@ -44,10 +45,13 @@ exports.postContact = function(request, response, next){
  }
 
  exports.getContacts = function(request, response, next){
+    var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
+                var timeDiff = new Date().getTime() - startTime;
+                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"'+timeDiff+'"}');
                 response.json(err ? err : result.rows);
             }
         );
