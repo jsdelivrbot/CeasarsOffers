@@ -1,6 +1,6 @@
 var jsFtp = require("jsftp");
 
-var fileUtils = require('utils/fileUtils.js');
+var fileUtils = require('fileUtils.js');
 
 exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
