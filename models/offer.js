@@ -3,10 +3,10 @@ var winston = require("winston");
 var db = require("winston-postgre");
 
 winston.add(winston.transports.PostgreSQL, {
-                                               "connectionString" : "postgres://nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
+                                               "connectionString" : "nbqrxjobyivxmr:dbbecaadb1f248feddd2262f387fa51d314cb6c0e10b7fcadbb04cb32abbf40a@ec2-54-221-255-153.compute-1.amazonaws.com:5432/dcvg2h7ksmoa8r",
                                                "schema" : "public",
                                                "table" : "AppLogs",
-                                               "level" : "silly"
+                                               "level" : "info"
                                            });
 
 var buildInsertStatement = function(offers){
@@ -38,14 +38,12 @@ exports.postOffer = function(request, response, next){
 
  exports.getOffers = function(request, response, next){
      var startTime = new Date().getTime();
-     var timeDiff = new Date().getTime() - startTime;
-                      winston.log('info', '{timeDiff:'+timeDiff+'}');
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
          client.query('SELECT name FROM offers ',
              function(err, result){
                  done();
-                 //var timeDiff = new Date().getTime() - startTime;
-                 //winston.log('info', '{timeDiff:'+timeDiff+'}');
+                 /var timeDiff = new Date().getTime() - startTime;
+                 winston.log('info', '{timeDiff:'+timeDiff+'}');
                  response.json(err ? err : result.rows);
              }
          );
