@@ -3,7 +3,7 @@ var pg = require('pg');
 const winston = require("winston");
 
 //require("winston-pg-native");
-require("winston-postgresql").PostgreSQL;
+require("winston-postgre").PostgreSQL;
 
 const options = {
   conString: process.env.DATABASE_URL,
