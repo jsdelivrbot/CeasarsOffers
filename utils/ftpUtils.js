@@ -26,7 +26,7 @@ exports.readFileFromFTPServer = function(fileName,callback){
 
     ftpClient.get(fileName, function(err, socket) {
 
-        console.log('err ' + err);
+        //console.log('err ' + err);
 
         if (err) {
             return;
@@ -34,12 +34,12 @@ exports.readFileFromFTPServer = function(fileName,callback){
 
             socket.on("data", function(d) {
                 fileContent += d.toString();
-                console.log('file content 111 ' + d.toString());
+                //console.log('file content 111 ' + d.toString());
             });
 
             socket.on("close", function(hadErr) {
                 if (hadErr){
-                    console.error('There was an error retrieving the file.');
+                    //console.error('There was an error retrieving the file.');
                 }
                 callback(fileContent);
             });
