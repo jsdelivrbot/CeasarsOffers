@@ -6,6 +6,7 @@ var dbUtils = require('../utils/dbUtils.js');
 var shortid = require('shortid');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
+    var startTime = new Date().getTime();
     var results = [];
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         const query = client.query('SELECT name FROM salesforce.contact where systemmodstamp < \'' + dateUtils.convertToPostgresDateTime(dateParam)+'\';');
@@ -14,6 +15,8 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
 
         query.on('end', () => {
             done();
+            var timeDiff = new Date().getTime() - startTime;
+            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer,'{"timeDiff":"'+timeDiff+'"}');
             ftpUtils.saveFileOnFTPServer(results,fileName);
         });
     });
