@@ -1,11 +1,11 @@
 var pg = require('pg');
 var shortid = require('shortid');
 
-var logKey = Date.now();
+exports.logKey;
 
 exports.log = function(level,message,json){
 
-    var statement = 'insert into AppLogs (level,msg,meta,reqkey) values (\''+level+'\',\''+message+'\',\''+json+'\',\''+logKey+'\')';
+    var statement = 'insert into AppLogs (level,msg,meta,reqkey) values (\''+level+'\',\''+message+'\',\''+json+'\',\''+exports.logKey+'\')';
 
     console.log(statement);
 

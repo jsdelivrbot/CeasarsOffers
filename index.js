@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/
 
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
-var ftpUtils= require('./utils/ftpUtils.js');
+var ftpUtils = require('./utils/ftpUtils.js');
+var caesarsLogger = require('./utils/caesarsLogger.js');
 
 var router = express.Router();
 
@@ -43,6 +44,7 @@ app.get('/generateFile',function(request,response){
 });
 
 app.get('/readFile',function(request,response){
+    caesarsLogger.logKey = Date.now();
     var fileName = '100MB.zip';//request.query.filePath;
     ftpUtils.readFileFromFTPServer(fileName,contactModel.uploadContacts);
     response.render('pages/index');
