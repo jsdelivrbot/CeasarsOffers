@@ -1,6 +1,6 @@
 var pg = require('pg');
 
-var logKey = new Date().now();
+var logKey = Date.now();
 
 exports.log = function(level,message,json){
 
