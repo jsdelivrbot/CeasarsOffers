@@ -54,5 +54,8 @@ exports.postContact = function(request, response, next){
  }
 
  exports.uploadContacts = function(fileContent){
+    var startTime = new Date().getTime();
     console.log('uploading contacts into postgres');
+    var timeDiff = new Date().getTime() - startTime;
+    caesarsLogger.log('info','exports.uploadContacts','{"timeDiff":"'+timeDiff+'"}');
  }
