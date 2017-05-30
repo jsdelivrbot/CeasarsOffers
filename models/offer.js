@@ -1,6 +1,7 @@
 var pg = require('pg');
 var caesarsLogger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
+var shortid = require('shortid');
 
 exports.postOffer = function(request, response, next){
      caesarsLogger.logKey = shortid.generate();

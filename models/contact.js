@@ -3,6 +3,7 @@ var dateUtils = require('../utils/dateUtils.js');
 var ftpUtils = require('../utils/ftpUtils.js');
 var caesarsLogger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
+var shortid = require('shortid');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
     var results = [];
