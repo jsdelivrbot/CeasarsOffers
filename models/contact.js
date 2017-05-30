@@ -19,6 +19,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
 }
 
 exports.postContact = function(request, response, next){
+     caesarsLogger.logKey = shortid.generate();
      var startTime = new Date().getTime();
      var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
 
@@ -40,6 +41,7 @@ exports.postContact = function(request, response, next){
  }
 
  exports.getContacts = function(request, response, next){
+    caesarsLogger.logKey = shortid.generate();
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT firstname, lastname FROM salesforce.contact ',

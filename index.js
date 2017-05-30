@@ -15,6 +15,7 @@ var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
 var ftpUtils = require('./utils/ftpUtils.js');
 var caesarsLogger = require('./utils/caesarsLogger.js');
+var shortid = require('shortid');
 
 var router = express.Router();
 
@@ -38,13 +39,14 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
+    caesarsLogger.logKey = shortid.generate();
     var date = request.query.enddate ? new Date(request.query.enddate) : new Date();
     contactModel.getRecordsBeforeDateAndPostToFTPServer(date,'contacts.txt');
     response.render('pages/index');
 });
 
 app.get('/readFile',function(request,response){
-    caesarsLogger.logKey = Date.now();
+    caesarsLogger.logKey = shortid.generate();
     var fileName = '100MB.zip';//request.query.filePath;
     ftpUtils.readFileFromFTPServer(fileName,contactModel.uploadContacts);
     response.render('pages/index');
