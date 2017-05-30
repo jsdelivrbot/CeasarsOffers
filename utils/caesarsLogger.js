@@ -1,7 +1,7 @@
 var pg = require('pg');
 var shortid = require('shortid');
 
-var logKey = shortid.generate();
+var logKey = Date.now();
 
 exports.log = function(level,message,json){
 
