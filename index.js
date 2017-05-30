@@ -44,7 +44,7 @@ app.get('/generateFile',function(request,response){
 
 app.get('/readFile',function(request,response){
     var fileName = '1MB.zip';//request.query.filePath;
-    ftpUtils.readFileFromFTPServer(fileName);
+    ftpUtils.readFileFromFTPServer(fileName,contactModel.uploadContacts);
     response.render('pages/index');
 });
 
