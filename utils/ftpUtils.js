@@ -1,6 +1,7 @@
 var jsFtp = require("jsftp");
 
 var fileUtils = require('./fileUtils.js');
+var caesarsLogger = require('./caesarsLogger.js');
 
 exports.saveFileOnFTPServer = function(records, fileName){
     if(records){
