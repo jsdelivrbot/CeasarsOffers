@@ -24,24 +24,24 @@ exports.readFileFromFTPServer = function(fileName,callback){
 
     var fileContent = "";
 
+    console.log('Start read file from FTP server');
+
     ftpClient.get(fileName, function(err, socket) {
-
-        //console.log('err ' + err);
-
         if (err) {
             return;
         } else {
-
             socket.on("data", function(d) {
+                console.log('Reading ...');
                 fileContent += d.toString();
-                //console.log('file content 111 ' + d.toString());
             });
 
             socket.on("close", function(hadErr) {
                 if (hadErr){
-                    //console.error('There was an error retrieving the file.');
+                    console.error('There was an error retrieving the file.');
+                } else {
+                    console.log('Reading completed');
+                    callback(fileContent);
                 }
-                callback(fileContent);
             });
             socket.resume();
         }

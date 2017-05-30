@@ -54,5 +54,5 @@ exports.postContact = function(request, response, next){
  }
 
  exports.uploadContacts = function(fileContent){
-    console.log('uploadContacts callback');
+    console.log('uploading contacts into postgres');
  }
