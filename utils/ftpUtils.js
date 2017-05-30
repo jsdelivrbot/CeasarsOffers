@@ -38,13 +38,11 @@ exports.readFileFromFTPServer = function(fileName,callback){
             socket.on("close", function(hadErr) {
                 if (hadErr){
                     console.error('There was an error retrieving the file.');
-                } else {
-                    console.log('Reading completed');
-                    callback(fileContent);
-                }
-            });
+                }            });
             socket.resume();
         }
+        console.log('Reading completed');
+        callback(fileContent);
       }
     );
 }
