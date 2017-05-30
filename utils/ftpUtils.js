@@ -35,7 +35,7 @@ exports.readFileFromFTPServer = function(fileName){
 
             socket.on("data", function(d) {
                 fileContent += d.toString();
-                console.log('file content 111 ' + d;
+                console.log('file content 111 ' + d);
             });
 
             socket.on("close", function(hadErr) {
