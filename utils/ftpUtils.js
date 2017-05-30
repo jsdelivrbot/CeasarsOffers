@@ -20,7 +20,8 @@ exports.saveFileOnFTPServer = function(records, fileName){
 }
 
 exports.readFileFromFTPServer = function(fileName){
-    var ftpClient = new jsFtp({host: "test.talia.net",port: 21,user: "anonymous",pass: "michal.bluj@wp.pl"});
+    //var ftpClient = new jsFtp({host: "test.talia.net",port: 21,user: "anonymous",pass: "michal.bluj@wp.pl"});
+    var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
 
     var fileContent = "";
 
@@ -34,7 +35,7 @@ exports.readFileFromFTPServer = function(fileName){
 
             socket.on("data", function(d) {
                 fileContent += d.toString();
-                console.log('file content 111 ' + d.toString());
+                console.log('file content 111 ' + d;
             });
 
             socket.on("close", function(hadErr) {

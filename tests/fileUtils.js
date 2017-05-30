@@ -1,8 +1,10 @@
 import test from 'ava';
 
-var ftpUtils = require('../utils/ftpUtils.js');
+var fileUtils = require('../utils/fileUtils.js');
 
-test('convert date to psql string', t => {
-  var d = new Date(2017, 0, 1, 0, 0, 0, 0);
-  t.is(dateUtils.convertToPostgresDateTime(d), '2017-01-01 00:00:00');
+test('convert to file content', t => {
+  var offer = JSON.parse('{"name":"nth offer"}');
+  var offer1 = JSON.parse('{"name":"nth offer"}');
+  var offers = [offer,offer1];
+  t.is(fileUtils.convertToNiceFileContent(offers), 'Name\nnth offer\nnth offer\n');
 });

@@ -43,7 +43,7 @@ app.get('/generateFile',function(request,response){
 });
 
 app.get('/readFile',function(request,response){
-    var fileName = '1mb.pak';//request.query.filePath;
+    var fileName = '1MB.zip';//request.query.filePath;
     ftpUtils.readFileFromFTPServer(fileName);
     response.render('pages/index');
 });
