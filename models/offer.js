@@ -1,10 +1,9 @@
 var pg = require('pg');
 var caesarsLogger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
-var shortid = require('shortid');
 
 exports.postOffer = function(request, response, next){
-     caesarsLogger.logKey = shortid.generate();
+     caesarsLogger.generateKey();
      var startTime = new Date().getTime();
      var dml = dbUtils.buildOfferInsertStatement(JSON.parse(JSON.stringify(request.body)));
 
@@ -26,7 +25,7 @@ exports.postOffer = function(request, response, next){
  }
 
  exports.getOffers = function(request, response, next){
-     caesarsLogger.logKey = shortid.generate();
+     caesarsLogger.generateKey();
      var startTime = new Date().getTime();
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
          client.query('SELECT name FROM offers ',

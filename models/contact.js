@@ -3,7 +3,6 @@ var dateUtils = require('../utils/dateUtils.js');
 var ftpUtils = require('../utils/ftpUtils.js');
 var caesarsLogger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
-var shortid = require('shortid');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
     var startTime = new Date().getTime();
@@ -23,7 +22,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
 }
 
 exports.postContact = function(request, response, next){
-     caesarsLogger.logKey = shortid.generate();
+     caesarsLogger.generateKey();
      var startTime = new Date().getTime();
      var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
 
@@ -45,7 +44,7 @@ exports.postContact = function(request, response, next){
  }
 
  exports.getContacts = function(request, response, next){
-    caesarsLogger.logKey = shortid.generate();
+    caesarsLogger.generateKey();
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT firstname, lastname FROM salesforce.contact ',

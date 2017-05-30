@@ -2,6 +2,10 @@ var pg = require('pg');
 
 exports.logKey;
 
+exports.generateKey = function(){
+    exports.logKey = shortid.generate();
+}
+
 exports.log = function(level,message,json){
 
     var statement = 'insert into AppLogs (level,msg,meta,reqkey) values (\''+level+'\',\''+message+'\',\''+json+'\',\''+exports.logKey+'\')';
