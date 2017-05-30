@@ -20,6 +20,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
 }
 
 exports.readFileFromFTPServer = function(fileName,callback){
+    var startTime = new Date().getTime();
     var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
 
     var fileContent = "";
@@ -40,6 +41,8 @@ exports.readFileFromFTPServer = function(fileName,callback){
                     console.error('There was an error retrieving the file.');
                 } else {
                     console.log('Reading completed');
+                    var timeDiff = new Date().getTime() - startTime;
+                    caesarsLogger.log('info','exports.readFileFromFTPServer','{"timeDiff":"'+timeDiff+'"}');
                     callback(fileContent);
                 }
             });
