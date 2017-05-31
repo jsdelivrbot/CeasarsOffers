@@ -31,7 +31,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
         });
     } else {
         var timeDiff = new Date().getTime() - startTime;
-        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}';
+        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}');
     }
 }
 
