@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/contact.js" afterPath="$PROJECT_DIR$/models/contact.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/ftpUtils.js" afterPath="$PROJECT_DIR$/utils/ftpUtils.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="ftpUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+            <state relative-caret-position="606">
+              <caret line="51" column="103" lean-forward="false" selection-start-line="51" selection-start-column="103" selection-end-line="51" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -120,8 +121,8 @@
       <file leaf-file-name="contact.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/contact.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+            <state relative-caret-position="561">
+              <caret line="45" column="217" lean-forward="true" selection-start-line="45" selection-start-column="217" selection-end-line="45" selection-end-column="217" />
               <folding />
             </state>
           </provider>
@@ -170,9 +171,9 @@
         <option value="$PROJECT_DIR$/tests/dateUtils.js" />
         <option value="$PROJECT_DIR$/models/offer.js" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/utils/ftpUtils.js" />
         <option value="$PROJECT_DIR$/utils/caesarsLogger.js" />
         <option value="$PROJECT_DIR$/utils/dbUtils.js" />
+        <option value="$PROJECT_DIR$/utils/ftpUtils.js" />
         <option value="$PROJECT_DIR$/models/contact.js" />
       </list>
     </option>
@@ -925,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -961,10 +954,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="51" column="103" lean-forward="false" selection-start-line="51" selection-start-column="103" selection-end-line="51" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+        <state relative-caret-position="561">
+          <caret line="45" column="217" lean-forward="true" selection-start-line="45" selection-start-column="217" selection-end-line="45" selection-end-column="217" />
           <folding />
         </state>
       </provider>

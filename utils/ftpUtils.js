@@ -42,12 +42,14 @@ exports.readFileFromFTPServer = function(fileName,callback){
             });
 
             socket.on("close", function(hadErr) {
+                var timeDiff = new Date().getTime() - startTime;
                 if (hadErr){
                     console.error('There was an error retrieving the file : ' + hadErr);
-                    caesarsLogger.log('error','exports.readFileFromFTPServer : ' + hadErr,'{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                    caesarsLogger.log('error','exports.readFileFromFTPServer : ' + hadErr,'{"timeDiff":"' + timeDiff + '"}');
                 } else {
                     console.log('Reading completed');
-                    caesarsLogger.log('info','exports.readFileFromFTPServer','{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+
+                    caesarsLogger.log('info','exports.readFileFromFTPServer','{"timeDiff":"' + timeDiff + '"}');
                     callback(fileContent);
                 }
             });
