@@ -1,4 +1,5 @@
 var pg = require('pg');
+var shortid = require('shortid');
 
 exports.logKey;
 
