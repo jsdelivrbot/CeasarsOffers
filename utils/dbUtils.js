@@ -1,24 +1,28 @@
+var fs = require("fs");
+var readLine = require("readline");
+
 /**
-* @param content string representing file content;
+* @param fileName name of the file
 */
-exports.buildContactInsertStatementFromFileContent = function(content){
+exports.buildContactInsertStatementFromFile = function(fileName){
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
 
-    var lines = content.split('\n');
+    var lineReader = readLine.createInterface({
+      input: fs.createReadStream(fileName);
+    });
 
-    for(var i = 1; i < lines.length; i++){
-        var line = lines[i].split(',');
+    lineReader.on('line', function (line) {
+        var columns = line.split(',');
         statement += '(';
-        for(var j = 0; j < line.length; j++){
+        for(var i = 0 ; i < columns.length ; i++){
             statement += '\''+line[j]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
         statement += '),'
-    }
+    });
+
     statement = statement.substring(0,statement.length - 1);
-
     console.log('statement ' + statement);
-
     return statement;
 }
 

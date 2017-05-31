@@ -45,7 +45,8 @@ exports.postContact = function(request, response, next){
 
 exports.uploadContacts = function(fileName){
     console.log('uploading contacts into database : ' + fileName);
-    var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
+    //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
+    var statement = dbUtils.buildContactInsertStatement(fileName);
     console.log('statement : ' + statement);
     saveIntoDatabase(statement,'exports.uploadContacts',null);
 }
@@ -57,7 +58,6 @@ var saveIntoDatabase = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    console.log(err);
                     caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}');
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
