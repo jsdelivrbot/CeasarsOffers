@@ -42,12 +42,12 @@ exports.readFileFromFTPServer = function(fileName,callback){
 
     console.log('temp_dir ' + temp_dir);
 
-    /*ftp.get(fileName, 'local/file.txt', function(hadErr) {
+    ftp.get(fileName, temp_dir+fileName, function(hadErr) {
         if (hadErr)
             console.error('There was an error retrieving the file.');
         else
           console.log('File copied successfully!');
-    });*/
+    });
 
 
     /*ftpClient.get(fileName, function(err, socket) {
