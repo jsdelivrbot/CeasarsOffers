@@ -7,11 +7,8 @@ var dbUtils = require('../utils/dbUtils.js');
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,callback){
     var startTime = new Date().getTime();
     var results = [];
-    console.log('dateParam' + dateParam);
-    var d = dateParam;
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-         console.log('dateParam before query' + d);
-        const query = client.query('SELECT name FROM salesforce.contact where systemmodstamp < \'' + dateUtils.convertToPostgresDateTime(d)+'\';');
+        const query = client.query('SELECT name FROM salesforce.contact where systemmodstamp < \'' + dateUtils.convertToPostgresDateTime(dateParam)+'\';');
 
         query.on('row', (row) => {results.push(row);});
 

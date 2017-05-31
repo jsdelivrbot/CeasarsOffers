@@ -39,12 +39,8 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    //this.logkey = shortid.generate();
-    //contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)();
-    //ftpUtils.saveFileOnFTPServer.bind(this)();
     caesarsLogger.generateKey();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    console.log('date' + dateParam);
     contactModel.getRecordsBeforeDateAndPostToFTPServer(dateParam,'contacts.txt',ftpUtils.saveFileOnFTPServer);
     response.render('pages/index');
 });
