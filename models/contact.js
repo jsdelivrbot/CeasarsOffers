@@ -20,28 +20,6 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
     });
 }
 
-exports.postContact = function(request, response, next){
-     caesarsLogger.generateKey();
-     var startTime = new Date().getTime();
-     var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
-
-     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-        client.query(statement,
-            function(err, result) {
-                var timeDiff = new Date().getTime() - startTime;
-                if (err) {
-                    caesarsLogger.log('error','exports.postContacts','{"timeDiff":"'+timeDiff+'"}');
-                    response.json({ message: 'Error during contact post ' + JSON.stringify(err)});
-                } else {
-                    caesarsLogger.log('info','exports.postContacts','{"timeDiff":"'+timeDiff+'"}');
-                    response.json({ message: 'You have done successful contact post call ' + JSON.stringify(result)});
-                }
-                client.end();
-            }
-        );
-     });
- }
-
 exports.getContacts = function(request, response, next){
     caesarsLogger.generateKey();
     var startTime = new Date().getTime();
@@ -56,8 +34,35 @@ exports.getContacts = function(request, response, next){
     });
 }
 
+exports.postContact = function(request, response, next){
+     caesarsLogger.generateKey();
+     console.log('posting contacts into database');
+     var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
+     saveIntoDatabase(statement,'exports.postContact');
+}
+
 exports.uploadContacts = function(fileContent){
+    console.log('uploading contacts into database');
+    fileContent = 'firstname,lastname\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\n';
+    var statement = dbUtils.buildContactInsertStatementFromFileContent(fileContent);
+    //saveIntoDatabase(statement,'exports.uploadContacts');
+}
+
+var saveIntoDatabase = function(statement,message){
     var startTime = new Date().getTime();
-    console.log('uploading contacts into postgres');
-    caesarsLogger.log('info','exports.uploadContacts','{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+        client.query(statement,
+            function(err, result) {
+                var timeDiff = new Date().getTime() - startTime;
+                if (err) {
+                    caesarsLogger.log('error',message,'{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                    response.json({ message: 'Error ' + JSON.stringify(err)});
+                } else {
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                    response.json({ message: 'Done ' + JSON.stringify(result)});
+                }
+                client.end();
+            }
+        }
+    );
 }
