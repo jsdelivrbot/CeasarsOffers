@@ -33,59 +33,22 @@ exports.saveFileOnFTPServer = function(records, fileName){
 exports.readFileFromFTPServer = function(fileName,callback){
     var startTime = new Date().getTime();
     var connectionParams = connectionParameters();
-    var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
+    var ftpClient = new jsFtp(connectionParams);
     var fileContent = "";
-    console.log('Start read file from FTP server ' + connectionParams);
+    console.log('Start read file from FTP server);
 
-    if (!fs.existsSync(temp_dir))
+    if (!fs.existsSync(temp_dir)){
         fs.mkdirSync(temp_dir);
-
-    console.log('temp_dir ' + temp_dir);
+    }
 
     ftpClient.get(fileName, temp_dir+fileName, function(hadErr) {
         if (hadErr){
             console.error('There was an error retrieving the file.');
         } else {
           console.log('File copied successfully!');
-          fs.readFile(temp_dir+fileName, function (err, data) {
-             if (err){
-                console.log('There was an error reading the file.');
-             } else {
-                console.log('File red succesfully');
-                callback(data.toString());
-             }
-          });
+          callback(temp_dir+fileName);
         }
     });
-
-
-    /*ftpClient.get(fileName, function(err, socket) {
-        if (err) {
-            return;
-        } else {
-
-            socket.on("data", function(d) {
-                console.log('Reading ...');
-                fileContent += d.toString();
-            });
-
-            socket.on("close", function(hadErr) {
-                var timeDiff = new Date().getTime() - startTime;
-                if (hadErr){
-                    console.error('There was an error retrieving the file : ' + hadErr);
-                    caesarsLogger.log('error','exports.readFileFromFTPServer : ' + hadErr,'{"timeDiff":"' + timeDiff + '"}');
-                } else {
-                    console.log('Reading completed');
-
-                    caesarsLogger.log('info','exports.readFileFromFTPServer','{"timeDiff":"' + timeDiff + '"}');
-                    callback(fileContent);
-                }
-            });
-
-            socket.resume();
-        }
-      }
-    );*/
 }
 
 var connectionParameters = function(){

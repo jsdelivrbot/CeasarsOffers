@@ -43,16 +43,8 @@ exports.postContact = function(request, response, next){
      saveIntoDatabase(statement,'exports.postContact');
 }
 
-exports.uploadContacts = function(fileContent){
-    console.log('uploading contacts into database');
-    fileContent = 'firstname,lastname\n';
-
-    for(var i = 0 ; i < 100 ;i++){
-        fileContent += 'John'+i+',Rambo'+i+'\n';
-    }
-
-    var statement = dbUtils.buildContactInsertStatementFromFileContent(fileContent);
-    //saveIntoDatabase(statement,'exports.uploadContacts');
+exports.uploadContacts = function(fileName){
+    console.log('uploading contacts into database : ' + fileName);
 }
 
 var saveIntoDatabase = function(statement,message){
