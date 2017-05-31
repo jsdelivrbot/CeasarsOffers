@@ -42,7 +42,7 @@ app.get('/generateFile',function(request,response){
     //caesarsLogger.generateKey();
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(lKey)(dateParam,'contacts.txt',ftpUtils.saveFileOnFTPServer.bind(lKey));
+    contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(lKey)(dateParam,'contacts.txt',ftpUtils.saveFileOnFTPServer);
     response.render('pages/index');
 });
 
