@@ -41,7 +41,7 @@ app.get('/', function(request, response) {
 app.get('/generateFile',function(request,response){
     caesarsLogger.generateKey();
     var date = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    contactModel.getRecordsBeforeDateAndPostToFTPServer(date,'contacts.txt');
+    contactModel.getRecordsBeforeDateAndPostToFTPServer(date,'contacts.txt',ftpUtils.saveFileOnFTPServer);
     response.render('pages/index');
 });
 

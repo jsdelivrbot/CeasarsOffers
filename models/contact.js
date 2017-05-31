@@ -4,7 +4,7 @@ var ftpUtils = require('../utils/ftpUtils.js');
 var caesarsLogger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
 
-exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
+exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,callback){
     var startTime = new Date().getTime();
     var results = [];
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -14,9 +14,8 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName){
 
         query.on('end', () => {
             done();
-            var timeDiff = new Date().getTime() - startTime;
-            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"'+timeDiff+'"}');
-            ftpUtils.saveFileOnFTPServer(results,fileName);
+            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"'+new Date().getTime() - startTime+'"}');
+            callback(results,fileName);
         });
     });
 }
@@ -43,7 +42,7 @@ exports.postContact = function(request, response, next){
      });
  }
 
- exports.getContacts = function(request, response, next){
+exports.getContacts = function(request, response, next){
     caesarsLogger.generateKey();
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -56,11 +55,11 @@ exports.postContact = function(request, response, next){
             }
         );
     });
- }
+}
 
- exports.uploadContacts = function(fileContent){
+exports.uploadContacts = function(fileContent){
     var startTime = new Date().getTime();
     console.log('uploading contacts into postgres');
     var timeDiff = new Date().getTime() - startTime;
     caesarsLogger.log('info','exports.uploadContacts','{"timeDiff":"'+timeDiff+'"}');
- }
+}

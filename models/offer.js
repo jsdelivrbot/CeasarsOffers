@@ -24,7 +24,7 @@ exports.postOffer = function(request, response, next){
      });
  }
 
- exports.getOffers = function(request, response, next){
+exports.getOffers = function(request, response, next){
      caesarsLogger.generateKey();
      var startTime = new Date().getTime();
      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -37,4 +37,4 @@ exports.postOffer = function(request, response, next){
              }
          );
      });
- }
+}
