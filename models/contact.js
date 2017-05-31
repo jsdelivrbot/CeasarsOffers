@@ -40,17 +40,17 @@ exports.postContact = function(request, response, next){
      caesarsLogger.generateKey();
      console.log('posting contacts into database');
      var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
-     saveIntoDatabase(statement,'exports.postContact');
+     saveIntoDatabase(statement,'exports.postContact',response);
 }
 
 exports.uploadContacts = function(fileName){
     console.log('uploading contacts into database : ' + fileName);
     var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
     console.log('statement : ' + statement);
-    saveIntoDatabase(statement,'exports.uploadContacts');
+    saveIntoDatabase(statement,'exports.uploadContacts',null);
 }
 
-var saveIntoDatabase = function(statement,message){
+var saveIntoDatabase = function(statement,message,response){
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(statement,
@@ -58,10 +58,14 @@ var saveIntoDatabase = function(statement,message){
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
                     caesarsLogger.log('error',message,'{"timeDiff":"' + timeDiff + '"}');
-                    response.json({ message: 'Error ' + JSON.stringify(err)});
+                    if(response != null) {
+                        response.json({ message: 'Error ' + JSON.stringify(err)});
+                    }
                 } else {
                     caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}');
-                    response.json({ message: 'Done ' + JSON.stringify(result)});
+                    if(response != null) {
+                        response.json({ message: 'Done ' + JSON.stringify(result)});
+                    }
                 }
                 client.end();
             });
