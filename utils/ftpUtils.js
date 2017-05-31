@@ -42,7 +42,7 @@ exports.readFileFromFTPServer = function(fileName,callback){
 
     console.log('temp_dir ' + temp_dir);
 
-    ftp.get(fileName, temp_dir+fileName, function(hadErr) {
+    ftpClient.get(fileName, temp_dir+fileName, function(hadErr) {
         if (hadErr)
             console.error('There was an error retrieving the file.');
         else
