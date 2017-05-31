@@ -1,4 +1,9 @@
 var jsFtp = require("jsftp");
+var fs = require("fs");
+var path = require("path");
+
+var temp_dir = path.join(process.cwd(), 'temp/');
+
 
 var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
@@ -31,7 +36,21 @@ exports.readFileFromFTPServer = function(fileName,callback){
     var ftpClient = new jsFtp({host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"});
     var fileContent = "";
     console.log('Start read file from FTP server ' + connectionParams);
-    ftpClient.get(fileName, function(err, socket) {
+
+    if (!fs.existsSync(temp_dir))
+        fs.mkdirSync(temp_dir);
+
+    console.log('temp_dir ' + temp_dir);
+
+    /*ftp.get(fileName, 'local/file.txt', function(hadErr) {
+        if (hadErr)
+            console.error('There was an error retrieving the file.');
+        else
+          console.log('File copied successfully!');
+    });*/
+
+
+    /*ftpClient.get(fileName, function(err, socket) {
         if (err) {
             return;
         } else {
@@ -57,7 +76,7 @@ exports.readFileFromFTPServer = function(fileName,callback){
             socket.resume();
         }
       }
-    );
+    );*/
 }
 
 var connectionParameters = function(){
