@@ -62,7 +62,7 @@ var saveIntoDatabase = function(statement,message){
                     response.json({ message: 'Done ' + JSON.stringify(result)});
                 }
                 client.end();
-            }
+            });
         }
     );
 }
