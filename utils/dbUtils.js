@@ -2,6 +2,7 @@ var fs = require("fs");
 var readLine = require("readline");
 
 /**
+* @description procedure reads file line by line and creates database insert statement
 * @param fileName name of the file
 */
 exports.buildContactInsertStatementFromFile = function(fileName){

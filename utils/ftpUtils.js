@@ -1,13 +1,16 @@
 var jsFtp = require("jsftp");
 var fs = require("fs");
 var path = require("path");
-
-var temp_dir = path.join(process.cwd(), 'temp/');
-
-
 var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
 
+var temp_dir = path.join(process.cwd(), 'temp/');
+
+/*
+* @description : Saves file on ftp server
+* @param records : list of records to be saved in file
+* @param fileName : name of the file that should be created
+*/
 exports.saveFileOnFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
     if(records){
@@ -30,6 +33,11 @@ exports.saveFileOnFTPServer = function(records, fileName){
     }
 }
 
+/*
+* @description : Copies file from ftp into heroku temp directory and fires up callback method
+* @param fileName : name of the file that should be read
+* @param callback : callback method to be invoked after successful upload
+*/
 exports.readFileFromFTPServer = function(fileName,callback){
     var startTime = new Date().getTime();
     var connectionParams = connectionParameters();
@@ -51,6 +59,9 @@ exports.readFileFromFTPServer = function(fileName,callback){
     });
 }
 
+/*
+* @description : Resturns ftp server connection details
+*/
 var connectionParameters = function(){
     return {host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"};
 }
