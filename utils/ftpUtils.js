@@ -43,10 +43,18 @@ exports.readFileFromFTPServer = function(fileName,callback){
     console.log('temp_dir ' + temp_dir);
 
     ftpClient.get(fileName, temp_dir+fileName, function(hadErr) {
-        if (hadErr)
+        if (hadErr){
             console.error('There was an error retrieving the file.');
-        else
+        } else {
           console.log('File copied successfully!');
+          fs.readFile(temp_dir+fileName, function (err, data) {
+             if (err){
+                console.error('There was an error reading the file.');
+             } else {
+                callback(fileContent);
+             }
+          });
+        }
     });
 
 
