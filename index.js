@@ -44,12 +44,15 @@ app.get('/generateFile',function(request,response){
     ftpUtils.saveFileOnFTPServer.bind(this)();
     caesarsLogger.generateKey();
     var date = request.query.enddate ? new Date(request.query.enddate) : new Date();
+    console.log('date' + date);
     contactModel.getRecordsBeforeDateAndPostToFTPServer(date,'contacts.txt',ftpUtils.saveFileOnFTPServer);
     response.render('pages/index');
 });
 
 app.get('/readFile',function(request,response){
-    caesarsLogger.generateKey();
+    this.logkey = shortid.generate();
+    ftpUtils.readFileFromFTPServer.bind(this)();
+    contactModel.uploadContacts.bind(this)();
     var fileName = '100MB.zip';//request.query.filePath;
     ftpUtils.readFileFromFTPServer(fileName,contactModel.uploadContacts);
     response.render('pages/index');
