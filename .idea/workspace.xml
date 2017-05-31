@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/ftpUtils.js" afterPath="$PROJECT_DIR$/utils/ftpUtils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/caesarsLogger.js" afterPath="$PROJECT_DIR$/utils/caesarsLogger.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ftpUtils.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ftpUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="33" column="97" lean-forward="false" selection-start-line="33" selection-start-column="97" selection-end-line="33" selection-end-column="97" />
+              <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -61,8 +61,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="42" column="89" lean-forward="false" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
+            <state relative-caret-position="187">
+              <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -100,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="caesarsLogger.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="caesarsLogger.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/caesarsLogger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="126" lean-forward="false" selection-start-line="29" selection-start-column="126" selection-end-line="29" selection-end-column="126" />
+            <state relative-caret-position="425">
+              <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -166,11 +166,11 @@
         <option value="$PROJECT_DIR$/utils/fileUtils.js" />
         <option value="$PROJECT_DIR$/tests/fileUtils.js" />
         <option value="$PROJECT_DIR$/utils/dbUtils.js" />
-        <option value="$PROJECT_DIR$/utils/caesarsLogger.js" />
         <option value="$PROJECT_DIR$/utils/dateUtils.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/models/contact.js" />
         <option value="$PROJECT_DIR$/utils/ftpUtils.js" />
+        <option value="$PROJECT_DIR$/utils/caesarsLogger.js" />
       </list>
     </option>
   </component>
@@ -935,14 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/caesarsLogger.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="126" lean-forward="false" selection-start-line="29" selection-start-column="126" selection-end-line="29" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/dateUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -953,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="42" column="89" lean-forward="false" selection-start-line="42" selection-start-column="89" selection-end-line="42" selection-end-column="89" />
+        <state relative-caret-position="187">
+          <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -970,7 +962,15 @@
     <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="33" column="97" lean-forward="false" selection-start-line="33" selection-start-column="97" selection-end-line="33" selection-end-column="97" />
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/caesarsLogger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding />
         </state>
       </provider>
