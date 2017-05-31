@@ -19,17 +19,19 @@ exports.saveFileOnFTPServer = function(records, fileName){
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
         var filePath = 'upload/'+fileName;
         ftpClient.put(buffer, filePath, function(hadError) {
-          console.log('Transferring file ' + fileName + ' into FTP server')
+          console.log('Transferring file ' + fileName + ' into FTP server');
+          var timeDiff = new Date().getTime() - startTime;
           if (!hadError){
-            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + new Date().getTime() - startTime + '"}',this.logkey);
+            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.logkey);
             console.log("File transferred successfully!");
           } else {
-            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + new Date().getTime() - startTime + '"}',this.logkey);
+            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.logkey);
             console.log("Error occured during transfer " + hadError);
           }
         });
     } else {
-        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + new Date().getTime() - startTime + '"}',this.logkey);
+        var timeDiff = new Date().getTime() - startTime;
+        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.logkey);
     }
 }
 
