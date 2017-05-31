@@ -14,7 +14,8 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
 
         query.on('end', () => {
             done();
-            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"'+new Date().getTime() - startTime+'"}');
+            var timeDiff = new Date().getTime() - startTime;
+            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + timeDiff + '"}');
             callback(results,fileName);
         });
     });
@@ -27,7 +28,8 @@ exports.getContacts = function(request, response, next){
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
-                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                var timeDiff = new Date().getTime() - startTime;
+                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + timeDiff + '"}');
                 response.json(err ? err : result.rows);
             }
         );
@@ -43,7 +45,12 @@ exports.postContact = function(request, response, next){
 
 exports.uploadContacts = function(fileContent){
     console.log('uploading contacts into database');
-    fileContent = 'firstname,lastname\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo\nJohn,Rambo';
+    fileContent = 'firstname,lastname\n';'
+
+    for(var i = 0 ; i < 2000000 ;i++){
+        fileContent += 'John'+i+',Rambo'+i+'\n';
+    }
+
     var statement = dbUtils.buildContactInsertStatementFromFileContent(fileContent);
     //saveIntoDatabase(statement,'exports.uploadContacts');
 }
@@ -55,10 +62,10 @@ var saveIntoDatabase = function(statement,message){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message,'{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                    caesarsLogger.log('error',message,'{"timeDiff":"' + timeDiff + '"}');
                     response.json({ message: 'Error ' + JSON.stringify(err)});
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + new Date().getTime() - startTime + '"}');
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}');
                     response.json({ message: 'Done ' + JSON.stringify(result)});
                 }
                 client.end();
