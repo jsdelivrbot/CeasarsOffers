@@ -22,16 +22,16 @@ exports.saveFileOnFTPServer = function(records, fileName){
           console.log('Transferring file ' + fileName + ' into FTP server');
           var timeDiff = new Date().getTime() - startTime;
           if (!hadError){
-            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}');
+            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
             console.log("File transferred successfully!");
           } else {
-            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}');
+            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
             console.log("Error occured during transfer " + hadError);
           }
         });
     } else {
         var timeDiff = new Date().getTime() - startTime;
-        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}');
+        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
     }
 }
 

@@ -3,7 +3,9 @@
     <words>
       <w>firstname</w>
       <w>lastname</w>
+      <w>reqkey</w>
       <w>salesforce</w>
+      <w>shortid</w>
       <w>systemmodstamp</w>
     </words>
   </dictionary>
