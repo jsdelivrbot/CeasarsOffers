@@ -49,8 +49,7 @@ exports.getContacts = function(request, response, next){
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
-                var timeDiff = new Date().getTime() - startTime;
-                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"'+timeDiff+'"}');
+                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + new Date().getTime() - startTime + '"}');
                 response.json(err ? err : result.rows);
             }
         );
@@ -60,6 +59,5 @@ exports.getContacts = function(request, response, next){
 exports.uploadContacts = function(fileContent){
     var startTime = new Date().getTime();
     console.log('uploading contacts into postgres');
-    var timeDiff = new Date().getTime() - startTime;
-    caesarsLogger.log('info','exports.uploadContacts','{"timeDiff":"'+timeDiff+'"}');
+    caesarsLogger.log('info','exports.uploadContacts','{"timeDiff":"' + new Date().getTime() - startTime + '"}');
 }
