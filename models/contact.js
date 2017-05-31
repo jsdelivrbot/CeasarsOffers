@@ -45,7 +45,7 @@ exports.postContact = function(request, response, next){
 
 exports.uploadContacts = function(fileContent){
     console.log('uploading contacts into database');
-    fileContent = 'firstname,lastname\n';'
+    fileContent = 'firstname,lastname\n';
 
     for(var i = 0 ; i < 2000000 ;i++){
         fileContent += 'John'+i+',Rambo'+i+'\n';
