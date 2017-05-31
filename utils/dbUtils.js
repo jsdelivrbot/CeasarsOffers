@@ -9,7 +9,7 @@ exports.buildContactInsertStatementFromFile = function(fileName){
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
 
     var lineReader = readLine.createInterface({
-      input: fs.createReadStream(fileName);
+      input: fs.createReadStream(fileName)
     });
 
     lineReader.on('line', function (line) {

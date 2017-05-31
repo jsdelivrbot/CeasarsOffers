@@ -4,13 +4,13 @@ exports.convertToNiceFileContent = function(records){
     var fileContent = '';
     fileContent = attachHeader(fileContent);
     for(var i = 0; i < records.length; i++){
-        fileContent += records[i].name + '\n';
+        fileContent += records[i].firstname + ',' + records[i].lastname + '\n';
     }
     return fileContent;
 }
 
 var attachHeader = function(fileContent){
-    fileContent += 'Name'+'\n';
+    fileContent += 'firstname,lastname'+'\n';
     return fileContent;
 }
 
