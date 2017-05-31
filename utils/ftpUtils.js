@@ -13,6 +13,8 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 */
 exports.saveFileOnFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
+    console.log('this' + this);
+    console.log('this.lKey' + this.lKey);
     if(records){
         var connectionParams = connectionParameters();
         var ftpClient = new jsFtp(connectionParams);
