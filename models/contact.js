@@ -57,7 +57,8 @@ var saveIntoDatabase = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message,'{"timeDiff":"' + timeDiff + '"}');
+                    console.log(err);
+                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}');
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
