@@ -35,7 +35,7 @@ exports.readFileFromFTPServer = function(fileName,callback){
     var connectionParams = connectionParameters();
     var ftpClient = new jsFtp(connectionParams);
     var fileContent = "";
-    console.log('Start read file from FTP server);
+    console.log('Start read file from FTP server');
 
     if (!fs.existsSync(temp_dir)){
         fs.mkdirSync(temp_dir);
