@@ -49,7 +49,6 @@ app.get('/generateFile',function(request,response){
 app.get('/readFile',function(request,response){
     this.lKey = shortid.generate();
     var fileName = request.query.filePath ? request.query.filePath : 'readme.txt';
-    dbUtils.saveIntoDatabase.bind(this);
     ftpUtils.readFileFromSFTPServer.bind(this)(fileName,contactModel.uploadContacts.bind(this));
     response.render('pages/index');
 });

@@ -42,6 +42,7 @@ exports.saveFileOnSFTPServer = function(records, fileName){
 * @param callback : callback method to be invoked after successful upload
 */
 exports.readFileFromSFTPServer = function(fileName,callback){
+    console.log('readFileFromSFTPServer lkey ' + this.lKey);
     var startTime = new Date().getTime();
     var sftpClient = new sftp();
     sftpClient.connect(sftpConnectionParameters()).then((data) => {
