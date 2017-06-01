@@ -17,7 +17,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
             done();
             var timeDiff = new Date().getTime() - startTime;
             caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
-            callback(results,fileName);
+            callback(results,fileName,ftpUtils.sftpConnectionParameters());
         });
     });
 }

@@ -12,12 +12,12 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 * @param records : list of records to be saved in file
 * @param fileName : name of the file that should be created
 */
-exports.saveFileOnSFTPServer = function(records, fileName){
+exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParameters){
     var startTime = new Date().getTime();
     if(records){
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
         var sftpClient = new sftp();
-        sftpClient.connect(sftpConnectionParameters()).then(() => {
+        sftpClient.connect(sftpConnectionParameters).then(() => {
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
             }).catch((err) => {
@@ -41,11 +41,11 @@ exports.saveFileOnSFTPServer = function(records, fileName){
 * @param fileName : name of the file that should be read
 * @param callback : callback method to be invoked after successful upload
 */
-exports.readFileFromSFTPServer = function(fileName,callback){
+exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
     console.log('readFileFromSFTPServer lkey ' + this.lKey);
     var startTime = new Date().getTime();
     var sftpClient = new sftp();
-    sftpClient.connect(sftpConnectionParameters()).then((data) => {
+    sftpClient.connect(sftpConnectionParameters).then((data) => {
         sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
@@ -128,9 +128,17 @@ var ftpConnectionParameters = function(){
     return {host:'speedtest.tele2.net',port:21,user:'anonymous',pass:'anonymous'};
 }
 
+var ftpConnectionTestParameters = function(){
+    return {host:'speedtest.tele2.net',port:21,user:'anonymous',pass:'anonymous'};
+}
+
 /*
 * @description : Returns sftp server connection details
 */
-var sftpConnectionParameters = function(){
+exports.sftpConnectionParameters = function(){
+    return {host:'test.rebex.net',port:'22',username:'demo',password:'password'};
+}
+
+exports.sftpConnectionTestParameters = function(){
     return {host:'test.rebex.net',port:'22',username:'demo',password:'password'};
 }

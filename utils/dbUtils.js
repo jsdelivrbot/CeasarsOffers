@@ -55,7 +55,6 @@ exports.saveIntoDatabase = function(statement,message,response){
     );
 }
 
-
 /**
 * @param contacts list of contact objects
 */
