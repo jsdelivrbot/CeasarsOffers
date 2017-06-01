@@ -6,6 +6,7 @@ var caesarsLogger = require('./caesarsLogger.js');
 /**
 * @description procedure reads file line by line and creates database insert statement
 * @param fileName name of the file
+* @param callback function that saves results into postgres
 */
 exports.buildContactInsertStatementFromFile = function(fileName,callback){
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
@@ -16,20 +17,18 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 
     lineReader.on('line', function (line) {
         console.log('line : ' + line);
-        /*var columns = line.split(',');
+        var columns = line.split(',');
         statement += '(';
         for(var i = 0 ; i < columns.length ; i++){
             statement += '\''+line[j]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
-        statement += '),';*/
-        statement+=line;
+        statement += '),';
     });
 
     lineReader.on('close', function(){
         statement = statement.substring(0,statement.length - 1);
-        console.log('statement ' + statement);
-        callback(statement,'buildContactInsertStatementFromFile',null);
+        callback.bind(this)(statement,'buildContactInsertStatementFromFile',null); // saveIntoDatabase
     });
 }
 
