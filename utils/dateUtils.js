@@ -10,6 +10,6 @@ exports.ensureLeadingZeros = function(param){
     return param < 10 ? '0'+param : param;
 }
 
-exports.calculateTimeDiffInMilliseconds(startMs){
+exports.calculateTimeDiffInMilliseconds = function(startMs){
     return new Date().getTime() - startMs;
 }
