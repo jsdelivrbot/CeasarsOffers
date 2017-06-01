@@ -30,7 +30,7 @@ exports.readFileFromSFTPServer = function(fileName,callback){
         password: 'password'}
     ).then((data) => {
 
-        sftp.get(fileName).then((stream) => {
+        sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }
