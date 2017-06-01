@@ -24,7 +24,7 @@ exports.readFileFromSFTPServer = function(fileName,callback){
     var sftpClient = new sftp();
 
     sftpClient.connect({
-        host: 'test.rebex.net:',
+        host: 'test.rebex.net',
         port: '22',
         username: 'demo',
         password: 'password'}
