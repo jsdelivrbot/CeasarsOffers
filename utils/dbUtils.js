@@ -32,7 +32,6 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 }
 
 exports.saveIntoDatabase = function(statement,message,response){
-    console.log('saveIntoDatabase lkey ' + this.lKey);
     var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
