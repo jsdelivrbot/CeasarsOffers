@@ -47,7 +47,7 @@ app.get('/generateFile',function(request,response){
 
 app.get('/readFile',function(request,response){
     this.lKey = shortid.generate();
-    var fileName = request.query.filePath ? request.query.filePath : '100MB.zip';
+    var fileName = request.query.filePath ? request.query.filePath : 'readme.txt';
     ftpUtils.readFileFromFTPServer.bind(this)(fileName,contactModel.uploadContacts.bind(this));
     response.render('pages/index');
 });

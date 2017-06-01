@@ -3,8 +3,44 @@ var fs = require("fs");
 var path = require("path");
 var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
+var sftp = require('ssh2-sftp-client'); //upload
 
 var temp_dir = path.join(process.cwd(), 'temp/');
+
+exports.saveFileOnSFTPServer = function(records, fileName){
+    var startTime = new Date().getTime();
+    if(records){
+        var connectionParams = connectionParameters();
+        var sftpClient = new sftp();
+        sftpClient.connect({host: '127.0.0.1',port: '8080',username: 'username',password: '******'});
+        var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
+        sftpClient.put(buffer, fileName, [useCompression], [encoding]);
+    } else {
+
+    }
+}
+
+exports.readFileFromSFTPServer = function(fileName,callback){
+    var sftpClient = new sftp();
+
+    sftpClient.connect({
+        host: 'test.rebex.net:',
+        port: '22',
+        username: 'demo',
+        password: 'password'}
+    ).then((data) => {
+
+        sftp.get(fileName).then((stream) => {
+            if (!fs.existsSync(temp_dir)){
+                fs.mkdirSync(temp_dir);
+            }
+            stream.pipe(fs.createWriteStream(temp_dir+fileName));
+        });
+
+    }).catch((err) => {
+        console.log(err, 'catch error');
+    });
+}
 
 /*
 * @description : Saves file on ftp server
@@ -13,8 +49,6 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 */
 exports.saveFileOnFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
-    console.log('this' + this);
-    console.log('this.lKey' + this.lKey);
     if(records){
         var connectionParams = connectionParameters();
         var ftpClient = new jsFtp(connectionParams);
