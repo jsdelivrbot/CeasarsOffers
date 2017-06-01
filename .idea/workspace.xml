@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/contact.js" afterPath="$PROJECT_DIR$/models/contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/dbUtils.js" afterPath="$PROJECT_DIR$/utils/dbUtils.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,8 +111,8 @@
       <file leaf-file-name="contact.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/contact.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="51" column="1" lean-forward="false" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+            <state relative-caret-position="749">
+              <caret line="48" column="105" lean-forward="false" selection-start-line="48" selection-start-column="105" selection-end-line="48" selection-end-column="105" />
               <folding />
             </state>
           </provider>
@@ -977,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="51" column="1" lean-forward="false" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+        <state relative-caret-position="749">
+          <caret line="48" column="105" lean-forward="false" selection-start-line="48" selection-start-column="105" selection-end-line="48" selection-end-column="105" />
           <folding />
         </state>
       </provider>
