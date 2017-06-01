@@ -13,17 +13,18 @@ exports.buildContactInsertStatementFromFile = function(fileName){
     });
 
     lineReader.on('line', function (line) {
-        var columns = line.split(',');
+        console.log('line : ' + line);
+        /*var columns = line.split(',');
         statement += '(';
         for(var i = 0 ; i < columns.length ; i++){
             statement += '\''+line[j]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
-        statement += '),'
+        statement += '),'*/
     });
 
-    statement = statement.substring(0,statement.length - 1);
-    console.log('statement ' + statement);
+    //statement = statement.substring(0,statement.length - 1);
+    //console.log('statement ' + statement);
     return statement;
 }
 

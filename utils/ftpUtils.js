@@ -38,6 +38,7 @@ exports.readFileFromSFTPServer = function(fileName,callback){
             stream.pipe(fs.createWriteStream(temp_dir+fileName));
             stream.on('end', () => {
                 console.log('write completed');
+                callback(temp_dir+fileName);
             });
         });
 
