@@ -42,8 +42,8 @@ exports.saveFileOnSFTPServer = function(records, fileName){
 * @param callback : callback method to be invoked after successful upload
 */
 exports.readFileFromSFTPServer = function(fileName,callback){
+    var startTime = new Date().getTime();
     var sftpClient = new sftp();
-
     sftpClient.connect(sftpConnectionParameters()).then((data) => {
         sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
@@ -55,9 +55,13 @@ exports.readFileFromSFTPServer = function(fileName,callback){
             });
         }).catch((err) => {
             console.log(err,'Error during file transfer');
+            var timeDiff = new Date().getTime() - startTime;
+            caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
         });
     }).catch((err) => {
         console.log(err,'Error during establishing connection');
+        var timeDiff = new Date().getTime() - startTime;
+        caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
     });
 }
 
