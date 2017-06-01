@@ -40,36 +40,13 @@ exports.postContact = function(request, response, next){
      console.log('posting contacts into database');
      this.lKey = shortid.generate();
      var statement = dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body)));
-     saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
+     dbUtils.saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
 }
 
 exports.uploadContacts = function(fileName){
     console.log('uploading contacts into database : ' + fileName);
     //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
-    var statement = dbUtils.buildContactInsertStatementFromFile.bind(this)(fileName);
-    console.log('statement : ' + statement);
-    saveIntoDatabase.bind(this)(statement,'exports.uploadContacts',null);
-}
-
-var saveIntoDatabase = function(statement,message,response){
-    var startTime = new Date().getTime();
-    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-        client.query(statement,
-            function(err, result) {
-                var timeDiff = new Date().getTime() - startTime;
-                if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
-                    if(response != null) {
-                        response.json({ message: 'Error ' + JSON.stringify(err)});
-                    }
-                } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
-                    if(response != null) {
-                        response.json({ message: 'Done ' + JSON.stringify(result)});
-                    }
-                }
-                client.end();
-            });
-        }
-    );
+    var statement = dbUtils.buildContactInsertStatementFromFile.bind(this)(fileName,dbUtils.saveIntoDatabase.bind(this));
+    //console.log('statement : ' + statement);
+    //saveIntoDatabase.bind(this)(statement,'exports.uploadContacts',null);
 }
