@@ -41,7 +41,6 @@ app.get('/', function(request, response) {
 app.get('/generateFile',function(request,response){
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    //contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,'contacts.txt',ftpUtils.saveFileOnFTPServer.bind(this));
     contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,'contacts.txt',ftpUtils.saveFileOnSFTPServer.bind(this));
     response.render('pages/index');
 });
@@ -49,7 +48,6 @@ app.get('/generateFile',function(request,response){
 app.get('/readFile',function(request,response){
     this.lKey = shortid.generate();
     var fileName = request.query.filePath ? request.query.filePath : 'readme.txt';
-    //ftpUtils.readFileFromFTPServer.bind(this)(fileName,contactModel.uploadContacts.bind(this));
     ftpUtils.readFileFromSFTPServer.bind(this)(fileName,contactModel.uploadContacts.bind(this));
     response.render('pages/index');
 });

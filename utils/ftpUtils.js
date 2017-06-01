@@ -21,10 +21,14 @@ exports.saveFileOnSFTPServer = function(records, fileName){
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
             }).catch((err) => {
+                var timeDiff = new Date().getTime() - startTime;
+                caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
                 console.log(err,'Error during file transfer');
             });
         }).catch((err) => {
             console.log(err,'Error during establishing connection');
+            var timeDiff = new Date().getTime() - startTime;
+            caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
         });
     } else {
         var timeDiff = new Date().getTime() - startTime;
