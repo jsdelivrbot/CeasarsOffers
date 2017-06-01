@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
 var ftpUtils = require('./utils/ftpUtils.js');
+var dbUtils = require('./utils/dbUtils.js');
 var caesarsLogger = require('./utils/caesarsLogger.js');
 var shortid = require('shortid');
 
@@ -41,8 +42,8 @@ app.get('/', function(request, response) {
 app.get('/generateFile',function(request,response){
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
+    dbUtils.saveIntoDatabase.bind(this);
     contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,'contacts.txt',ftpUtils.saveFileOnSFTPServer.bind(this));
-    exports.saveIntoDatabase.bind(this);
     response.render('pages/index');
 });
 
