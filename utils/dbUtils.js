@@ -1,5 +1,6 @@
 var fs = require("fs");
 var readLine = require("readline");
+var pg = require('pg');
 var caesarsLogger = require('./caesarsLogger.js');
 
 /**
