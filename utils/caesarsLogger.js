@@ -1,5 +1,5 @@
 var pg = require('pg');
-var shortid = require('shortid');
+/*var shortid = require('shortid');
 
 exports.logKey;
 
@@ -23,7 +23,7 @@ exports.log = function(level,message,json){
             }
         );
     });
-}
+}*/
 
 exports.log = function(level,message,json,lkey){
 
