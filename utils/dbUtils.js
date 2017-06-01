@@ -33,18 +33,19 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 
 exports.saveIntoDatabase = function(statement,message,response){
     console.log('saveIntoDatabase lkey ' + this.lKey);
+    var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(statement,
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
+                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Done ' + JSON.stringify(result)});
                     }
