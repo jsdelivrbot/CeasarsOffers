@@ -3,47 +3,58 @@ var fs = require("fs");
 var path = require("path");
 var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
-var sftp = require('ssh2-sftp-client'); //upload
+var sftp = require('ssh2-sftp-client');
 
 var temp_dir = path.join(process.cwd(), 'temp/');
 
+/*
+* @description : Saves file on sftp server
+* @param records : list of records to be saved in file
+* @param fileName : name of the file that should be created
+*/
 exports.saveFileOnSFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
     if(records){
-        var connectionParams = connectionParameters();
         var sftpClient = new sftp();
-        sftpClient.connect({host: '127.0.0.1',port: '8080',username: 'username',password: '******'});
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-        sftpClient.put(buffer, fileName, [useCompression], [encoding]);
-    } else {
 
+        sftpClient.connect(sftpConnectionParameters()).then(() => {
+            sftpClient.put(buffer, fileName).then(() => {
+                console.log('Transfer completed');
+            }).catch((err) => {
+                console.log(err,'Error during file transfer');
+            });
+        }).catch((err) => {
+            console.log(err,'Error during establishing connection');
+        });
+    } else {
+        var timeDiff = new Date().getTime() - startTime;
+        caesarsLogger.log('info','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
     }
 }
 
+/*
+* @description : Copies file from sftp into heroku temp directory and fires up callback method
+* @param fileName : name of the file that should be read
+* @param callback : callback method to be invoked after successful upload
+*/
 exports.readFileFromSFTPServer = function(fileName,callback){
     var sftpClient = new sftp();
 
-    sftpClient.connect({
-        host: 'test.rebex.net',
-        port: '22',
-        username: 'demo',
-        password: 'password'}
-    ).then((data) => {
-
+    sftpClient.connect(sftpConnectionParameters()).then((data) => {
         sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }
-            console.log('write started');
             stream.pipe(fs.createWriteStream(temp_dir+fileName));
             stream.on('end', () => {
-                console.log('write completed');
                 callback(temp_dir+fileName);
             });
+        }).catch((err) => {
+            console.log(err,'Error during file transfer');
         });
-
     }).catch((err) => {
-        console.log(err, 'catch error');
+        console.log(err,'Error during establishing connection');
     });
 }
 
@@ -55,7 +66,7 @@ exports.readFileFromSFTPServer = function(fileName,callback){
 exports.saveFileOnFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
     if(records){
-        var connectionParams = connectionParameters();
+        var connectionParams = ftpConnectionParameters();
         var ftpClient = new jsFtp(connectionParams);
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
         var filePath = 'upload/'+fileName;
@@ -83,7 +94,7 @@ exports.saveFileOnFTPServer = function(records, fileName){
 */
 exports.readFileFromFTPServer = function(fileName,callback){
     var startTime = new Date().getTime();
-    var connectionParams = connectionParameters();
+    var connectionParams = ftpConnectionParameters();
     var ftpClient = new jsFtp(connectionParams);
     var fileContent = "";
     console.log('Start read file from FTP server');
@@ -103,8 +114,15 @@ exports.readFileFromFTPServer = function(fileName,callback){
 }
 
 /*
-* @description : Resturns ftp server connection details
+* @description : Returns ftp server connection details
 */
-var connectionParameters = function(){
-    return {host: "speedtest.tele2.net",port: 21,user: "anonymous",pass: "anonymous"};
+var ftpConnectionParameters = function(){
+    return {host:'speedtest.tele2.net',port:21,user:'anonymous',pass:'anonymous'};
+}
+
+/*
+* @description : Returns sftp server connection details
+*/
+var sftpConnectionParameters = function(){
+    return {host:'test.rebex.net',port:'22',username:'demo',password:'password'};
 }

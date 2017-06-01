@@ -39,7 +39,6 @@ exports.getContacts = function(request, response, next){
 exports.postContact = function(request, response, next){
      console.log('posting contacts into database');
      this.lKey = shortid.generate();
-     console.log('this.lKey ' + this.lKey);
      var statement = dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body)));
      dbUtils.saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
 }
@@ -47,7 +46,5 @@ exports.postContact = function(request, response, next){
 exports.uploadContacts = function(fileName){
     console.log('uploading contacts into database : ' + fileName);
     //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
-    console.log('this.lKey ' + this.lKey);
-    console.log('this ' + this);
-    dbUtils.buildContactInsertStatementFromFile.bind(this.lKey)(fileName,dbUtils.saveIntoDatabase.bind(this.lKey));
+    dbUtils.buildContactInsertStatementFromFile.bind(this)(fileName,dbUtils.saveIntoDatabase.bind(this));
 }
