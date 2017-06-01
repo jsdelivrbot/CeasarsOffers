@@ -2,6 +2,7 @@ var fs = require("fs");
 var readLine = require("readline");
 var pg = require('pg');
 var caesarsLogger = require('./caesarsLogger.js');
+var dateUtils = require('./dateUtils.js');
 
 /**
 * @description procedure reads file line by line and creates database insert statement
@@ -39,12 +40,12 @@ exports.saveIntoDatabase = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',logKey);
+                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',logKey);
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Done ' + JSON.stringify(result)});
                     }

@@ -15,8 +15,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
 
         query.on('end', () => {
             done();
-            var timeDiff = new Date().getTime() - startTime;
-            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
             callback(results,fileName,ftpUtils.sftpConnectionParameters());
         });
     });
@@ -28,8 +27,7 @@ exports.getContacts = function(request, response, next){
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
-                var timeDiff = new Date().getTime() - startTime;
-                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + timeDiff + '"}',shortid.generate());
+                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',shortid.generate());
                 response.json(err ? err : result.rows);
             }
         );

@@ -22,18 +22,13 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
             }).catch((err) => {
-                var timeDiff = new Date().getTime() - startTime;
-                caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
-                console.log(err,'Error during file transfer');
+                caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
             });
         }).catch((err) => {
-            console.log(err,'Error during establishing connection');
-            var timeDiff = new Date().getTime() - startTime;
-            caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+            caesarsLogger.log('error','exports.saveFileOnSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
         });
     } else {
-        var timeDiff = new Date().getTime() - startTime;
-        caesarsLogger.log('info','exports.saveFileOnSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+        caesarsLogger.log('info','exports.saveFileOnSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     }
 }
 
@@ -78,16 +73,13 @@ exports.saveFileOnFTPServer = function(records, fileName){
           console.log('Transferring file ' + fileName + ' into FTP server');
           var timeDiff = new Date().getTime() - startTime;
           if (!hadError){
-            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
-            console.log("File transferred successfully!");
+            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
           } else {
-            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
-            console.log("Error occured during transfer " + hadError);
+            caesarsLogger.log('error','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
           }
         });
     } else {
-        var timeDiff = new Date().getTime() - startTime;
-        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     }
 }
 
