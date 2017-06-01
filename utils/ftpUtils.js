@@ -34,7 +34,7 @@ exports.readFileFromSFTPServer = function(fileName,callback){
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }
-            stream.pipe(fs.createWriteStream(temp_dir+fileName));
+            console.log(stream.pipe(fs.createWriteStream(temp_dir+fileName)));
         });
 
     }).catch((err) => {
