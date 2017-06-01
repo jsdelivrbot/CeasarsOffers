@@ -29,7 +29,7 @@ exports.log = function(level,message,json,lkey){
 
     var statement = 'insert into AppLogs (level,msg,meta,reqkey) values (\''+level+'\',\''+message+'\',\''+json+'\',\''+lkey+'\')';
 
-    //console.log(statement);
+    console.log(statement);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(statement,
