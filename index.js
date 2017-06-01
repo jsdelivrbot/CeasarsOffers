@@ -39,7 +39,6 @@ app.get('/', function(request, response) {
 });
 
 app.get('/generateFile',function(request,response){
-    //caesarsLogger.generateKey();
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
     contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,'contacts.txt',ftpUtils.saveFileOnFTPServer.bind(this));
@@ -47,11 +46,9 @@ app.get('/generateFile',function(request,response){
 });
 
 app.get('/readFile',function(request,response){
-    this.logkey = shortid.generate();
-    ftpUtils.readFileFromFTPServer.bind(this)();
-    contactModel.uploadContacts.bind(this)();
-    var fileName = '100MB.zip';//request.query.filePath;
-    ftpUtils.readFileFromFTPServer(fileName,contactModel.uploadContacts);
+    this.lKey = shortid.generate();
+    var fileName = request.query.filePath ? request.query.filePath : '100MB.zip';
+    ftpUtils.readFileFromFTPServer.bind(this)(fileName,contactModel.uploadContacts.bind(this));
     response.render('pages/index');
 });
 

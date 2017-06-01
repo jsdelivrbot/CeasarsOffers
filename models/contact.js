@@ -1,4 +1,5 @@
 var pg = require('pg');
+var shortid = require('shortid');
 var dateUtils = require('../utils/dateUtils.js');
 var ftpUtils = require('../utils/ftpUtils.js');
 var caesarsLogger = require('../utils/caesarsLogger.js');
@@ -22,14 +23,13 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
 }
 
 exports.getContacts = function(request, response, next){
-    caesarsLogger.generateKey();
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
                 var timeDiff = new Date().getTime() - startTime;
-                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + timeDiff + '"}');
+                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + timeDiff + '"}',shortid.generate());
                 response.json(err ? err : result.rows);
             }
         );
@@ -37,18 +37,18 @@ exports.getContacts = function(request, response, next){
 }
 
 exports.postContact = function(request, response, next){
-     caesarsLogger.generateKey();
      console.log('posting contacts into database');
-     var statement = dbUtils.buildContactInsertStatement(JSON.parse(JSON.stringify(request.body)));
-     saveIntoDatabase(statement,'exports.postContact',response);
+     this.lKey = shortid.generate();
+     var statement = dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body)));
+     saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
 }
 
 exports.uploadContacts = function(fileName){
     console.log('uploading contacts into database : ' + fileName);
     //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
-    var statement = dbUtils.buildContactInsertStatement(fileName);
+    var statement = dbUtils.buildContactInsertStatement.bind(this)(fileName);
     console.log('statement : ' + statement);
-    saveIntoDatabase(statement,'exports.uploadContacts',null);
+    saveIntoDatabase.bind(this)(statement,'exports.uploadContacts',null);
 }
 
 var saveIntoDatabase = function(statement,message,response){
@@ -58,12 +58,12 @@ var saveIntoDatabase = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}');
+                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}');
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
                     if(response != null) {
                         response.json({ message: 'Done ' + JSON.stringify(result)});
                     }
