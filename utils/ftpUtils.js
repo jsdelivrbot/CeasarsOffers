@@ -15,9 +15,8 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 exports.saveFileOnSFTPServer = function(records, fileName){
     var startTime = new Date().getTime();
     if(records){
-        var sftpClient = new sftp();
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-
+        var sftpClient = new sftp();
         sftpClient.connect(sftpConnectionParameters()).then(() => {
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
