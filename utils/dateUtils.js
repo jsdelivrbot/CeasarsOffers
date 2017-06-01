@@ -9,3 +9,7 @@ exports.convertToPostgresDateTime = function(dateParam){
 exports.ensureLeadingZeros = function(param){
     return param < 10 ? '0'+param : param;
 }
+
+exports.calculateTimeDiffInMilliseconds(startMs){
+    return new Date().getTime() - startMs;
+}

@@ -3,6 +3,7 @@ var fs = require("fs");
 var path = require("path");
 var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
+var dateUtils = require('./dateUtils.js');
 var sftp = require('ssh2-sftp-client');
 
 var temp_dir = path.join(process.cwd(), 'temp/');
@@ -42,7 +43,6 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 * @param callback : callback method to be invoked after successful upload
 */
 exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
-    console.log('readFileFromSFTPServer lkey ' + this.lKey);
     var startTime = new Date().getTime();
     var sftpClient = new sftp();
     sftpClient.connect(sftpConnectionParameters).then((data) => {
@@ -55,14 +55,10 @@ exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,call
                 callback(temp_dir+fileName);
             });
         }).catch((err) => {
-            console.log(err,'Error during file transfer');
-            var timeDiff = new Date().getTime() - startTime;
-            caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+            caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
         });
     }).catch((err) => {
-        console.log(err,'Error during establishing connection');
-        var timeDiff = new Date().getTime() - startTime;
-        caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + timeDiff + '"}',this.lKey);
+        caesarsLogger.log('error','exports.readFileFromSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     });
 }
 
