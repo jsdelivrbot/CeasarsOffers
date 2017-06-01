@@ -46,5 +46,5 @@ exports.postContact = function(request, response, next){
 exports.uploadContacts = function(fileName){
     console.log('uploadContacts lkey ' + this.lKey);
     //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
-    dbUtils.buildContactInsertStatementFromFile(fileName,dbUtils.saveIntoDatabase);
+    dbUtils.buildContactInsertStatementFromFile(fileName,dbUtils.saveIntoDatabase.bind(this));
 }
