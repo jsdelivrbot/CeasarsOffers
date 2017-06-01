@@ -27,8 +27,8 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 
     lineReader.on('close', function(){
         statement = statement.substring(0,statement.length - 1);
-        console.log('this ' + this);
-        console.log('this.lKey ' + this.lKey);
+        console.log('this on close ' + this);
+        console.log('this.lKey on close' + this.lKey);
         callback.bind(this)(statement,'buildContactInsertStatementFromFile',null); // saveIntoDatabase
     });
 }
