@@ -6,6 +6,9 @@ var readLine = require("readline");
 * @param fileName name of the file
 */
 exports.buildContactInsertStatementFromFile = function(fileName){
+
+     console.log('buildContactInsertStatementFromFile: ' + fileName);
+
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
 
     var lineReader = readLine.createInterface({
