@@ -20,7 +20,7 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
         var columns = line.split(',');
         statement += '(';
         for(var i = 0 ; i < columns.length ; i++){
-            statement += '\''+line[j]+'\'' + ',';
+            statement += '\''+line[i]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
         statement += '),';
