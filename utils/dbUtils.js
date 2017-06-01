@@ -38,12 +38,12 @@ exports.saveIntoDatabase = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',this);
+                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',this);
+                    caesarsLogger.log('info',message,'{"timeDiff":"' + timeDiff + '"}',this.lKey);
                     if(response != null) {
                         response.json({ message: 'Done ' + JSON.stringify(result)});
                     }
