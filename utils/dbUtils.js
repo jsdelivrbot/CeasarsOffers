@@ -15,13 +15,14 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 
     lineReader.on('line', function (line) {
         console.log('line : ' + line);
-        var columns = line.split(',');
+        /*var columns = line.split(',');
         statement += '(';
         for(var i = 0 ; i < columns.length ; i++){
             statement += '\''+line[j]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
-        statement += '),
+        statement += '),';*/
+        statement+=line;
     });
 
     lineReader.on('close', function(){
