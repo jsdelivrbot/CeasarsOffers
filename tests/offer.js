@@ -15,7 +15,7 @@ var dbUtilsMock = {
 }
 
 var pgMock ={
-    connect : function(a,new function(a,b,c){}){
+    connect : function(a,b){
     }
 }
 
