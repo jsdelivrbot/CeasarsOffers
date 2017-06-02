@@ -9,5 +9,10 @@ test('convert date to psql string', t => {
 
 test('ensure leading zeros', t => {
   t.is(dateUtils.ensureLeadingZeros(1),'01');
-  t.is(dateUtils.ensureLeadingZeros(10),10);
+  t.is(dateUtils.ensureLeadingZeros(10),'10');
+});
+
+test('calculate Time Difference In Milliseconds', t => {
+  var startMs = new Date().getTime() - 10;
+  t.is(dateUtils.calculateTimeDiffInMilliseconds(startMs),10);
 });
