@@ -15,8 +15,7 @@ var dbUtilsMock = {
 }
 
 var pgMock ={
-    connect : function(a,b){
-    }
+    connect : function(a,b){}
 }
 
 myModule.__set__("caesarsLogger", caesarsLoggerMock);
