@@ -18,9 +18,9 @@
         <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
-              <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+              <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
-                <element signature="e#0#5545#0" expanded="false" />
+                <element signature="e#0#5499#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -928,9 +928,9 @@
     <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
-          <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+          <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
-            <element signature="e#0#5545#0" expanded="false" />
+            <element signature="e#0#5499#0" expanded="false" />
           </folding>
         </state>
       </provider>
