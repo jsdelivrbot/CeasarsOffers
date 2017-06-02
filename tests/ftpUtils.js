@@ -8,7 +8,7 @@ var caesarsLoggerMock = {
     log : function(a,b,c,d){}
 }
 
-var sftp = {
+var sftpClient = {
 
     connect : function(a){
         console.log('mock connect');
@@ -25,7 +25,7 @@ var sftp = {
 }
 
 myModule.__set__("caesarsLogger", caesarsLoggerMock);
-myModule.__set__("sftp", sftp);
+myModule.__set__("sftpClient", sftpMock);
 
 test('save File On SFTP Server', t=>{
     var contact = JSON.parse('{"firstname":"nth offer","lastname":"nth offer"}');

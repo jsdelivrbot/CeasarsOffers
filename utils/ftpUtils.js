@@ -5,8 +5,8 @@ var fileUtils = require('./fileUtils.js');
 var caesarsLogger = require('./caesarsLogger.js');
 var dateUtils = require('./dateUtils.js');
 var sftp = require('ssh2-sftp-client');
-
 var temp_dir = path.join(process.cwd(), 'temp/');
+var sftpClient = new sftp();
 
 
 /*
@@ -18,7 +18,6 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
     var startTime = new Date().getTime();
     if(records){
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-        var sftpClient = new (require('ssh2-sftp-client'));
         sftpClient.connect(sftpConnectionParameters).then(() => {
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
@@ -40,7 +39,6 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 */
 exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
     var startTime = new Date().getTime();
-    var sftpClient = new (require('ssh2-sftp-client'));
     sftpClient.connect(sftpConnectionParameters).then((data) => {
         sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
