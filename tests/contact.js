@@ -14,8 +14,14 @@ var dbUtilsMock = {
     buildContactInsertStatementFromFile : function(a,b){}
 }
 
+var pgMock ={
+    connect : function(a,b){
+    }
+}
+
 myModule.__set__("caesarsLogger", caesarsLoggerMock);
 myModule.__set__("dbUtils", dbUtilsMock);
+myModule.__set__("pg", pgMock);
 
 test('get contacts',  t => {
     myModule.getContacts(null,null,null);
