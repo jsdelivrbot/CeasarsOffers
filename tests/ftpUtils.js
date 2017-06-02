@@ -11,15 +11,12 @@ var caesarsLoggerMock = {
 var sftpClient = {
 
     connect : function(a){
-        console.log('mock connect');
         return new Promise((resolve, reject) => {});
     },
     put : function (buffer, fileName){
-        console.log('mock put');
         return new Promise((resolve, reject) => {});
     },
     get : function(filename){
-        console.log('mock get');
         return new Promise((resolve, reject) => {});
     }
 }

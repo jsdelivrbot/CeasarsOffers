@@ -37,14 +37,12 @@ exports.getContacts = function(request, response, next){
 }
 
 exports.postContact = function(request, response, next){
-     console.log('posting contacts into database');
      this.lKey = shortid.generate();
      var statement = request != null ? dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
      dbUtils.saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
 }
 
 exports.uploadContacts = function(fileName){
-    console.log('uploadContacts lkey ' + this.lKey);
     //var statement = 'COPY salesforce.contact FROM '+ '\'' + fileName  + '\' DELIMITER \',\' CSV';
     dbUtils.buildContactInsertStatementFromFile(fileName,dbUtils.saveIntoDatabase.bind(this));
 }
