@@ -14,12 +14,10 @@ var sftpClient = {
         return new Promise((resolve, reject) => {resolve()});
     },
     put : function (buffer, fileName){
-        console.log('put');
-        return new Promise((resolve, reject) => {});
+        return new Promise((resolve, reject) => {resolve()});
     },
     get : function(filename){
-        console.log('get');
-        return new Promise((resolve, reject) => {});
+        return new Promise((resolve, reject) => {resolve()});
     }
 }
 
