@@ -14,5 +14,5 @@ test('ensure leading zeros', t => {
 
 test('calculate Time Difference In Milliseconds', t => {
   var startMs = new Date().getTime() - 10;
-  t.is(dateUtils.calculateTimeDiffInMilliseconds(startMs),10);
+  t.true(dateUtils.calculateTimeDiffInMilliseconds(startMs) >= 10);
 });
