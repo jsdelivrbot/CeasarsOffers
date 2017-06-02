@@ -18,7 +18,7 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
     var startTime = new Date().getTime();
     if(records){
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-        var sftpClient = new require('ssh2-sftp-client');
+        var sftpClient = new require('ssh2-sftp-client')();
         sftpClient.connect(sftpConnectionParameters).then(() => {
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
@@ -40,7 +40,7 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 */
 exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
     var startTime = new Date().getTime();
-    var sftpClient = new require('ssh2-sftp-client');
+    var sftpClient = new require('ssh2-sftp-client')();
     sftpClient.connect(sftpConnectionParameters).then((data) => {
         sftpClient.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
