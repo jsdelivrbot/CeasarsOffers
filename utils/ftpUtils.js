@@ -8,6 +8,7 @@ var sftp = require('ssh2-sftp-client');
 
 var temp_dir = path.join(process.cwd(), 'temp/');
 
+
 /*
 * @description : Saves file on sftp server
 * @param records : list of records to be saved in file
@@ -17,9 +18,9 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
     var startTime = new Date().getTime();
     if(records){
         var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-        var sftpClient = new sftp();
-        sftpClient.connect(sftpConnectionParameters).then(() => {
-            sftpClient.put(buffer, fileName).then(() => {
+        //var sftpClient = new sftp();
+        sftp.connect(sftpConnectionParameters).then(() => {
+            sftp.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
             }).catch((err) => {
                 caesarsLogger.log('error','exports.saveFileOnSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
@@ -39,9 +40,9 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 */
 exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
     var startTime = new Date().getTime();
-    var sftpClient = new sftp();
-    sftpClient.connect(sftpConnectionParameters).then((data) => {
-        sftpClient.get(fileName).then((stream) => {
+    //var sftpClient = new sftp();
+    sftp.connect(sftpConnectionParameters).then((data) => {
+        sftp.get(fileName).then((stream) => {
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }
