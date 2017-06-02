@@ -5,16 +5,17 @@ var rewire = require("rewire");
 var myModule = rewire("../models/contact.js");
 
 var caesarsLoggerMock = {
-    log : function(a,b,c,d){
-    }
+    log : function(a,b,c,d){}
 }
 
 var dbUtilsMock = {
     buildContactInsertStatement : function(a){},
-    saveIntoDatabase : function(a,b,c){}
+    saveIntoDatabase : function(a,b,c){},
+    buildContactInsertStatementFromFile : function(a,b){}
 }
 
 myModule.__set__("caesarsLogger", caesarsLoggerMock);
+myModule.__set__("dbUtils", dbUtilsMock);
 
 test('get contacts',  t => {
     myModule.getContacts(null,null,null);
@@ -28,5 +29,10 @@ test('get Records Before Date And Post To FTP Server', t => {
 
 test('post Contact', t => {
    myModule.postContact(null,null,null);
-    t.true(true);
+   t.true(true);
+});
+
+test('upload Contacts', t => {
+   myModule.uploadContacts(null);
+   t.true(true);
 });

@@ -37,7 +37,7 @@ exports.getContacts = function(request, response, next){
 exports.postContact = function(request, response, next){
      console.log('posting contacts into database');
      this.lKey = shortid.generate();
-     var statement = request.body != null ? dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
+     var statement = request != null ? dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
      dbUtils.saveIntoDatabase.bind(this)(statement,'exports.postContact',response);
 }
 
