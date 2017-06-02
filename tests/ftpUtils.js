@@ -9,6 +9,7 @@ var caesarsLoggerMock = {
 }
 
 var sftp = {
+
     connect : function(a){
         return new Promise((resolve, reject) => {});
     },
