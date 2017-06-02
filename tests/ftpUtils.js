@@ -9,7 +9,6 @@ var caesarsLoggerMock = {
 }
 
 var sftpClient = {
-
     connect : function(a){
         return new Promise((resolve, reject) => {resolve()});
     },
@@ -21,8 +20,18 @@ var sftpClient = {
     }
 }
 
+var fs = {
+    existsSync : function(temp_dir){
+        return true;
+    },
+    createWriteStream : function(file){
+        return null;
+    }
+}
+
 myModule.__set__("caesarsLogger", caesarsLoggerMock);
 myModule.__set__("sftpClient", sftpClient);
+myModule.__set__("fs",fs);
 
 test('save File On SFTP Server', async t=>{
     var contacts = [JSON.parse('{"firstname":"nth offer","lastname":"nth offer"}'),JSON.parse('{"firstname":"nth offer","lastname":"nth offer"}')];

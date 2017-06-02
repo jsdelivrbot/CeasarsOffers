@@ -41,7 +41,6 @@ exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,call
     var startTime = new Date().getTime();
     sftpClient.connect(sftpConnectionParameters).then((data) => {
         sftpClient.get(fileName).then((stream) => {
-            console.log('getget');
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }
