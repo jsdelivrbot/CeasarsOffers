@@ -6,7 +6,7 @@ var shortid = require('shortid');
 exports.postOffer = function(request, response, next){
     this.lKey = shortid.generate();
     var startTime = new Date().getTime();
-    var dml = dbUtils.buildOfferInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body)));
+    var dml = request != null ? dbUtils.buildOfferInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(dml,
