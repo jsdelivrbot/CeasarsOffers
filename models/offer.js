@@ -13,10 +13,10 @@ exports.postOffer = function(request, response, next){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',this.lKey);
+                    caesarsLogger.log('error','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
                     response.json({ message: 'Error during offer post ' + JSON.stringify(err)});
                 } else {
-                    caesarsLogger.log('info','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',this.lKey);
+                    caesarsLogger.log('info','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
                     response.json({ message: 'You have done successful offer post call ' + JSON.stringify(result)});
                 }
                 client.end();
@@ -33,7 +33,7 @@ exports.getOffers = function(request, response, next){
             function(err, result){
                 done();
                 var timeDiff = new Date().getTime() - startTime;
-                caesarsLogger.log('info','exports.getOffers','{"timeDiff":"'+timeDiff+'"}',this.lKey);
+                caesarsLogger.log('info','exports.getOffers','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
                 response.json(err ? err : result.rows);
             }
         );

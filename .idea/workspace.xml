@@ -110,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/models/offer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="595">
-              <caret line="35" column="102" lean-forward="false" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="102" />
+              <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -986,7 +986,7 @@
     <entry file="file://$PROJECT_DIR$/models/offer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
-          <caret line="35" column="102" lean-forward="false" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="102" />
+          <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
           <folding />
         </state>
       </provider>
