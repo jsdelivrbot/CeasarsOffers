@@ -34,6 +34,7 @@ exports.getOffers = function(request, response, next){
                 done();
                 var timeDiff = new Date().getTime() - startTime;
                 caesarsLogger.log('info','exports.getOffers','{"timeDiff":"'+timeDiff+'"}',this.lKey);
+                console.log('result.rows ' + result.rows);
                 response.json(err ? err : result.rows);
             }
         );

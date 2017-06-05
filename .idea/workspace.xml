@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/dateUtils.js" afterPath="$PROJECT_DIR$/tests/dateUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ftpUtils.js" afterPath="$PROJECT_DIR$/tests/ftpUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/caesarsLogger.js" afterPath="$PROJECT_DIR$/utils/caesarsLogger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/offer.js" afterPath="$PROJECT_DIR$/models/offer.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,19 +14,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ftpUtils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/ftpUtils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#5457#0" expanded="false" />
-                <element signature="e#0#5457#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ftpUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/ftpUtils.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,6 +32,16 @@
               <folding>
                 <element signature="e#0#2935#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="caesarsLogger.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="caesarsLogger.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/caesarsLogger.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -112,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="offer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="offer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/offer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+            <state relative-caret-position="612">
+              <caret line="36" column="58" lean-forward="false" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -170,7 +164,6 @@
         <option value="$PROJECT_DIR$/utils/dbUtils.js" />
         <option value="$PROJECT_DIR$/utils/dateUtils.js" />
         <option value="$PROJECT_DIR$/utils/ftpUtils.js" />
-        <option value="$PROJECT_DIR$/models/offer.js" />
         <option value="$PROJECT_DIR$/models/contact.js" />
         <option value="$PROJECT_DIR$/tests/contact.js" />
         <option value="$PROJECT_DIR$/tests/offer.js" />
@@ -178,6 +171,7 @@
         <option value="$PROJECT_DIR$/tests/dateUtils.js" />
         <option value="$PROJECT_DIR$/tests/ftpUtils.js" />
         <option value="$PROJECT_DIR$/utils/caesarsLogger.js" />
+        <option value="$PROJECT_DIR$/models/offer.js" />
       </list>
     </option>
   </component>
@@ -870,14 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/fileUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -957,14 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/offer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/dbUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -993,6 +971,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/offer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="58" lean-forward="false" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
           <folding />
         </state>
       </provider>
