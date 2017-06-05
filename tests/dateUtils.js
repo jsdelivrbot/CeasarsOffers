@@ -12,7 +12,7 @@ test('ensure leading zeros', t => {
   t.is(dateUtils.ensureLeadingZeros(10),'10');
 });
 
-test('calculate Time Difference In Milliseconds', t => {
+test('calculate time difference in milliseconds', t => {
   var startMs = new Date().getTime() - 10;
   t.true(dateUtils.calculateTimeDiffInMilliseconds(startMs) >= 10);
 });

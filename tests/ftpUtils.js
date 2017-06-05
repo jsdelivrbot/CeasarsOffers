@@ -39,8 +39,9 @@ test('save File On SFTP Server', async t=>{
     t.true(true);
 });
 
-test('save File On SFTP Server with no records', async t=>{
-    myModule.saveFileOnSFTPServer(null,null,myModule.sftpConnectionTestParameters());
+test('save File On SFTP Server without records', async t=>{
+    var contacts;
+    myModule.saveFileOnSFTPServer(contacts,null,myModule.sftpConnectionTestParameters());
     t.true(true);
 });
 
