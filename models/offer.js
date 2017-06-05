@@ -28,6 +28,7 @@ exports.postOffer = function(request, response, next){
 exports.getOffers = function(request, response, next){
     this.lKey = shortid.generate();
     var startTime = new Date().getTime();
+    console.log('getOffers');
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT name FROM offers ',
             function(err, result){
