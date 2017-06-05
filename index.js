@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/
 
 var contactModel = require('./models/contact.js');
 var offerModel = require('./models/offer.js');
+var segmentModel = require('./models/segment.js');
 var ftpUtils = require('./utils/ftpUtils.js');
 var dbUtils = require('./utils/dbUtils.js');
 var caesarsLogger = require('./utils/caesarsLogger.js');
@@ -39,7 +40,15 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-app.get('/generateFile',function(request,response){
+app.get('/readWinnetIdFile',function(request,response){
+    this.lKey = shortid.generate();
+    var destinationFileName = request.query.filePath ? request.query.filePath : 'readme.txt';
+    var sourceFilePath = request.query.sourceFilePath ? request.query.sourceFilePath : 'readme.txt';
+    ftpUtils.readFileFromSFTPServer.bind(this)(sourceFilePath,destinationFileName,ftpUtils.sftpConnectionParameters(),segmentModel.uploadSegments.bind(this));
+    response.render('pages/index');
+});
+
+app.get('/generateContactFile',function(request,response){
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
     var destinationFileName = request.query.filePath ? request.query.filePath : 'contacts.txt';
@@ -47,7 +56,7 @@ app.get('/generateFile',function(request,response){
     response.render('pages/index');
 });
 
-app.get('/readFile',function(request,response){
+app.get('/readContactFile',function(request,response){
     this.lKey = shortid.generate();
     var destinationFileName = request.query.filePath ? request.query.filePath : 'readme.txt';
     var sourceFilePath = request.query.sourceFilePath ? request.query.sourceFilePath : 'readme.txt';

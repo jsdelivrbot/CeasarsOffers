@@ -6,10 +6,11 @@ var dateUtils = require('./dateUtils.js');
 
 /**
 * @description procedure reads file line by line and creates database insert statement
-* @param fileName name of the file
-* @param callback function that saves results into postgres
+* @param fileName : name of the file
+* @param callback : function that saves results into postgres
+* @param insert : statement header
 */
-exports.buildContactInsertStatementFromFile = function(fileName,callback){
+exports.buildInsertStatementFromFile = function(fileName,callback,statement){
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
 
     var lineReader = readLine.createInterface({
@@ -28,11 +29,28 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 
     lineReader.on('close', function(){
         statement = statement.substring(0,statement.length - 1);
-        callback(statement,'buildContactInsertStatementFromFile',null); // saveIntoDatabase
+        callback(statement,'buildInsertStatementFromFile',null); // saveIntoDatabase
     });
 }
 
-exports.saveIntoDatabase = function(statement,message,response){
+/**
+* @description procedure reads file line by line and creates database insert statement
+* @param fileName : name of the file
+* @param callback : function that saves results into postgres
+*/
+exports.buildContactInsertStatementFromFile = function(fileName,callback){
+    var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
+    exports.buildInsertStatementFromFile(fileName,callback,statement);
+}
+
+
+/**
+* @description method used for running db query
+* @param statement : insert statement to be executed
+* @param message : message to be used for logging
+* @param response : response object
+*/
+exports.runQuery = function(statement,message,response){
     var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
