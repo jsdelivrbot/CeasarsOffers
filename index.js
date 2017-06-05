@@ -42,14 +42,16 @@ app.get('/', function(request, response) {
 app.get('/generateFile',function(request,response){
     this.lKey = shortid.generate();
     var dateParam = request.query.enddate ? new Date(request.query.enddate) : new Date();
-    contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,'contacts.txt',ftpUtils.saveFileOnSFTPServer.bind(this));
+    var destinationFileName = request.query.filePath ? request.query.filePath : 'contacts.txt';
+    contactModel.getRecordsBeforeDateAndPostToFTPServer.bind(this)(dateParam,destinationFileName,ftpUtils.saveFileOnSFTPServer.bind(this));
     response.render('pages/index');
 });
 
 app.get('/readFile',function(request,response){
     this.lKey = shortid.generate();
-    var fileName = request.query.filePath ? request.query.filePath : 'readme.txt';
-    ftpUtils.readFileFromSFTPServer.bind(this)(fileName,fileName,ftpUtils.sftpConnectionParameters(),contactModel.uploadContacts.bind(this));
+    var destinationFileName = request.query.filePath ? request.query.filePath : 'readme.txt';
+    var sourceFilePath = request.query.sourceFilePath ? request.query.sourceFilePath : 'readme.txt';
+    ftpUtils.readFileFromSFTPServer.bind(this)(sourceFilePath,destinationFileName,ftpUtils.sftpConnectionParameters(),contactModel.uploadContacts.bind(this));
     response.render('pages/index');
 });
 
