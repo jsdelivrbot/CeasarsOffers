@@ -37,10 +37,10 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 * @param fileName : name of the file that should be read
 * @param callback : callback method to be invoked after successful upload
 */
-exports.readFileFromSFTPServer = function(fileName,sftpConnectionParameters,callback){
+exports.readFileFromSFTPServer = function(sourceFilePath,fileName,sftpConnectionParameters,callback){
     var startTime = new Date().getTime();
     sftpClient.connect(sftpConnectionParameters).then((data) => {
-        sftpClient.get(fileName).then((stream) => {
+        sftpClient.get(sourceFilePath).then((stream) => {
             if (!fs.existsSync(temp_dir)){
                 fs.mkdirSync(temp_dir);
             }

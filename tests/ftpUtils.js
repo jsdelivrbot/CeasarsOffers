@@ -46,6 +46,6 @@ test('save File On SFTP Server without records', async t=>{
 });
 
 test('read File From SFTP Server', async t=> {
-    myModule.readFileFromSFTPServer(null,myModule.sftpConnectionTestParameters(), new function(a){})
+    myModule.readFileFromSFTPServer(null,null,myModule.sftpConnectionTestParameters(), new function(a){})
     t.true(true);
 })
