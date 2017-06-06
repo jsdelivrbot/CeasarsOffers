@@ -6,14 +6,15 @@ exports.uploadSegments = function(localFileName){
     var startTime = new Date().getTime();
 
     var segmentStatement = 'insert into segment (id, name, isLocked) values ';
+
     var segmentMemberStatement = 'insert into segmentMember (id, name, segment, WINetId, accountId) values ';
 
     var lineReader = readLine.createInterface({
           input: fs.createReadStream(fileName)
-        });
+    });
 
     var lineCounter = 0;
-    
+
     lineReader.on('line', function (line) {
         var columns = line.split(',');
 
@@ -44,10 +45,10 @@ exports.uploadSegments = function(localFileName){
             client.query(segmentStatement ,
                 function(err, result) {
                     if(!err){
-                        caesarsLogger.log('info','uploadSegments ','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                        caesarsLogger.log('info','uploadSegments','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                         insertSegmentMembers(segmentMemberStatement);
                     } else {
-                        caesarsLogger.log('error','uploadSegments ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                        caesarsLogger.log('error','uploadSegments : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                     }
                 })
             }
@@ -62,9 +63,9 @@ var insertSegmentMembers = function(segmentMemberStatement){
         client.query(segmentMemberStatement,
             function(err, result) {
                 if(!err){
-                    caesarsLogger.log('info','insertSegmentMembers ','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                    caesarsLogger.log('info','insertSegmentMembers','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                 } else {
-                    caesarsLogger.log('error','insertSegmentMembers ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                    caesarsLogger.log('error','insertSegmentMembers : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                 }
             })
         }

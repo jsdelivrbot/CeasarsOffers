@@ -3,82 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/segment.js" afterPath="$PROJECT_DIR$/models/segment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/accepts/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/accepts/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/accepts/README.md" afterPath="$PROJECT_DIR$/node_modules/accepts/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/arrify/readme.md" afterPath="$PROJECT_DIR$/node_modules/arrify/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/asn1/README.md" afterPath="$PROJECT_DIR$/node_modules/asn1/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ava/index.js.flow" afterPath="$PROJECT_DIR$/node_modules/ava/index.js.flow" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ava/readme.md" afterPath="$PROJECT_DIR$/node_modules/ava/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/babylon/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/babylon/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/babylon/README.md" afterPath="$PROJECT_DIR$/node_modules/babylon/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/boxen/readme.md" afterPath="$PROJECT_DIR$/node_modules/boxen/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/braces/README.md" afterPath="$PROJECT_DIR$/node_modules/braces/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/busboy/README.md" afterPath="$PROJECT_DIR$/node_modules/busboy/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/bytes/History.md" afterPath="$PROJECT_DIR$/node_modules/bytes/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/bytes/Readme.md" afterPath="$PROJECT_DIR$/node_modules/bytes/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/chalk/readme.md" afterPath="$PROJECT_DIR$/node_modules/chalk/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ci-info/README.md" afterPath="$PROJECT_DIR$/node_modules/ci-info/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/cookie/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/cookie/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/cookie/README.md" afterPath="$PROJECT_DIR$/node_modules/cookie/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/core-js/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/core-js/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/destroy/README.md" afterPath="$PROJECT_DIR$/node_modules/destroy/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/dicer/README.md" afterPath="$PROJECT_DIR$/node_modules/dicer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/diff/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/node_modules/diff/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/diff/README.md" afterPath="$PROJECT_DIR$/node_modules/diff/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/diff/release-notes.md" afterPath="$PROJECT_DIR$/node_modules/diff/release-notes.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/esutils/README.md" afterPath="$PROJECT_DIR$/node_modules/esutils/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/execa/readme.md" afterPath="$PROJECT_DIR$/node_modules/execa/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/History.md" afterPath="$PROJECT_DIR$/node_modules/express/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/Readme.md" afterPath="$PROJECT_DIR$/node_modules/express/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/for-in/README.md" afterPath="$PROJECT_DIR$/node_modules/for-in/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/globby/readme.md" afterPath="$PROJECT_DIR$/node_modules/globby/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/got/readme.md" afterPath="$PROJECT_DIR$/node_modules/got/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ini/README.md" afterPath="$PROJECT_DIR$/node_modules/ini/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/is-ci/README.md" afterPath="$PROJECT_DIR$/node_modules/is-ci/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/is-npm/readme.md" afterPath="$PROJECT_DIR$/node_modules/is-npm/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/is-obj/readme.md" afterPath="$PROJECT_DIR$/node_modules/is-obj/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/is-url/History.md" afterPath="$PROJECT_DIR$/node_modules/is-url/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/is-url/Readme.md" afterPath="$PROJECT_DIR$/node_modules/is-url/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/isexe/README.md" afterPath="$PROJECT_DIR$/node_modules/isexe/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jsesc/README.md" afterPath="$PROJECT_DIR$/node_modules/jsesc/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jsftp/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/jsftp/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jsftp/README.md" afterPath="$PROJECT_DIR$/node_modules/jsftp/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/json5/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/json5/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/json5/LICENSE.md" afterPath="$PROJECT_DIR$/node_modules/json5/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/json5/README.md" afterPath="$PROJECT_DIR$/node_modules/json5/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/leven/readme.md" afterPath="$PROJECT_DIR$/node_modules/leven/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/lolex/History.md" afterPath="$PROJECT_DIR$/node_modules/lolex/History.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/lolex/RELEASE.md" afterPath="$PROJECT_DIR$/node_modules/lolex/RELEASE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/lolex/Readme.md" afterPath="$PROJECT_DIR$/node_modules/lolex/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/meow/readme.md" afterPath="$PROJECT_DIR$/node_modules/meow/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/multer/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/multer/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/multer/README.md" afterPath="$PROJECT_DIR$/node_modules/multer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/once/README.md" afterPath="$PROJECT_DIR$/node_modules/once/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pgpass/README.md" afterPath="$PROJECT_DIR$/node_modules/pgpass/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pgtest/README.md" afterPath="$PROJECT_DIR$/node_modules/pgtest/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pify/readme.md" afterPath="$PROJECT_DIR$/node_modules/pify/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinkie/readme.md" afterPath="$PROJECT_DIR$/node_modules/pinkie/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/plur/readme.md" afterPath="$PROJECT_DIR$/node_modules/plur/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/rc/README.md" afterPath="$PROJECT_DIR$/node_modules/rc/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/redent/readme.md" afterPath="$PROJECT_DIR$/node_modules/redent/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/rewire/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/rewire/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/rewire/README.md" afterPath="$PROJECT_DIR$/node_modules/rewire/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/samsam/Readme.md" afterPath="$PROJECT_DIR$/node_modules/samsam/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/semver/README.md" afterPath="$PROJECT_DIR$/node_modules/semver/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/sinon/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/node_modules/sinon/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/sinon/README.md" afterPath="$PROJECT_DIR$/node_modules/sinon/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/slash/readme.md" afterPath="$PROJECT_DIR$/node_modules/slash/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/slide/README.md" afterPath="$PROJECT_DIR$/node_modules/slide/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ssh2/README.md" afterPath="$PROJECT_DIR$/node_modules/ssh2/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/unorm/LICENSE.md" afterPath="$PROJECT_DIR$/node_modules/unorm/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/unorm/README.md" afterPath="$PROJECT_DIR$/node_modules/unorm/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/unpipe/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/unpipe/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/unpipe/README.md" afterPath="$PROJECT_DIR$/node_modules/unpipe/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/which/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/which/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/which/README.md" afterPath="$PROJECT_DIR$/node_modules/which/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wrappy/README.md" afterPath="$PROJECT_DIR$/node_modules/wrappy/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/xtend/README.md" afterPath="$PROJECT_DIR$/node_modules/xtend/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -147,8 +71,8 @@
       <file leaf-file-name="segment.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/segment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+            <state relative-caret-position="351">
+              <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -998,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/segment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        <state relative-caret-position="351">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding />
         </state>
       </provider>
