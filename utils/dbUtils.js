@@ -84,7 +84,7 @@ exports.buildContactInsertStatement = function(contacts){
                       '\''+contacts[i].gender+'\''  + ',' +
                       '\''+contacts[i].tierlevel+'\''  + ',' +
                       '\''+contacts[i].tierscore+'\''  + ',' +
-                      '\''+contacts[i].winnetid+'\''  + ',' +
+                      '\''+contacts[i].winnetid+'\''
                       +'),';
     }
     statement = statement.substring(0,statement.length - 1);
