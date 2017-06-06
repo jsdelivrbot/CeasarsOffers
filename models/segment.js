@@ -1,6 +1,6 @@
 var pg = require('pg');
 var dbUtils = require('../utils/dbUtils.js');
-var caesarsLogger = require('../caesarsLogger.js');
+var caesarsLogger = require('../utils/caesarsLogger.js');
 
 exports.uploadSegments = function(localFileName){
     var startTime = new Date().getTime();

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Michal_Bluj.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Michal_Bluj.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/segment.js" afterPath="$PROJECT_DIR$/models/segment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/dbUtils.js" afterPath="$PROJECT_DIR$/utils/dbUtils.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -75,9 +72,9 @@
         <entry file="file://$PROJECT_DIR$/models/segment.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+              <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
               <folding>
-                <element signature="e#0#2871#0" expanded="false" />
+                <element signature="e#0#2877#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -930,9 +927,9 @@
     <entry file="file://$PROJECT_DIR$/models/segment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding>
-            <element signature="e#0#2871#0" expanded="false" />
+            <element signature="e#0#2877#0" expanded="false" />
           </folding>
         </state>
       </provider>
