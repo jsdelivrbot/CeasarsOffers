@@ -11,7 +11,6 @@ var dateUtils = require('./dateUtils.js');
 * @param insert : statement header
 */
 exports.buildInsertStatementFromFile = function(fileName,callback,statement){
-    var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
 
     var lineReader = readLine.createInterface({
       input: fs.createReadStream(fileName)
