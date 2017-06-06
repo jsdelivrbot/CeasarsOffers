@@ -38,7 +38,7 @@ exports.buildInsertStatementFromFile = function(fileName,callback,statement){
 * @param callback : function that saves results into postgres
 */
 exports.buildContactInsertStatementFromFile = function(fileName,callback){
-    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c, winnet_id__c) VALUES ';
+    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES ';
     exports.buildInsertStatementFromFile(fileName,callback,statement);
 }
 
