@@ -77,7 +77,7 @@ exports.runQuery = function(statement,message,response){
 */
 exports.buildContactInsertStatement = function(contacts){
     var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES';
-    for(var i = 0; i<contacts.length; i++){
+    for(var i = 0; i < contacts.length; i++){
         statement += '(\''+contacts[i].firstname+'\'' + ',' +
                       '\''+contacts[i].lastname+'\''  + ',' +
                       '\''+contacts[i].age+'\''  + ',' +

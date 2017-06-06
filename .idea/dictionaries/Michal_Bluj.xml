@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Michal Bluj">
     <words>
+      <w>edate</w>
       <w>enddate</w>
       <w>firstname</w>
       <w>heroku</w>
@@ -15,7 +16,10 @@
       <w>speedtest</w>
       <w>systemmodstamp</w>
       <w>tele</w>
+      <w>tierlevel</w>
+      <w>tierscore</w>
       <w>winnet</w>
+      <w>winnetid</w>
     </words>
   </dictionary>
 </component>
