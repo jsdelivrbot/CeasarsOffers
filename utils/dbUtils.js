@@ -38,10 +38,9 @@ exports.buildInsertStatementFromFile = function(fileName,callback,statement){
 * @param callback : function that saves results into postgres
 */
 exports.buildContactInsertStatementFromFile = function(fileName,callback){
-    var statement = 'INSERT INTO salesforce.contact (firstname, lastname) VALUES ';
+    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c, winnet_id__c) VALUES ';
     exports.buildInsertStatementFromFile(fileName,callback,statement);
 }
-
 
 /**
 * @description method used for running db query
@@ -77,9 +76,16 @@ exports.runQuery = function(statement,message,response){
 * @param contacts list of contact objects
 */
 exports.buildContactInsertStatement = function(contacts){
-    var statement = 'INSERT INTO salesforce.contact (firstname,lastname) VALUES ';
+    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c, winnet_id__c) VALUES';
     for(var i = 0; i<contacts.length; i++){
-        statement += '(\''+contacts[i].firstname+'\'' + ',' + '\''+contacts[i].lastname+'\'' +'),';
+        statement += '(\''+contacts[i].firstname+'\'' + ',' +
+                      '\''+contacts[i].lastname+'\''  + ',' +
+                      '\''+contacts[i].age+'\''  + ',' +
+                      '\''+contacts[i].gender+'\''  + ',' +
+                      '\''+contacts[i].tierlevel+'\''  + ',' +
+                      '\''+contacts[i].tierscore+'\''  + ',' +
+                      '\''+contacts[i].winnetid+'\''  + ',' +
+                      +'),';
     }
     statement = statement.substring(0,statement.length - 1);
     return statement;
