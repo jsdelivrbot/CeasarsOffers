@@ -29,7 +29,7 @@ var fs = {
     }
 }
 
-myModule.__set__("caesarsLogger", caesarsLoggerMock);
+myModule.__set__("logger", caesarsLoggerMock);
 myModule.__set__("sftpClient", sftpClient);
 myModule.__set__("fs",fs);
 

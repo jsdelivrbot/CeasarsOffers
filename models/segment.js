@@ -1,6 +1,8 @@
 var pg = require('pg');
 var dbUtils = require('../utils/dbUtils.js');
-var loggerogger = require('../utils/caesarsLogger.js');
+var logger = require('../utils/caesarsLogger.js');
+var readLine = require("readline");
+var fs = require("fs");
 
 exports.uploadSegments = function(localFileName){
     var startTime = new Date().getTime();
@@ -10,7 +12,7 @@ exports.uploadSegments = function(localFileName){
     var segmentMemberStatement = 'insert into segmentMember (id, name, segment, WINetId, accountId) values ';
 
     var lineReader = readLine.createInterface({
-          input: fs.createReadStream(fileName)
+          input: fs.createReadStream(localFileName)
     });
 
     var lineCounter = 0;
@@ -46,7 +48,7 @@ exports.uploadSegments = function(localFileName){
                 function(err, result) {
                     if(!err){
                         logger.log('info','uploadSegments','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
-                        insertSegmentMembers.bind(this)(segmentMemberStatement);
+                        exports.insertSegmentMembers.bind(this)(segmentMemberStatement);
                     } else {
                         logger.log('error','uploadSegments : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                     }
@@ -57,7 +59,7 @@ exports.uploadSegments = function(localFileName){
     });
 }
 
-var insertSegmentMembers = function(segmentMemberStatement){
+exports.insertSegmentMembers = function(segmentMemberStatement){
     var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {

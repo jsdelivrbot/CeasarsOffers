@@ -1,5 +1,5 @@
 var pg = require('pg');
-var loggerogger = require('../utils/caesarsLogger.js');
+var logger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
 var shortid = require('shortid');
 
@@ -13,10 +13,10 @@ exports.postOffer = function(request, response, next){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    loggerogger.log('error','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
+                    logger.log('error','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
                     response.json({ message: 'Error during offer post ' + JSON.stringify(err)});
                 } else {
-                    caesarsLogger.log('info','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
+                    logger.log('info','exports.postOffer','{"timeDiff":"'+timeDiff+'"}',shortid.generate());
                     response.json({ message: 'You have done successful offer post call ' + JSON.stringify(result)});
                 }
                 client.end();
