@@ -1,6 +1,6 @@
 var pg = require('pg');
 var dbUtils = require('../utils/dbUtils.js');
-var caesarsLogger = require('../utils/caesarsLogger.js');
+var loggerogger = require('../utils/caesarsLogger.js');
 
 exports.uploadSegments = function(localFileName){
     var startTime = new Date().getTime();
@@ -45,10 +45,10 @@ exports.uploadSegments = function(localFileName){
             client.query(segmentStatement ,
                 function(err, result) {
                     if(!err){
-                        caesarsLogger.log('info','uploadSegments','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                        logger.log('info','uploadSegments','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                         insertSegmentMembers.bind(this)(segmentMemberStatement);
                     } else {
-                        caesarsLogger.log('error','uploadSegments : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                        logger.log('error','uploadSegments : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                     }
                 })
             }
@@ -64,9 +64,9 @@ var insertSegmentMembers = function(segmentMemberStatement){
         client.query(segmentMemberStatement,
             function(err, result) {
                 if(!err){
-                    caesarsLogger.log('info','insertSegmentMembers','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
+                    logger.log('info','insertSegmentMembers','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                 } else {
-                    caesarsLogger.log('error','insertSegmentMembers : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
+                    logger.log('error','insertSegmentMembers : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                 }
             })
         }

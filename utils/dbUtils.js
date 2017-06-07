@@ -1,7 +1,7 @@
 var fs = require("fs");
 var readLine = require("readline");
 var pg = require('pg');
-var caesarsLogger = require('./caesarsLogger.js');
+var logger = require('./caesarsLogger.js');
 var dateUtils = require('./dateUtils.js');
 
 /**
@@ -56,12 +56,12 @@ exports.runQuery = function(statement,message,response){
             function(err, result) {
                 var timeDiff = new Date().getTime() - startTime;
                 if (err) {
-                    caesarsLogger.log('error',message + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
+                    logger.log('error',message + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Error ' + JSON.stringify(err)});
                     }
                 } else {
-                    caesarsLogger.log('info',message,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
+                    logger.log('info',message,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                     if(response != null) {
                         response.json({ message: 'Done ' + JSON.stringify(result)});
                     }

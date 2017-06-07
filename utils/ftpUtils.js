@@ -2,7 +2,7 @@ var jsFtp = require("jsftp");
 var fs = require("fs");
 var path = require("path");
 var fileUtils = require('./fileUtils.js');
-var caesarsLogger = require('./caesarsLogger.js');
+var logger = require('./caesarsLogger.js');
 var dateUtils = require('./dateUtils.js');
 var sftp = require('ssh2-sftp-client');
 var temp_dir = path.join(process.cwd(), 'temp/');
@@ -22,13 +22,13 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
             }).catch((err) => {
-                caesarsLogger.log('error','exports.saveFileOnSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                logger.log('error','exports.saveFileOnSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
             });
         }).catch((err) => {
-            caesarsLogger.log('error','exports.saveFileOnSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+            logger.log('error','exports.saveFileOnSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
         });
     } else {
-        caesarsLogger.log('info','exports.saveFileOnSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+        logger.log('info','exports.saveFileOnSFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     }
 }
 
@@ -49,10 +49,10 @@ exports.readFileFromSFTPServer = function(sourceFilePath,fileName,sftpConnection
                 callback(temp_dir+fileName);
             });
         }).catch((err) => {
-            caesarsLogger.log('error','exports.readFileFromSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+            logger.log('error','exports.readFileFromSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
         });
     }).catch((err) => {
-        caesarsLogger.log('error','exports.readFileFromSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+        logger.log('error','exports.readFileFromSFTPServer ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     });
 }
 
@@ -72,13 +72,13 @@ exports.saveFileOnFTPServer = function(records, fileName){
           console.log('Transferring file ' + fileName + ' into FTP server');
           var timeDiff = new Date().getTime() - startTime;
           if (!hadError){
-            caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+            logger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
           } else {
-            caesarsLogger.log('error','exports.saveFileOnFTPServer ' + hadError,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+            logger.log('error','exports.saveFileOnFTPServer ' + hadError,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
           }
         });
     } else {
-        caesarsLogger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+        logger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
     }
 }
 
