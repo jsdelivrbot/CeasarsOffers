@@ -58,14 +58,15 @@ exports.uploadSegments = function(localFileName){
 }
 
 var insertSegmentMembers = function(segmentMemberStatement){
+    var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(segmentMemberStatement,
             function(err, result) {
                 if(!err){
-                    caesarsLogger.log('info','insertSegmentMembers','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                    caesarsLogger.log('info','insertSegmentMembers','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                 } else {
-                    caesarsLogger.log('error','insertSegmentMembers : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+                    caesarsLogger.log('error','insertSegmentMembers : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',logKey);
                 }
             })
         }

@@ -2,7 +2,7 @@ var pg = require('pg');
 var shortid = require('shortid');
 var dateUtils = require('../utils/dateUtils.js');
 var ftpUtils = require('../utils/ftpUtils.js');
-var caesarsLogger = require('../utils/caesarsLogger.js');
+var logger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,callback){
@@ -15,7 +15,7 @@ exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,cal
 
         query.on('end', () => {
             done();
-            caesarsLogger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
+            logger.log('info','getRecordsBeforeDateAndPostToFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
             callback(results,fileName,ftpUtils.sftpConnectionParameters());
         });
     });
@@ -27,7 +27,7 @@ exports.getContacts = function(request, response, next){
         client.query('SELECT firstname, lastname FROM salesforce.contact ',
             function(err, result){
                 done();
-                caesarsLogger.log('info','exports.getContacts','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',shortid.generate());
+                logger.log('info','exports.getContacts','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',shortid.generate());
                 response.json(err ? err : result.rows);
             }
         );
