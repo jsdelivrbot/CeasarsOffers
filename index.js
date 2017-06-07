@@ -40,7 +40,7 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-app.get('/readWinnetIdFile',function(request,response){
+app.get('/uploadWinnetIdFile',function(request,response){
     this.lKey = shortid.generate();
     var destinationFileName = request.query.filePath ? request.query.filePath : 'readme.txt';
     var sourceFilePath = request.query.sourceFilePath ? request.query.sourceFilePath : 'readme.txt';
@@ -56,7 +56,7 @@ app.get('/generateContactFile',function(request,response){
     response.render('pages/index');
 });
 
-app.get('/readContactFile',function(request,response){
+app.get('/uploadContactFile',function(request,response){
     this.lKey = shortid.generate();
     var destinationFileName = request.query.filePath ? request.query.filePath : 'readme.txt';
     var sourceFilePath = request.query.sourceFilePath ? request.query.sourceFilePath : 'readme.txt';
