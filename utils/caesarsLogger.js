@@ -7,7 +7,6 @@ exports.log = function(level,message,json,reqKey){
     console.log(statement);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-        if(client == null) return;
         client.query(statement,
             function(err, result) {
                 if(err){

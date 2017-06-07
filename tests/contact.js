@@ -10,7 +10,7 @@ var caesarsLoggerMock = {
 
 var dbUtilsMock = {
     buildContactInsertStatement : function(a){},
-    saveIntoDatabase : function(a,b,c){},
+    runQuery : function(a,b,c){},
     buildContactInsertStatementFromFile : function(a,b){}
 }
 
