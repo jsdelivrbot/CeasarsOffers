@@ -37,7 +37,7 @@ exports.getContacts = function(request, response, next){
 exports.postContact = function(request, response, next){
      this.lKey = shortid.generate();
      var statement = request != null ? dbUtils.buildContactInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
-     dbUtils.runQuery.bind(this)(statement,'exports.postContact',response);
+     dbUtils.runQuery(statement,'exports.postContact',response);//.bind(this);
 }
 
 exports.uploadContacts = function(fileName){
