@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/contact.js" afterPath="$PROJECT_DIR$/models/contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/dbUtils.js" afterPath="$PROJECT_DIR$/tests/dbUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/caesarsLogger.js" afterPath="$PROJECT_DIR$/utils/caesarsLogger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/dbUtils.js" afterPath="$PROJECT_DIR$/utils/dbUtils.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +30,11 @@
       <file leaf-file-name="dbUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/dbUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+            <state relative-caret-position="544">
+              <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="18" />
               <folding>
-                <element signature="e#0#4053#0" expanded="false" />
-                <element signature="e#0#4053#0" expanded="false" />
+                <element signature="e#0#4055#0" expanded="false" />
+                <element signature="e#0#4055#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -104,8 +103,8 @@
       <file leaf-file-name="contact.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/contact.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+            <state relative-caret-position="748">
+              <caret line="44" column="75" lean-forward="false" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -179,10 +178,10 @@
         <option value="$PROJECT_DIR$/models/offer.js" />
         <option value="$PROJECT_DIR$/models/segment.js" />
         <option value="$PROJECT_DIR$/utils/ftpUtils.js" />
-        <option value="$PROJECT_DIR$/utils/dbUtils.js" />
         <option value="$PROJECT_DIR$/tests/dbUtils.js" />
-        <option value="$PROJECT_DIR$/models/contact.js" />
         <option value="$PROJECT_DIR$/utils/caesarsLogger.js" />
+        <option value="$PROJECT_DIR$/utils/dbUtils.js" />
+        <option value="$PROJECT_DIR$/models/contact.js" />
       </list>
     </option>
   </component>
@@ -954,17 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/dbUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#4053#0" expanded="false" />
-            <element signature="e#0#4053#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/caesarsLogger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -981,10 +969,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/dbUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#4055#0" expanded="false" />
+            <element signature="e#0#4055#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        <state relative-caret-position="748">
+          <caret line="44" column="75" lean-forward="false" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
           <folding />
         </state>
       </provider>

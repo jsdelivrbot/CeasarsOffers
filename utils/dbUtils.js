@@ -48,7 +48,7 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 * @param message : message to be used for logging
 * @param response : response object
 */
-exports.runQuery = function(statement,message,response){
+exports.runQuerrry = function(statement,message,response){
     var logKey = this.lKey;
     var startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
