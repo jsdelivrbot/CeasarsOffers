@@ -46,7 +46,7 @@ exports.uploadSegments = function(localFileName){
                 function(err, result) {
                     if(!err){
                         caesarsLogger.log('info','uploadSegments','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
-                        insertSegmentMembers(segmentMemberStatement);
+                        insertSegmentMembers.bind(this)(segmentMemberStatement);
                     } else {
                         caesarsLogger.log('error','uploadSegments : ' + err,'{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
                     }
