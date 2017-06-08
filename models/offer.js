@@ -12,8 +12,8 @@ availableOffersParamsToColumnsMap.set('Date','Date');
 availableOffersParamsToColumnsMap.set('OutletCode','OutletCode');
 
 exports.getAvailableOffers = function(request,response,next){
-    var requestParameters = httpUtils.parseRequestForParameters(request,availableOffersParamsToColumnsMap);
-    var availableOfferQuery = exports.createOfferQuery(requestParameters);
+    var requestParameters = httpUtils.parseRequestForParameters(request);
+    var availableOfferQuery = exports.createOfferQuery(requestParameters,availableOffersParamsToColumnsMap);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(availableOfferQuery,function(err, result){
                 response.json(err ? err : result.rows);
