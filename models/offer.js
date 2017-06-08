@@ -13,7 +13,7 @@ var availableOffersParamsToColumnsMap = {"WinnetId":"WinnetId",
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
     console.log('running get Available Offers with parameters : ' + JSON.stringify(requestParameters));
-    var availableOfferQuery = createAvailableOfferQuery(requestParameters);
+    var availableOfferQuery = exports.createAvailableOfferQuery(requestParameters);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(availableOfferQuery,function(err, result){
                 response.json(err ? err : result.rows);
