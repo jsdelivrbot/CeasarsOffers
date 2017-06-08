@@ -25,11 +25,12 @@ exports.getAvailableOffers = function(request,response,next){
 exports.createOfferQuery = function(requestParameters,paramMap){
     var query = 'SELECT name FROM offers WHERE ';
     var keyList = Array.from(paramMap.keys());
+    var paramLength = Array.from(requestParameters.keys()).length;
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
         if(requestParameters[key]){
             query += paramMap.get(key) + ' = ' + requestParameters[key];
-            if(index < requestParameters.length - 1){
+            if(index < paramLength - 1){
                 query += ' AND ';
             }
         }
