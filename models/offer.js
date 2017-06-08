@@ -6,21 +6,16 @@ var shortid = require('shortid');
 
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
-    console.log('running get Available Offers with parameters : ' + requestParameters);
-    for(var i = 0; i < requestParameters.keys().length; i++){
-            var key = requestParameters.keys()[i];
-            console.log(key + ' : ' + requestParameters[key]);
-        }
+    console.log('running get Available Offers with parameters : ' + JSON.stringify(requestParameters));
+    console.log(requestParameters.param1);
+    console.log(requestParameters.param2);
+    console.log(requestParameters.param3);
     response.json('{}');
 }
 
 exports.getOfferDetails = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
-    console.log('running get Offer Details with parameters : ' + requestParameters);
-    for(var i = 0; i < requestParameters.keys().length; i++){
-        var key = requestParameters.keys()[i];
-        console.log(key + ' : ' + requestParameters[key]);
-    }
+    console.log('running get Offer Details with parameters : ' + JSON.stringify(requestParameters));
     response.json('{}');
 }
 
