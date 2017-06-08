@@ -22,7 +22,7 @@ exports.getAvailableOffers = function(request,response,next){
     });
 }
 
-exports.createAvailableOfferQuery(requestParameters){
+exports.createAvailableOfferQuery = function(requestParameters){
     var query = 'SELECT name FROM offers WHERE ';
     for(var index = 0; index <  availableOffersParamsToColumnsMap.keys.length; index++){
         var key = availableOffersParamsToColumnsMap.keys[index];
