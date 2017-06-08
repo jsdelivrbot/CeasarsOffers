@@ -96,8 +96,8 @@ router.get('/contacts',contactModel.getContacts);
 router.post('/contacts',contactModel.postContact);
 
 router.get('/availableOffers',offerModel.getAvailableOffers); // Available Offer List
-router.get('/offerDetails',offerModel.getOfferDetails); // View Offer Details
-router.put('/modifyOffer',offerModel.modifyOffer); // Offer modification
+//router.get('/offerDetails',offerModel.getOfferDetails); // View Offer Details
+//router.put('/modifyOffer',offerModel.modifyOffer); // Offer modification
 
 router.get('/offer',offerModel.getOffer);
 router.post('/offers',offerModel.postOffer);
