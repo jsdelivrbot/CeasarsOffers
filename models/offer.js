@@ -12,8 +12,8 @@ availableOffersParamsToColumnsMap.set('Date','Date');
 availableOffersParamsToColumnsMap.set('OutletCode','OutletCode');
 
 exports.getAvailableOffers = function(request,response,next){
-    var requestParameters = httpUtils.parseRequestForParameters(request);
-    var availableOfferQuery = exports.createAvailableOfferQuery(requestParameters);
+    var requestParameters = httpUtils.parseRequestForParameters(request,availableOffersParamsToColumnsMap);
+    var availableOfferQuery = exports.createOfferQuery(requestParameters);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(availableOfferQuery,function(err, result){
                 response.json(err ? err : result.rows);
@@ -22,13 +22,13 @@ exports.getAvailableOffers = function(request,response,next){
     });
 }
 
-exports.createAvailableOfferQuery = function(requestParameters){
+exports.createOfferQuery = function(requestParameters,paramMap){
     var query = 'SELECT name FROM offers WHERE ';
-    var keyList = Array.from(availableOffersParamsToColumnsMap.keys());
+    var keyList = Array.from(paramMap.keys());
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
         if(requestParameters[key]){
-            query += availableOffersParamsToColumnsMap.get(key) + ' = ' + requestParameters[key];
+            query += paramMap.get(key) + ' = ' + requestParameters[key];
             if(index < keyList.length - 2){
                 query += ' AND ';
             }
