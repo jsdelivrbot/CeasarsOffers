@@ -29,7 +29,7 @@ exports.createOfferQuery = function(requestParameters,paramMap){
         var key = keyList[index];
         if(requestParameters[key]){
             query += paramMap.get(key) + ' = ' + requestParameters[key];
-            if(index < keyList.length - 2){
+            if(index < requestParameters.length - 2){
                 query += ' AND ';
             }
         }
