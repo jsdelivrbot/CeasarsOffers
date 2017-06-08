@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d24fe5-af3e-4a05-97f7-399b8a71f606" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/offer.js" afterPath="$PROJECT_DIR$/models/offer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/httpUtils.js" afterPath="$PROJECT_DIR$/utils/httpUtils.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="offer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="offer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/offer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpUtils.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="httpUtils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/httpUtils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -121,8 +121,8 @@
         <option value="$PROJECT_DIR$/tests/segment.js" />
         <option value="$PROJECT_DIR$/models/segment.js" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/utils/httpUtils.js" />
         <option value="$PROJECT_DIR$/models/offer.js" />
+        <option value="$PROJECT_DIR$/utils/httpUtils.js" />
       </list>
     </option>
   </component>
@@ -901,14 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/httpUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/offer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -917,6 +909,14 @@
             <element signature="e#0#2547#0" expanded="false" />
             <element signature="e#0#2547#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/httpUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
