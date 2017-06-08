@@ -4,11 +4,12 @@ var dbUtils = require('../utils/dbUtils.js');
 var httpUtils = require('../utils/httpUtils.js');
 var shortid = require('shortid');
 
-var availableOffersParamsToColumnsMap = {"WinnetId":"WinnetId",
-                                         "PropertyLocalTime":"PropertyLocalTime",
-                                         "Property":"Property",
-                                         "Date":"Date",
-                                         "OutletCode":"OutletCode"};
+var availableOffersParamsToColumnsMap = new Map();
+availableOffersParamsToColumnsMap.set('WinnetId','WinnetId');
+availableOffersParamsToColumnsMap.set('PropertyLocalTime','PropertyLocalTime');
+availableOffersParamsToColumnsMap.set('Property','Property');
+availableOffersParamsToColumnsMap.set('Date','Date');
+availableOffersParamsToColumnsMap.set('OutletCode','OutletCode');
 
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
@@ -24,8 +25,9 @@ exports.getAvailableOffers = function(request,response,next){
 
 exports.createAvailableOfferQuery = function(requestParameters){
     var query = 'SELECT name FROM offers WHERE ';
-    for(var index = 0; index <  availableOffersParamsToColumnsMap.keys().length; index++){
-        var key = availableOffersParamsToColumnsMap.keys[index];
+    var keyList = Array.from(availableOffersParamsToColumnsMap.keys());
+    for(var index = 0; index < keyList.length; index++){
+        var key = keyList[index];
         if(requestParameters[key]){
             query += availableOffersParamsToColumnsMap[key] + ' = ' + requestParameters[key];
             if(index < availableOffersParamsToColumnsMap.keys.length - 1){
