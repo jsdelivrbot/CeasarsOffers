@@ -20,7 +20,7 @@ exports.modifyOffer = function(request,response,next){
     response.json('{}');
 }
 
-exports.postOffer = function(request, response, next){
+exports.postOffers = function(request, response, next){
     this.lKey = shortid.generate();
     var startTime = new Date().getTime();
     var dml = request != null ? dbUtils.buildOfferInsertStatement.bind(this)(JSON.parse(JSON.stringify(request.body))) : '';
