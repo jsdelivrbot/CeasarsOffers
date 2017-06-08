@@ -99,7 +99,7 @@ router.get('/availableOffers',offerModel.getAvailableOffers); // Available Offer
 router.get('/offerDetails',offerModel.getOfferDetails); // View Offer Details
 router.put('/modifyOffer',offerModel.modifyOffer); // Offer modification
 
-router.get('/offers',offerModel.getOffers);
-router.post('/offers',offerModel.postOffers);
+router.get('/offers',offerModel.getOffers); // simple offer retrieval without any filtering
+router.post('/offers',offerModel.postOffers); // offer insert
 
 app.use('/rest',router);

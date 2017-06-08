@@ -11,15 +11,50 @@ availableOffersParamsToColumnsMap.set('Property','Property');
 availableOffersParamsToColumnsMap.set('Date','Date');
 availableOffersParamsToColumnsMap.set('OutletCode','OutletCode');
 
+
+var offerDetailsParamsToColumnsMap = new Map();
+offerDetailsParamsToColumnsMap.set('WinnetId','WinnetId');
+offerDetailsParamsToColumnsMap.set('PropertyLocalTime','PropertyLocalTime');
+offerDetailsParamsToColumnsMap.set('Property','Property');
+offerDetailsParamsToColumnsMap.set('Date','Date');
+offerDetailsParamsToColumnsMap.set('OutletCode','OutletCode');
+
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
     var availableOfferQuery = exports.createOfferQuery(requestParameters,availableOffersParamsToColumnsMap);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(availableOfferQuery,function(err, result){
-                response.json(err ? err : result.rows);
+                if(err){
+                    response.json(err);
+                } else {
+                    response.json(exports.buildAvailableOffersResponse(result.rows));
+                }
             }
         );
     });
+}
+
+exports.buildAvailableOffersResponse = function(records){
+    return records;
+}
+
+exports.getOfferDetails = function(request,response,next){
+    var requestParameters = httpUtils.parseRequestForParameters(request);
+    var offerDetailsQuery = exports.createOfferQuery(requestParameters,offerDetailsParamsToColumnsMap);
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+        client.query(offerDetailsQuery,function(err, result){
+                if(err){
+                    response.json(err);
+                } else {
+                    response.json(exports.buildOfferDetailsResponse(result.rows));
+                }
+            }
+        );
+    });
+}
+
+exports.buildOfferDetailsResponse = function(record){
+    return record;
 }
 
 exports.createOfferQuery = function(requestParameters,paramMap){
@@ -32,14 +67,7 @@ exports.createOfferQuery = function(requestParameters,paramMap){
             query += ' AND ';
         }
     }
-    console.log('Query : ' + query.substring(0,query.length-5));
     return query.substring(0,query.length-5);
-}
-
-exports.getOfferDetails = function(request,response,next){
-    var requestParameters = httpUtils.parseRequestForParameters(request);
-    console.log('running get Offer Details with parameters : ' + JSON.stringify(requestParameters));
-    response.json('{}');
 }
 
 exports.modifyOffer = function(request,response,next){
