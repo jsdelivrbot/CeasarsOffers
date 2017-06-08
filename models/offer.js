@@ -4,13 +4,37 @@ var dbUtils = require('../utils/dbUtils.js');
 var httpUtils = require('../utils/httpUtils.js');
 var shortid = require('shortid');
 
+var availableOffersParamsToColumnsMap = {"WinnetId":"WinnetId",
+                                         "PropertyLocalTime":"PropertyLocalTime",
+                                         "Property":"Property",
+                                         "Date":"Date",
+                                         "OutletCode":"OutletCode"};
+
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
     console.log('running get Available Offers with parameters : ' + JSON.stringify(requestParameters));
-    console.log(requestParameters.param1);
-    console.log(requestParameters.param2);
-    console.log(requestParameters.param3);
-    response.json('{}');
+    var availableOfferQuery = createAvailableOfferQuery(requestParameters);
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+        client.query(availableOfferQuery,function(err, result){
+                response.json(err ? err : result.rows);
+            }
+        );
+    });
+}
+
+exports.createAvailableOfferQuery(requestParameters){
+    var query = 'SELECT name FROM offers WHERE ';
+    for(var index = 0; index <  availableOffersParamsToColumnsMap.keys.length; index++){
+        var key = availableOffersParamsToColumnsMap.keys[index];
+        if(requestParameters[key]){
+            query += availableOffersParamsToColumnsMap[key] + ' = ' + requestParameters[key];
+            if(index < availableOffersParamsToColumnsMap.keys.length - 1){
+                query += 'AND';
+            }
+        }
+    }
+    console.log('Query : ' + query);
+    return query;
 }
 
 exports.getOfferDetails = function(request,response,next){
