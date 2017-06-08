@@ -1,7 +1,20 @@
 var pg = require('pg');
 var logger = require('../utils/caesarsLogger.js');
 var dbUtils = require('../utils/dbUtils.js');
+var httpUtils = require('../utils/httpUtils.js');
 var shortid = require('shortid');
+
+exports.getAvailableOffers = function(request,response,next){
+    var requestParameters = httpUtils.parseRequestForParameters(request);
+    console.log('running get Available Offers with parameters : ' + requestParameters);
+}
+
+exports.getOfferDetails = function(request,response,next){
+    var requestParameters = httpUtils.parseRequestForParameters(request);
+    console.log('running get Offer Details with parameters : ' + requestParameters);
+}
+
+exports.modifyOffer = function(request,response,next){}
 
 exports.postOffer = function(request, response, next){
     this.lKey = shortid.generate();
