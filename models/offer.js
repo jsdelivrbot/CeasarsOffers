@@ -7,14 +7,18 @@ var shortid = require('shortid');
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
     console.log('running get Available Offers with parameters : ' + requestParameters);
+    response.json('{}');
 }
 
 exports.getOfferDetails = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);
     console.log('running get Offer Details with parameters : ' + requestParameters);
+    response.json('{}');
 }
 
-exports.modifyOffer = function(request,response,next){}
+exports.modifyOffer = function(request,response,next){
+    response.json('{}');
+}
 
 exports.postOffer = function(request, response, next){
     this.lKey = shortid.generate();
