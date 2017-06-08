@@ -29,8 +29,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="97" column="2" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+            <state relative-caret-position="396">
+              <caret line="99" column="72" lean-forward="true" selection-start-line="99" selection-start-column="72" selection-end-line="99" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -914,8 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="97" column="2" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+        <state relative-caret-position="396">
+          <caret line="99" column="72" lean-forward="true" selection-start-line="99" selection-start-column="72" selection-end-line="99" selection-end-column="72" />
           <folding />
         </state>
       </provider>
