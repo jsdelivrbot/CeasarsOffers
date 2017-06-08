@@ -30,9 +30,9 @@ exports.createAvailableOfferQuery = function(requestParameters){
         var key = keyList[index];
         console.log('key ' + key);
         if(requestParameters[key]){
-            query += availableOffersParamsToColumnsMap[key] + ' = ' + requestParameters[key];
+            query += availableOffersParamsToColumnsMap.get(key) + ' = ' + requestParameters[key];
             if(index < keyList.length - 1){
-                query += 'AND';
+                query += ' AND ';
             }
         }
     }
