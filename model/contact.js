@@ -1,9 +1,9 @@
 var pg = require('pg');
 var shortid = require('shortid');
-var dateUtils = require('../utils/dateUtils.js');
-var ftpUtils = require('../utils/ftpUtils.js');
-var logger = require('../utils/caesarsLogger.js');
-var dbUtils = require('../utils/dbUtils.js');
+var dateUtils = require('../util/dateUtils.js');
+var ftpUtils = require('../util/ftpUtils.js');
+var logger = require('../util/caesarsLogger.js');
+var dbUtils = require('../util/dbUtils.js');
 
 exports.getRecordsBeforeDateAndPostToFTPServer = function(dateParam,fileName,callback){
     var startTime = new Date().getTime();

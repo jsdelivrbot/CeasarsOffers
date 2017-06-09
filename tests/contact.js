@@ -2,7 +2,7 @@ import test from 'ava';
 
 var rewire = require("rewire");
 
-var myModule = rewire("../models/contact.js");
+var myModule = rewire("../model/contact.js");
 
 var caesarsLoggerMock = {
     log : function(a,b,c,d){}

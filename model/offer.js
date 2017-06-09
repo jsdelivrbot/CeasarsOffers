@@ -1,7 +1,7 @@
 var pg = require('pg');
-var logger = require('../utils/caesarsLogger.js');
-var dbUtils = require('../utils/dbUtils.js');
-var httpUtils = require('../utils/httpUtils.js');
+var logger = require('../util/caesarsLogger.js');
+var dbUtils = require('../util/dbUtils.js');
+var httpUtils = require('../util/httpUtils.js');
 var shortid = require('shortid');
 
 var availableOffersParamsToColumnsMap = new Map();

@@ -11,12 +11,12 @@ var app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
-var contactModel = require('./models/contact.js');
-var offerModel = require('./models/offer.js');
-var segmentModel = require('./models/segment.js');
-var ftpUtils = require('./utils/ftpUtils.js');
-var dbUtils = require('./utils/dbUtils.js');
-var caesarsLogger = require('./utils/caesarsLogger.js');
+var contactModel = require('./model/contact.js');
+var offerModel = require('./model/offer.js');
+var segmentModel = require('./model/segment.js');
+var ftpUtils = require('./util/ftpUtils.js');
+var dbUtils = require('./util/dbUtils.js');
+var caesarsLogger = require('./util/caesarsLogger.js');
 var shortid = require('shortid');
 
 var router = express.Router();

@@ -1,6 +1,6 @@
 var pg = require('pg');
-var dbUtils = require('../utils/dbUtils.js');
-var logger = require('../utils/caesarsLogger.js');
+var dbUtils = require('../util/dbUtils.js');
+var logger = require('../util/caesarsLogger.js');
 var readLine = require("readline");
 var fs = require("fs");
 

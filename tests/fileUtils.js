@@ -1,6 +1,6 @@
 import test from 'ava';
 
-var fileUtils = require('../utils/fileUtils.js');
+var fileUtils = require('../util/fileUtils.js');
 
 test('convert to file content', t => {
   var offer = JSON.parse('{"firstname":"nth offer","lastname":"nth offer"}');

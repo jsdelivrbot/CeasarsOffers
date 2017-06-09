@@ -2,7 +2,7 @@ import test from 'ava';
 
 var rewire = require("rewire");
 
-var myModule = rewire("../utils/caesarsLogger.js");
+var myModule = rewire("../util/caesarsLogger.js");
 
 var pgMock ={
     connect : function(a,b){}

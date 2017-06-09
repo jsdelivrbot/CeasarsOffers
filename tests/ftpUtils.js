@@ -2,7 +2,7 @@ import test from 'ava';
 
 var rewire = require("rewire");
 
-var myModule = rewire("../utils/ftpUtils.js");
+var myModule = rewire("../util/ftpUtils.js");
 
 var caesarsLoggerMock = {
     log : function(a,b,c,d){}

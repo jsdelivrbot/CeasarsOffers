@@ -1,6 +1,6 @@
 import test from 'ava';
 
-var dbUtils = require('../utils/dbUtils.js');
+var dbUtils = require('../util/dbUtils.js');
 
 test('build contact db insert statement', t => {
   var contact = JSON.parse('{"firstname":"John","lastname":"Rambo"}');
