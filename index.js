@@ -17,7 +17,7 @@ var segmentModel = require('./model/segment.js');
 var ftpUtils = require('./util/ftpUtils.js');
 var dbUtils = require('./util/dbUtils.js');
 var caesarsLogger = require('./util/caesarsLogger.js');
-var javaConnector = require('./java/javaConnector.js');
+var javaConnector = require('./java/restConnector.js');
 var shortid = require('shortid');
 
 var router = express.Router();
@@ -42,7 +42,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/callJava',function(request,response){
-    javaConnector.callJavaApp(response);   
+    javaConnector.callJavaApp(response);
 });
 
 app.get('/uploadWinnetIdFile',function(request,response){
