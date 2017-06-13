@@ -1,28 +1,28 @@
-var pg = require('pg');
-var dbUtils = require('../util/dbUtils.js');
-var logger = require('../util/caesarsLogger.js');
-var readLine = require("readline");
-var fs = require("fs");
+let pg = require('pg');
+let dbUtils = require('../util/dbUtils.js');
+let logger = require('../util/caesarsLogger.js');
+let readLine = require("readline");
+let fs = require("fs");
 
 exports.uploadSegments = function(localFileName){
-    var startTime = new Date().getTime();
+    let startTime = new Date().getTime();
 
-    var segmentStatement = 'insert into segment (id, name, isLocked) values ';
+    let segmentStatement = 'insert into segment (id, name, isLocked) values ';
 
-    var segmentMemberStatement = 'insert into segmentMember (id, name, segment, WINetId, accountId) values ';
+    let segmentMemberStatement = 'insert into segmentMember (id, name, segment, WINetId, accountId) values ';
 
-    var lineReader = readLine.createInterface({
+    let lineReader = readLine.createInterface({
           input: fs.createReadStream(localFileName)
     });
 
-    var lineCounter = 0;
+    let lineCounter = 0;
 
     lineReader.on('line', function (line) {
         var columns = line.split(',');
 
         lineCounter == 0 ? segmentStatement += '(' : segmentMemberStatement += '(';
 
-        for(var i = 0 ; i < columns.length ; i++){
+        for(let i = 0 ; i < columns.length ; i++){
             lineCounter == 0 ? segmentStatement += '\''+line[i]+'\'' + ',' : segmentMemberStatement += '\''+line[i]+'\'' + ',';
         }
 
@@ -60,8 +60,8 @@ exports.uploadSegments = function(localFileName){
 }
 
 exports.insertSegmentMembers = function(segmentMemberStatement){
-    var logKey = this.lKey;
-    var startTime = new Date().getTime();
+    let logKey = this.lKey;
+    let startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(segmentMemberStatement,
             function(err, result) {

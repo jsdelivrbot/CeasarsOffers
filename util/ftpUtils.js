@@ -111,11 +111,11 @@ exports.readFileFromFTPServer = function(fileName,callback){
 /*
 * @description : Returns ftp server connection details
 */
-var ftpConnectionParameters = function(){
+let ftpConnectionParameters = function(){
     return {host:'speedtest.tele2.net',port:21,user:'anonymous',pass:'anonymous'};
 }
 
-var ftpConnectionTestParameters = function(){
+let ftpConnectionTestParameters = function(){
     return {host:'speedtest.tele2.net',port:21,user:'anonymous',pass:'anonymous'};
 }
 
