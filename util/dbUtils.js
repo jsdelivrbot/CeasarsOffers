@@ -1,8 +1,8 @@
-var fs = require("fs");
-var readLine = require("readline");
-var pg = require('pg');
-var logger = require('./caesarsLogger.js');
-var dateUtils = require('./dateUtils.js');
+let fs = require("fs");
+let readLine = require("readline");
+let pg = require('pg');
+let logger = require('./caesarsLogger.js');
+let dateUtils = require('./dateUtils.js');
 
 /**
 * @description procedure reads file line by line and creates database insert statement
@@ -12,14 +12,14 @@ var dateUtils = require('./dateUtils.js');
 */
 exports.buildInsertStatementFromFile = function(fileName,callback,statement){
 
-    var lineReader = readLine.createInterface({
+    let lineReader = readLine.createInterface({
       input: fs.createReadStream(fileName)
     });
 
     lineReader.on('line', function (line) {
-        var columns = line.split(',');
+        let columns = line.split(',');
         statement += '(';
-        for(var i = 0 ; i < columns.length ; i++){
+        for(let i = 0 ; i < columns.length ; i++){
             statement += '\''+line[i]+'\'' + ',';
         }
         statement = statement.substring(0,statement.length - 1);
@@ -38,7 +38,7 @@ exports.buildInsertStatementFromFile = function(fileName,callback,statement){
 * @param callback : function that saves results into postgres
 */
 exports.buildContactInsertStatementFromFile = function(fileName,callback){
-    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES ';
+    let statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES ';
     exports.buildInsertStatementFromFile(fileName,callback,statement);
 }
 
@@ -49,8 +49,8 @@ exports.buildContactInsertStatementFromFile = function(fileName,callback){
 * @param response : response object
 */
 exports.runQuery = function(statement,message,response){
-    var logKey = this.lKey;
-    var startTime = new Date().getTime();
+    let logKey = this.lKey;
+    let startTime = new Date().getTime();
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(statement,
             function(err, result) {
@@ -76,8 +76,8 @@ exports.runQuery = function(statement,message,response){
 * @param contacts list of contact objects
 */
 exports.buildContactInsertStatement = function(contacts){
-    var statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES';
-    for(var i = 0; i < contacts.length; i++){
+    let statement = 'INSERT INTO salesforce.contact (firstname, lastname, age__c, gender__c, tier_level__c, tier_score__c,established_date__c, winnet_id__c) VALUES';
+    for(let i = 0; i < contacts.length; i++){
         statement += '(\''+contacts[i].firstname+'\'' + ',' +
                       '\''+contacts[i].lastname+'\''  + ',' +
                       '\''+contacts[i].age+'\''  + ',' +
@@ -93,8 +93,8 @@ exports.buildContactInsertStatement = function(contacts){
 }
 
 exports.buildOfferInsertStatement = function(offers){
-    var statement = 'INSERT INTO offers (name) VALUES ';
-    for(var i = 0; i<offers.length; i++){
+    let statement = 'INSERT INTO offers (name) VALUES ';
+    for(let i = 0; i<offers.length; i++){
         statement += '(\''+offers[i].name+'\'),';
     }
     statement = statement.substring(0,statement.length - 1);

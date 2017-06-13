@@ -1,15 +1,15 @@
-var jsFtp = require("jsftp");
+let jsFtp = require("jsftp");
 
 exports.convertToNiceFileContent = function(records){
-    var fileContent = '';
+    let fileContent = '';
     fileContent = attachHeader(fileContent);
-    for(var i = 0; i < records.length; i++){
+    for(let i = 0; i < records.length; i++){
         fileContent += records[i].firstname + ',' + records[i].lastname + '\n';
     }
     return fileContent;
 }
 
-var attachHeader = function(fileContent){
+let attachHeader = function(fileContent){
     fileContent += 'firstname,lastname'+'\n';
     return fileContent;
 }

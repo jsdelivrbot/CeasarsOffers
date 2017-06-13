@@ -1,12 +1,12 @@
-var jsFtp = require("jsftp");
-var fs = require("fs");
-var path = require("path");
-var fileUtils = require('./fileUtils.js');
-var logger = require('./caesarsLogger.js');
-var dateUtils = require('./dateUtils.js');
-var sftp = require('ssh2-sftp-client');
-var temp_dir = path.join(process.cwd(), 'temp/');
-var sftpClient = new sftp();
+let jsFtp = require("jsftp");
+let fs = require("fs");
+let path = require("path");
+let fileUtils = require('./fileUtils.js');
+let logger = require('./caesarsLogger.js');
+let dateUtils = require('./dateUtils.js');
+let sftp = require('ssh2-sftp-client');
+let temp_dir = path.join(process.cwd(), 'temp/');
+let sftpClient = new sftp();
 
 
 /*
@@ -15,9 +15,9 @@ var sftpClient = new sftp();
 * @param fileName : name of the file that should be created
 */
 exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParameters){
-    var startTime = new Date().getTime();
+    let startTime = new Date().getTime();
     if(records){
-        var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
+        let buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
         sftpClient.connect(sftpConnectionParameters).then(() => {
             sftpClient.put(buffer, fileName).then(() => {
                 console.log('Transfer completed');
@@ -38,7 +38,7 @@ exports.saveFileOnSFTPServer = function(records, fileName, sftpConnectionParamet
 * @param callback : callback method to be invoked after successful upload
 */
 exports.readFileFromSFTPServer = function(sourceFilePath,fileName,sftpConnectionParameters,callback){
-    var startTime = new Date().getTime();
+    let startTime = new Date().getTime();
     sftpClient.connect(sftpConnectionParameters).then((data) => {
         sftpClient.get(sourceFilePath).then((stream) => {
             if (!fs.existsSync(temp_dir)){
@@ -62,15 +62,15 @@ exports.readFileFromSFTPServer = function(sourceFilePath,fileName,sftpConnection
 * @param fileName : name of the file that should be created
 */
 exports.saveFileOnFTPServer = function(records, fileName){
-    var startTime = new Date().getTime();
+    let startTime = new Date().getTime();
     if(records){
-        var connectionParams = ftpConnectionParameters();
-        var ftpClient = new jsFtp(connectionParams);
-        var buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
-        var filePath = 'upload/'+fileName;
+        let connectionParams = ftpConnectionParameters();
+        let ftpClient = new jsFtp(connectionParams);
+        let buffer = Buffer.from(fileUtils.convertToNiceFileContent(records));
+        let filePath = 'upload/'+fileName;
         ftpClient.put(buffer, filePath, function(hadError) {
           console.log('Transferring file ' + fileName + ' into FTP server');
-          var timeDiff = new Date().getTime() - startTime;
+          let timeDiff = new Date().getTime() - startTime;
           if (!hadError){
             logger.log('info','exports.saveFileOnFTPServer','{"timeDiff":"' + dateUtils.calculateTimeDiffInMilliseconds(startTime) + '"}',this.lKey);
           } else {
@@ -88,10 +88,10 @@ exports.saveFileOnFTPServer = function(records, fileName){
 * @param callback : callback method to be invoked after successful upload
 */
 exports.readFileFromFTPServer = function(fileName,callback){
-    var startTime = new Date().getTime();
-    var connectionParams = ftpConnectionParameters();
-    var ftpClient = new jsFtp(connectionParams);
-    var fileContent = "";
+    let startTime = new Date().getTime();
+    let connectionParams = ftpConnectionParameters();
+    let ftpClient = new jsFtp(connectionParams);
+    let fileContent = "";
     console.log('Start read file from FTP server');
 
     if (!fs.existsSync(temp_dir)){
