@@ -9,12 +9,14 @@ exports.callJavaApp = function(response){
 
     http.request(options, function(resp){
         let result = '';
+
         resp.on('data', function (chunk) {
             result += chunk;
         });
 
         resp.on('end', function () {
-            response.json({ message: ' time ' + JSON.stringify(result)});
+            response.json({time:JSON.stringify(result)});
         });
+        
     }).end();
 }
