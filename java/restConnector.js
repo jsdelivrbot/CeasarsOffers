@@ -7,7 +7,7 @@ exports.callJavaApp = function(response){
       path: '/rest/time'
     };
 
-    http.request(options, function(resp){
+    http.get(options, function(resp){
         let result = '';
 
         resp.on('data', function (chunk) {
@@ -27,7 +27,7 @@ exports.doSomethingOnJavaSide = function(response){
          path: '/rest/doSomething'
      };
 
-     http.request(options, function(resp){
+     http.get(options, function(resp){
          let result = '';
 
          resp.on('data', function (chunk) {
