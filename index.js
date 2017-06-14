@@ -12,6 +12,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
 var contactModel = require('./model/contact.js');
+var customerModel = require('./model/customer.js');
 var offerModel = require('./model/offer.js');
 var segmentModel = require('./model/segment.js');
 var ftpUtils = require('./util/ftpUtils.js');
@@ -109,5 +110,7 @@ router.put('/modifyOffer',offerModel.modifyOffer); // Offer modification
 
 router.get('/offers',offerModel.getOffers); // simple offer retrieval without any filtering
 router.post('/offers',offerModel.postOffers); // offer insert
+
+router.get('/customers',customerModel.getAllCustomers); // simple offer retrieval without any filtering
 
 app.use('/rest',router);
