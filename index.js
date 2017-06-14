@@ -44,6 +44,9 @@ app.get('/', function(request, response) {
 app.get('/whatIsJavaTime',function(request,response){
     javaConnector.callJavaApp(response);
 });
+app.get('/doSomethingOnJavaSide',function(request,response){
+    javaConnector.doSomethingOnJavaSide(response);
+});
 
 app.get('/uploadWinnetIdFile',function(request,response){
     this.lKey = shortid.generate();

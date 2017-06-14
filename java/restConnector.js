@@ -20,3 +20,23 @@ exports.callJavaApp = function(response){
 
     }).end();
 }
+
+exports.doSomethingOnJavaSide = function(response){
+     var options = {
+         host: 'jcaesars.herokuapp.com',
+         path: '/rest/doSomething'
+     };
+
+     http.request(options, function(resp){
+         let result = '';
+
+         resp.on('data', function (chunk) {
+            result += chunk;
+         });
+
+         resp.on('end', function () {
+            response.json({res:result});
+         });
+
+     }).end();
+}
