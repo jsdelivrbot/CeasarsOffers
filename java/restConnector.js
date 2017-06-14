@@ -8,7 +8,7 @@ exports.callJavaApp = function(response){
     };
 
     http.request(options, function(resp){
-        let result;
+        let result = '';
         resp.on('data', function (chunk) {
             result += chunk;
         });
