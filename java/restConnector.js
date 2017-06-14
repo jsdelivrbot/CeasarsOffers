@@ -15,8 +15,8 @@ exports.callJavaApp = function(response){
         });
 
         resp.on('end', function () {
-            response.json({time:JSON.stringify(result)});
+            response.json({time:result});
         });
-        
+
     }).end();
 }
