@@ -1,5 +1,6 @@
 var pg = require('pg');
 var shortid = require('shortid');
+var dateUtils = require('../util/dateUtils.js');
 var logger = require('../util/caesarsLogger.js');
 
 exports.getAllCustomers = function(request, response, next){
