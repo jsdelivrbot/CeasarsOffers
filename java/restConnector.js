@@ -3,7 +3,7 @@ var http = require('http');
 exports.callJavaApp = function(response){
 
     var options = {
-      host: 'https://jcaesars.herokuapp.com',
+      host: 'jcaesars.herokuapp.com',
       path: '/rest/time'
     };
 
