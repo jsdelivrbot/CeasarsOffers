@@ -41,7 +41,7 @@ app.get('/', function(request, response) {
     response.render('pages/index');
 });
 
-app.get('/callJava',function(request,response){
+app.get('/whatIsJavaTime',function(request,response){
     javaConnector.callJavaApp(response);
 });
 
