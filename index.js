@@ -111,6 +111,7 @@ router.put('/modifyOffer',offerModel.modifyOffer); // Offer modification
 router.get('/offers',offerModel.getOffers); // simple offer retrieval without any filtering
 router.post('/offers',offerModel.postOffers); // offer insert
 
-router.get('/customers',customerModel.getAllCustomers); // simple offer retrieval without any filtering
+router.get('/customers',customerModel.getCustomers);
+router.post('/customer',customerModel.addCustomerInfo);
 
 app.use('/rest',router);
