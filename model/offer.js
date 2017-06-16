@@ -13,11 +13,10 @@ availableOffersParamsToColumnsMap.set('OutletCode','OutletCode');
 
 
 var offerDetailsParamsToColumnsMap = new Map();
-offerDetailsParamsToColumnsMap.set('WinnetId','WinnetId');
-offerDetailsParamsToColumnsMap.set('PropertyLocalTime','PropertyLocalTime');
-offerDetailsParamsToColumnsMap.set('Property','Property');
-offerDetailsParamsToColumnsMap.set('Date','Date');
-offerDetailsParamsToColumnsMap.set('OutletCode','OutletCode');
+offerDetailsParamsToColumnsMap.set('WINETID','winetid');
+offerDetailsParamsToColumnsMap.set('offerID','offerid');
+offerDetailsParamsToColumnsMap.set('status','status');
+offerDetailsParamsToColumnsMap.set('requestor','requestor');
 
 exports.getAvailableOffers = function(request,response,next){
     var requestParameters = httpUtils.parseRequestForParameters(request);

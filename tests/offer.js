@@ -28,7 +28,7 @@ test('get offers',  t => {
 });
 
 
-test('post Offer', t => {
-   myModule.postOffer(null,null,null);
+test('post Offers', t => {
+   myModule.postOffers(null,null,null);
    t.true(true);
 });

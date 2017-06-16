@@ -7,10 +7,12 @@
       <w>heroku</w>
       <w>lastname</w>
       <w>mkdir</w>
+      <w>offerid</w>
       <w>pgtest</w>
       <w>readline</w>
       <w>rebex</w>
       <w>reqkey</w>
+      <w>requestor</w>
       <w>salesforce</w>
       <w>shortid</w>
       <w>speedtest</w>
@@ -18,6 +20,7 @@
       <w>tele</w>
       <w>tierlevel</w>
       <w>tierscore</w>
+      <w>winetid</w>
       <w>winnet</w>
       <w>winnetid</w>
     </words>
