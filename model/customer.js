@@ -41,7 +41,7 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
     var query = 'SELECT id, data FROM CustomerInfo ';
     var keyList = Array.from(paramMap.keys());
 	if(keyList.length > 0){
-		query += 'WHERE';
+		query += 'WHERE ';
 	}
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
