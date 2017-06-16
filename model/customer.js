@@ -47,7 +47,7 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
         if(requestParameters[key]){
-			if(paramMap.get(key) == 'id' || paramMap.get(key) = 'ExternalId'){
+			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId'){
 				query += paramMap.get(key) + ' = ' + requestParameters[key];
 			} else {
 				query += paramMap.get(key) + ' = ' + requestParameters[key];
