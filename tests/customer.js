@@ -44,5 +44,5 @@ test('build Customer Query Statement', t => {
 	paramMap.set('FirstName','data->>\'firstName\'');
 	
 	let statement = myModule.buildCustomerQueryStatement(requestParameters,paramMap);
-	t.is(statement,'SELECT id, data FROM CustomerInfo WHERE id = 1 AND data->>\'firstName\' = \'Mickey\'');
+	t.is(statement,'SELECT id, data FROM CustomerInfo WHERE id = 1 AND  data->>\'firstName\' = \'Mickey\'');
 });
