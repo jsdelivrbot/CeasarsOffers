@@ -32,7 +32,6 @@ exports.getCustomers = function(request, response, next){
     var startTime = new Date().getTime();
 	let requestParameters = httpUtils.parseRequestForParameters(request);
 	let queryStatement = exports.buildCustomerQueryStatement(requestParameters,customerDetailsParamsToFieldMap);
-	console.log(queryStatement);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(queryStatement,
             function(err, result){
@@ -49,11 +48,11 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
 	var query = keyList.length > 0 ? 'SELECT id, data FROM CustomerInfo WHERE ' : 'SELECT id, data FROM CustomerInfo ';
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
-        if(requestParameters.get(key)){
+        if(requestParameters[key]){
 			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId'){
-				query += paramMap.get(key) + ' = ' + requestParameters.get(key);
+				query += paramMap.get(key) + ' = ' + requestParameters[key];
 			} else {
-				query += paramMap.get(key) + ' = \'' + requestParameters.get(key) + '\'';
+				query += paramMap.get(key) + ' = \'' + requestParameters[key] + '\'';
 			}
             query += ' AND ';
         }
