@@ -6,6 +6,7 @@ let logger = require('../util/caesarsLogger.js');
 
 var customerDetailsParamsToFieldMap = new Map();
 customerDetailsParamsToFieldMap.set('id','id');
+customerDetailsParamsToFieldMap.set('ExternalId','id');
 
 exports.addCustomerInfo = function(request, response, next){
     var startTime = new Date().getTime();
@@ -46,7 +47,7 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
         if(requestParameters[key]){
-			if(paramMap.get(key) == 'id'){
+			if(paramMap.get(key) == 'id' || paramMap.get(key) = 'ExternalId'){
 				query += paramMap.get(key) + ' = ' + requestParameters[key];
 			} else {
 				query += paramMap.get(key) + ' = ' + requestParameters[key];
