@@ -49,11 +49,11 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
 	var query = keyList.length > 0 ? 'SELECT id, data FROM CustomerInfo WHERE ' : 'SELECT id, data FROM CustomerInfo ';
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
-        if(requestParameters[key]){
+        if(requestParameters.get(key)){
 			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId'){
-				query += paramMap.get(key) + ' = ' + requestParameters[key];
+				query += paramMap.get(key) + ' = ' + requestParameters.get(key);
 			} else {
-				query += paramMap.get(key) + ' = \'' + requestParameters[key] + '\'';
+				query += paramMap.get(key) + ' = \'' + requestParameters.get(key) + '\'';
 			}
             query += ' AND ';
         }
