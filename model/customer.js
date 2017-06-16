@@ -56,7 +56,7 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
 			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId'){
 				query += paramMap.get(key) + ' = ' + requestParameters[key];
 			} else {
-				query += paramMap.get(key) + ' = ' + requestParameters[key];
+				query += paramMap.get(key) + ' = \'' + requestParameters[key] + '\'';
 			}
             query += ' AND ';
         }
