@@ -25,7 +25,7 @@ exports.getCustomers = function(request, response, next){
     var startTime = new Date().getTime();
 	let requestParameters = httpUtils.parseRequestForParameters(request);
 	let queryStatement = exports.buildCustomerQueryStatement(requestParameters,customerDetailsParamsToFieldMap);
-	Console.log(queryStatement);
+	console.log(queryStatement);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query(queryStatement,
             function(err, result){
