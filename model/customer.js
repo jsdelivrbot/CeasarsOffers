@@ -7,6 +7,8 @@ let logger = require('../util/caesarsLogger.js');
 var customerDetailsParamsToFieldMap = new Map();
 customerDetailsParamsToFieldMap.set('id','id');
 customerDetailsParamsToFieldMap.set('ExternalId','id');
+customerDetailsParamsToFieldMap.set('FirstName','data->>\'firstName\'');
+customerDetailsParamsToFieldMap.set('LastName','data->>\'lastName\'');
 
 exports.addCustomerInfo = function(request, response, next){
     var startTime = new Date().getTime();
@@ -20,6 +22,10 @@ exports.addCustomerInfo = function(request, response, next){
             }
         );
     });
+}
+
+exports.convertRequestBodyToCustomerInfoJson = function(request){
+    return '';
 }
 
 exports.getCustomers = function(request, response, next){
@@ -56,8 +62,4 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
         }
     }
     return query.substring(0,query.length-5);
-}
-
-exports.convertRequestBodyToCustomerInfoJson = function(request){
-    return '';
 }
