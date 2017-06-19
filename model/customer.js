@@ -11,6 +11,7 @@ customerDetailsParamsToFieldMap.set('first_name','data->>\'c_first_name\'');
 customerDetailsParamsToFieldMap.set('fast_name','data->>\'c_last_name\'');
 customerDetailsParamsToFieldMap.set('winet_id','data->>\'i_dmid\'');
 customerDetailsParamsToFieldMap.set('address_preferences','data->>\'c_addr_pref\'');
+customerDetailsParamsToFieldMap.set('date_of_birth','data->>\'d_dob\'');
 
 exports.addCustomerInfo = function(request, response, next){
     var startTime = new Date().getTime();
