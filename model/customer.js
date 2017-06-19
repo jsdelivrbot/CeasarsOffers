@@ -7,8 +7,9 @@ let logger = require('../util/caesarsLogger.js');
 var customerDetailsParamsToFieldMap = new Map();
 customerDetailsParamsToFieldMap.set('id','id');
 customerDetailsParamsToFieldMap.set('ExternalId','id');
-customerDetailsParamsToFieldMap.set('FirstName','data->>\'firstName\'');
-customerDetailsParamsToFieldMap.set('LastName','data->>\'lastName\'');
+customerDetailsParamsToFieldMap.set('First Name','data->>\'c_first_name\'');
+customerDetailsParamsToFieldMap.set('Last Name','data->>\'c_last_name\'');
+customerDetailsParamsToFieldMap.set('winet id','data->>\'i_dmid\'');
 
 exports.addCustomerInfo = function(request, response, next){
     var startTime = new Date().getTime();
