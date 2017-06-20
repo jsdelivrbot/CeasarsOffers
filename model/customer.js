@@ -13,6 +13,16 @@ customerDetailsParamsToFieldMap.set('winet_id','data->>\'i_dmid\'');
 customerDetailsParamsToFieldMap.set('address_preferences','data->>\'c_addr_pref\'');
 customerDetailsParamsToFieldMap.set('date_of_birth','data->>\'d_dob\'');
 
+customerDetailsParamsToFieldMap.set('address_type','data->>\'c_addr_type\'');
+customerDetailsParamsToFieldMap.set('address','data->>\'c_address_1\'');
+customerDetailsParamsToFieldMap.set('address_2','data->>\'c_address_2\'');
+customerDetailsParamsToFieldMap.set('state_code','data->>\'c_state_cd\'');
+customerDetailsParamsToFieldMap.set('country_code','data->>\'c_country_cd\'');
+customerDetailsParamsToFieldMap.set('apartment_number','data->>\'c_apt_num\'');
+customerDetailsParamsToFieldMap.set('zip','data->>\'c_zip_7\'');
+customerDetailsParamsToFieldMap.set('city','data->>\'c_city\'');
+
+
 exports.addCustomerInfo = function(request, response, next){
     var startTime = new Date().getTime();
     var jsonCustomerInfoRepresentation = exports.convertRequestBodyToCustomerInfoJson(request);
