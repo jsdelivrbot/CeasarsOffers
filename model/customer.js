@@ -7,6 +7,9 @@ let logger = require('../util/caesarsLogger.js');
 var customerDetailsParamsToFieldMap = new Map();
 customerDetailsParamsToFieldMap.set('id','id');
 customerDetailsParamsToFieldMap.set('ExternalId','id');
+customerDetailsParamsToFieldMap.set('RecordType','recordType');
+
+
 customerDetailsParamsToFieldMap.set('first_name','data->>\'c_first_name\'');
 customerDetailsParamsToFieldMap.set('fast_name','data->>\'c_last_name\'');
 customerDetailsParamsToFieldMap.set('winet_id','data->>\'i_dmid\'');
@@ -62,7 +65,7 @@ exports.buildCustomerQueryStatement = function(requestParameters,paramMap){
     for(var index = 0; index < keyList.length; index++){
         var key = keyList[index];
         if(requestParameters[key]){
-			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId'){
+			if(paramMap.get(key) == 'id' || paramMap.get(key) == 'ExternalId' || paramMap.get(key) == 'RecordType'){
 				query += ' ' + paramMap.get(key) + ' = ' + requestParameters[key];
 			} else {
 				query += ' ' + paramMap.get(key) + ' = \'' + requestParameters[key] + '\'';
